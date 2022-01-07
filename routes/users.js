@@ -26,7 +26,7 @@ module.exports = (db) => {
   });
 
   // GET user by id
-  router.get('/:id', (req, res)=>{
+  router.get('/:id', (req, res) => {
     const queryParams = [req.params.id];
     db
       .query(`SELECT * FROM users WHERE id = $1;`,queryParams)
