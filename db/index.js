@@ -3,8 +3,13 @@ const dbParams = require("../lib/db.js");
 
 const pool = new Pool(dbParams);
 
-pool.connect(() => {
-  console.log('pool connected');
+pool.connect((err,client) => {
+  if (!err) {
+    console.log('DB in db.index.js connected.\nClient => ', client.user);
+    console.log('DB =====> ', client.database);
+  } else {
+    console.log('Error: ',err);
+  }
 });
 
 const query = (queryString, queryParams) => {
