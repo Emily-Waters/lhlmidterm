@@ -1,7 +1,11 @@
 const { Pool } = require("pg");
 const dbParams = require("../lib/db.js");
+
 const pool = new Pool(dbParams);
-pool.connect();
+
+pool.connect(() => {
+  console.log('pool connected');
+});
 
 module.exports = {
   query: (queryString, queryParams) => {
