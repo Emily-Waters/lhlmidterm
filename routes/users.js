@@ -5,7 +5,6 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-const { query } = require('express');
 const express = require('express');
 const router  = express.Router();
 
