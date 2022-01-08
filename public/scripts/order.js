@@ -1,18 +1,19 @@
 $menuItemsContainer.submit(e => {
   e.preventDefault();
   console.log('CLICKED THE BUTTON');
+  console.log(e.currentTarget);
   const menuItem = 'id of menu item';     //  TODO:
   const quantity = 'quantity from form';  //  TODO:
-  // addMenuItemToOrder()
-  //   .then(() => {
-  //     $('order-container').trigger('reset');//TODO:
-  //   }).then(() => {
-  //     loadOrder();
-  //   })
-  //   .catch(err => console.log(err.message));
+  addMenuItemToOrder(menuItemData)
+    .then(() => {
+      $('order-container').trigger('reset');//TODO:
+    }).then(() => {
+      loadOrder();
+    })
+    .catch(err => console.log(err.message));
 });
 
-const addMenuItemToOrder = (menuItem, quantity) => {
+const addMenuItemToOrder = (menuItemData) => {
   // return $.post(`/api/order?menu_item=${}&order_id=${}&quantity=${}`);
 };
 
