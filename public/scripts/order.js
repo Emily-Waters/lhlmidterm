@@ -1,18 +1,19 @@
-$('div.menu-items-container').submit(e => {
+$menuItemsContainer.submit(e => {
   e.preventDefault();
+  console.log('CLICKED THE BUTTON');
   const menuItem = 'id of menu item';     //  TODO:
   const quantity = 'quantity from form';  //  TODO:
-  addMenuItemToOrder()
-    .then(() => {
-      $('order-container').trigger('reset');//TODO:
-    }).then(() => {
-      loadOrder();
-    })
-    .catch(err => console.log(err.message));
+  // addMenuItemToOrder()
+  //   .then(() => {
+  //     $('order-container').trigger('reset');//TODO:
+  //   }).then(() => {
+  //     loadOrder();
+  //   })
+  //   .catch(err => console.log(err.message));
 });
 
 const addMenuItemToOrder = (menuItem, quantity) => {
-  return $.post(`/api/order?menu_item=${}&order_id=${}&quantity=${}`);
+  // return $.post(`/api/order?menu_item=${}&order_id=${}&quantity=${}`);
 };
 
 const createOrderItem = (orderItemData) => {//TODO:

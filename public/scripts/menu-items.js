@@ -11,7 +11,7 @@ const loadMenu = () => {
 
 // renderMenu
 const renderMenu = (menuItems) => {
-  const $menuItemsContainer = $('div.menu-items-container');
+
   console.log(menuItems);
   for (const item of menuItems) {
     let $menuItem = createMenuItem(item);
