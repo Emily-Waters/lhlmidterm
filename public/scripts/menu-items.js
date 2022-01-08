@@ -21,27 +21,38 @@ const renderMenu = (menuItems) => {
 
 // createMenuItem takes in single menuItem and loads the information into an html template in renderMenu and returns that template to be appended to the main body
 const createMenuItem = (menuItemData) => {
+
+  // menu-card needs flex-direction row
+  // menu-details needs flex-direction column
+  // menu-options needs flex-direction row
   return `
-  <div>
+  <div class='menu-card'>
     <div>
 
-      <img src="${menuItemData.image_url}">
-      Image
+      <img src="${menuItemData.image_url}" class='menu-img'>
       </img>
 
-      <div>
+      <div class='menu-details'>
 
-        <h3>
+        <div class ='menu-title'>
           ${menuItemData.name}
-        </h3>
+        </div>
 
-        <article>
+        <div class='menu-description'>
         ${menuItemData.description}
-        </article>
+        </dive>
 
-        <form>
-          <button>ADD</button>
-        </form>
+        <div class='menu-options'>
+          <div>
+            VEGAN/GF/VEGETARIAN ICONS
+          </div>
+
+          <form>
+            QTY SELECTOR
+            <button>ADD</button>
+          </form>
+        </div>
+
       </div>
 
     </div>
