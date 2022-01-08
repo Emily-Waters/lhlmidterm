@@ -12,7 +12,7 @@ $('div.menu-items-container').submit(e => {
 });
 
 const addMenuItemToOrder = (menuItem, quantity) => {
-  return $.post(`/api/order/${menuItem.id}=${quantity}`);
+  return $.post(`/api/order?menu_item=${}&order_id=${}&quantity=${}`);
 };
 
 const createOrderItem = (orderItemData) => {//TODO:
@@ -29,7 +29,7 @@ const createOrderItem = (orderItemData) => {//TODO:
 
 const createOrderTotal = () => {
   // GET order total from db
-  $.get('api/order/total')
+  $.get('api/order/:id/total')
     .then((orderTotal) => {
 
       return `
