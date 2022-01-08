@@ -5,56 +5,46 @@ $color_3: #B39A12;
 
 // template for on hover effects
 %basic_hover {
-  box-shadow: 2px 3px 5px $color_3;
   transform: scale(102%);
-  transition: .2s ease-in-out;
+  //transition: .2s ease-in-out;
 }
 
+div.menu-items-container {
+  margin-top: 100px;
+}
 
-main {
-  margin-top: 80px;
+div.menu-card {
+  align-items: center;
 
-  div.menu-items-container {
-    div {
-      margin: 20px;
-      div {
+  img.menu-img {
+    width: 300px;
+    height: 200px;
 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    &:hover {
+      @extend %basic_hover;
+    }
+  }
 
-        img {
-          width: 300px;
-          height: 200px;
-          border-radius: 3%;
+  div.menu-details {
+    height: 200px;
+    background-color: white;
+    opacity: 80%;
 
-          &:hover {
-            @extend %basic_hover;
-          }
-        }
-
-        div {
-          flex-direction: column;
-          flex-wrap: wrap;
-
-          h3 {
-            font-size: 30px;
-          }
-
-          article {
-            font-size: 20px;
-          }
-
-          form {
-            position: relative;
-            float: right;
-
-            button {}
-          }
-        }
-
-      }
+    .menu-title {
+      text-align: center;
+      text-transform: uppercase;
     }
 
+    .menu-description {
+      height: 125px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-options {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
