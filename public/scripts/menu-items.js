@@ -52,12 +52,13 @@ const createMenuItem = (menuItemData) => {
               <div>
               VEGAN/GF/VEGETARIAN ICONS
               </div>
-              <form>
+              <form name="order-add">
                 <input type="number" placeholder="QTY"></input>
                 <button>ADD</button>
               </form>
             </div>
           </div>
+
         </div>
 
       </div>
