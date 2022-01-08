@@ -5,7 +5,6 @@ $color_3: #B39A12;
 
 // template for on hover effects
 %basic_hover {
-  box-shadow: 2px 3px 5px $color_3;
   transform: scale(102%);
   //transition: .2s ease-in-out;
 }
@@ -14,27 +13,38 @@ div.menu-items-container {
   margin-top: 100px;
 }
 
-div.menu-card div {
-  display: flex;
-  justify-content: space-between;
+div.menu-card {
   align-items: center;
-  height: 200px;
-}
 
-img.menu-img {
-  width: 300px;
-  height: 200px;
-  border-radius: 3%;
+  img.menu-img {
+    width: 300px;
+    height: 200px;
 
-  &:hover {
-    @extend %basic_hover;
+    &:hover {
+      @extend %basic_hover;
+    }
   }
-}
 
-div.menu-details {
-  flex-direction: column;
-  justify-content: center;
-  background-color: white;
-  opacity: 70%;
+  div.menu-details {
+    height: 200px;
+    background-color: white;
+    opacity: 80%;
 
+    .menu-title {
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    .menu-description {
+      height: 125px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-options {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }

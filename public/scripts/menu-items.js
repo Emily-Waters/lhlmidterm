@@ -26,31 +26,38 @@ const createMenuItem = (menuItemData) => {
   // menu-details needs flex-direction column
   // menu-options needs flex-direction row
   return `
-  <div class='row menu-card mb-3'>
+  <div class="row menu-card mb-3">
 
-      <img src="${menuItemData.image_url}" class='col-3 menu-img'>
+      <img src="${menuItemData.image_url}" class="col-3 menu-img">
       </img>
 
-      <div class='col-9 menu-details'>
+      <div class="col-9 menu-details">
 
-        <div class ='menu-title'>
-          ${menuItemData.name}
-        </div>
+        <div class="container">
 
-        <div class='menu-description'>
-        ${menuItemData.description}
-        </div>
-
-        <div class='menu-options'>
-          <div>
-            VEGAN/GF/VEGETARIAN ICONS
+          <div class="row">
+            <div class="col menu-title p-2 font-weight-bold">
+              ${menuItemData.name}
+            </div>
           </div>
 
-          <form>
-            QTY SELECTOR
-            <button>ADD</button>
-          </form>
+          <div class="row">
+            <div class="col menu-description">
+              <p class="mb-0">${menuItemData.description}</p>
+            </div>
+          </div>
 
+          <div class="row">
+            <div class="col menu-options">
+              <div>
+              VEGAN/GF/VEGETARIAN ICONS
+              </div>
+              <form>
+                <input type="number" placeholder="QTY"></input>
+                <button>ADD</button>
+              </form>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -58,5 +65,3 @@ const createMenuItem = (menuItemData) => {
   </div>
   `;
 };
-
-
