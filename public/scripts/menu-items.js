@@ -1,5 +1,3 @@
-// TODO: make sure to include in scriptsource in index.ejs
-
 // loadMenu gets json data from the db and serves it to renderMenu
 const loadMenu = () => {
   $.get('/api/menu/')
@@ -15,13 +13,11 @@ const loadMenu = () => {
 const renderMenu = (menuItems) => {
   for (const item of menuItems) {
     let $menuItem = createMenuItem(item);
-    console.log($menuItem);
     $('main').append($menuItem);
-    // console.log($main);
   }
 };
 
-// createMenuItem takes in single menuItem and loads the information into an html template in renderMenu and returns that template to be appended to the main body TODO:
+// createMenuItem takes in single menuItem and loads the information into an html template in renderMenu and returns that template to be appended to the main body
 const createMenuItem = (menuItemData) => {
   return `
   <div>
