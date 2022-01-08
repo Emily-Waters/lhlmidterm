@@ -12,7 +12,7 @@ const menuQueries = require('../db/menu-queries');
 router.get("/", (req, res) => {
   menuQueries.getMenuItems()
     .then((menuItems) => {
-      res.json({ menuItems });
+      res.json(menuItems || []);
     })
     .catch(err => {
       res
