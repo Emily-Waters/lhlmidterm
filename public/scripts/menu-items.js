@@ -2,7 +2,6 @@
 const loadMenu = () => {
   $.get('/api/menu/')
     .then(menuData => {
-      console.log(menuData);
       renderMenu(menuData);
     })
     .catch(err => {
