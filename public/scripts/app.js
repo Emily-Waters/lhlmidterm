@@ -1,8 +1,8 @@
 // Client facing scripts here
 // Character limit for 'tweets' and targets
-const $menuItem      = $("");
+// const $menuItem       = $("");
 const $window         = $(window);
-const $mainContainer  = $('main');
+const $main           = $('main');
 const $page           = $('html');
 
 $(document).ready(() => {

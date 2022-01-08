@@ -4,8 +4,7 @@
 const loadMenu = () => {
   $.get('/api/menu/')
     .then(menuData => {
-      console.log(menuData);
-      renderMenu(menuData);
+      renderMenu(menuData.menuItems);
     })
     .catch(err => {
       console.log(err.message);
@@ -16,7 +15,9 @@ const loadMenu = () => {
 const renderMenu = (menuItems) => {
   for (const item of menuItems) {
     let $menuItem = createMenuItem(item);
-    $main.append($menuItem);
+    console.log($menuItem);
+    $('main').append($menuItem);
+    // console.log($main);
   }
 };
 
