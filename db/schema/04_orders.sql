@@ -3,6 +3,6 @@ CREATE TABLE orders (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   time_placed TIMESTAMP DEFAULT NOW(),
-  estimated_time TIMESTAMP,
+  estimated_time INTERVAL,
   is_completed BOOLEAN DEFAULT false
 );
