@@ -7,54 +7,34 @@ $color_3: #B39A12;
 %basic_hover {
   box-shadow: 2px 3px 5px $color_3;
   transform: scale(102%);
-  transition: .2s ease-in-out;
+  //transition: .2s ease-in-out;
 }
 
+div.menu-items-container {
+  margin-top: 100px;
+}
 
-main {
-  margin-top: 80px;
+div.menu-card div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 200px;
+}
 
-  div.menu-items-container {
-    div {
-      margin: 20px;
-      div {
+img.menu-img {
+  width: 300px;
+  height: 200px;
+  border-radius: 3%;
 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        img {
-          width: 300px;
-          height: 200px;
-          border-radius: 3%;
-
-          &:hover {
-            @extend %basic_hover;
-          }
-        }
-
-        div {
-          flex-direction: column;
-          flex-wrap: wrap;
-
-          h3 {
-            font-size: 30px;
-          }
-
-          article {
-            font-size: 20px;
-          }
-
-          form {
-            position: relative;
-            float: right;
-
-            button {}
-          }
-        }
-
-      }
-    }
-
+  &:hover {
+    @extend %basic_hover;
   }
+}
+
+div.menu-details {
+  flex-direction: column;
+  justify-content: center;
+  background-color: white;
+  opacity: 70%;
+
 }

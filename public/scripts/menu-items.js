@@ -26,7 +26,7 @@ const createMenuItem = (menuItemData) => {
   // menu-details needs flex-direction column
   // menu-options needs flex-direction row
   return `
-  <div class='row menu-card'>
+  <div class='row menu-card mb-3'>
 
       <img src="${menuItemData.image_url}" class='col-3 menu-img'>
       </img>
