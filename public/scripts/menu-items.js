@@ -26,13 +26,12 @@ const createMenuItem = (menuItemData) => {
   // menu-details needs flex-direction column
   // menu-options needs flex-direction row
   return `
-  <div class='menu-card'>
-    <div>
+  <div class='row menu-card'>
 
-      <img src="${menuItemData.image_url}" class='menu-img'>
+      <img src="${menuItemData.image_url}" class='col-3 menu-img'>
       </img>
 
-      <div class='menu-details'>
+      <div class='col-9 menu-details'>
 
         <div class ='menu-title'>
           ${menuItemData.name}
@@ -40,7 +39,7 @@ const createMenuItem = (menuItemData) => {
 
         <div class='menu-description'>
         ${menuItemData.description}
-        </dive>
+        </div>
 
         <div class='menu-options'>
           <div>
@@ -55,8 +54,6 @@ const createMenuItem = (menuItemData) => {
         </div>
 
       </div>
-
-    </div>
 
   </div>
   `;
