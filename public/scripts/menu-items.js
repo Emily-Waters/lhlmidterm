@@ -51,6 +51,7 @@ const createMenuItem = (menuItemData) => {
             QTY SELECTOR
             <button>ADD</button>
           </form>
+
         </div>
 
       </div>
@@ -60,3 +61,5 @@ const createMenuItem = (menuItemData) => {
   </div>
   `;
 };
+
+
