@@ -10,7 +10,7 @@ const router  = express.Router();
 const menuQueries = require('../db/menu-queries');
 
 router.get("/", (req, res) => {
-  menuQueries.getMenuItems()
+  menuQueries.getMenuItems(req.query)
     .then((menuItems) => {
       res.json(menuItems || []);
     })
