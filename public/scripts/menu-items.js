@@ -2,13 +2,14 @@
 
 // loadMenu gets json data from the db and serves it to renderMenu
 const loadMenu = () => {
-  $.get('/menu')
+  $.get('/api/menu/')
     .then(menuData => {
+      console.log(menuData);
       renderMenu(menuData);
     })
     .catch(err => {
-      console.log(err.message)
-    })
+      console.log(err.message);
+    });
 };
 
 // renderMenu
@@ -25,14 +26,14 @@ const createMenuItem = (menuItemData) => {
   <div>
     <div>
 
-      <img src="${menuItemData/*.WHATEVERTHEDATABASECOLUMNISCALLED*/}">
+      <img src="${menuItemData.image_url}">
       Image
       </img>
 
       <div>
 
         <h3>
-          ${menuItemData.title}
+          ${menuItemData.name}
         </h3>
 
         <article>
@@ -40,7 +41,6 @@ const createMenuItem = (menuItemData) => {
         </article>
 
         <form>
-          ${/*QTY SELECTOR*/}
           <button>ADD</button>
         </form>
       </div>
