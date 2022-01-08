@@ -4,8 +4,7 @@
 const loadMenu = () => {
   $.get('/api/menu/')
     .then(menuData => {
-      console.log('received from server menu items: ' + menuData);
-      renderMenu(menuData);
+      renderMenu(menuData.menuItems);
     })
     .catch(err => {
       console.log(err.message);
@@ -16,12 +15,12 @@ const loadMenu = () => {
 const renderMenu = (menuItems) => {
   const $menuItemsContainer = $('div.menu-items-container');
   for (const item of menuItems) {
-    const menuItem = createMenuItem(item);
-    $menuItemsContainer.append(menuItem);
+    let $menuItem = createMenuItem(item);
+    $menuItemsContainer.append(item);
   }
 };
 
-// createMenuItem takes in single menuItem and loads the information into an html template in renderMenu and returns that template to be appended to the main body TODO:
+// createMenuItem takes in single menuItem and loads the information into an html template in renderMenu and returns that template to be appended to the main body
 const createMenuItem = (menuItemData) => {
   return `
   <div>
