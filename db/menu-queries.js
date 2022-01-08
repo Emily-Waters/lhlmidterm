@@ -5,7 +5,7 @@ const getMenuItems = (options) => {
 
   let queryString = `
   SELECT *
-  FROM menu items
+  FROM menu_items
   WHERE menu_items.id IS NOT NULL
   `;
 
