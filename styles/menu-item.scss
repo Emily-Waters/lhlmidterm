@@ -1,3 +1,60 @@
-div {
-  background-color: red;
+// color palette variables
+$color_1: #1D00B0;
+$color_2: #500370;
+$color_3: #B39A12;
+
+// template for on hover effects
+%basic_hover {
+  box-shadow: 2px 3px 5px $color_3;
+  transform: scale(102%);
+  transition: .2s ease-in-out;
+}
+
+
+main {
+  margin-top: 80px;
+
+  div.menu-items-container {
+    div {
+      margin: 20px;
+      div {
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+          width: 300px;
+          height: 200px;
+          border-radius: 3%;
+
+          &:hover {
+            @extend %basic_hover;
+          }
+        }
+
+        div {
+          flex-direction: column;
+          flex-wrap: wrap;
+
+          h3 {
+            font-size: 30px;
+          }
+
+          article {
+            font-size: 20px;
+          }
+
+          form {
+            position: relative;
+            float: right;
+
+            button {}
+          }
+        }
+
+      }
+    }
+
+  }
 }
