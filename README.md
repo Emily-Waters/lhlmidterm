@@ -35,7 +35,7 @@ Midterm project for Lighthouse Labs WebDev Bootcamp, Nov22/2021 Cohort.
     * Top left, next to logo
   * **Adjust styling on homepage**
     * Consistent styling with menu cards
-    * Buttons replaced with icons
+    * Remove buttons and make restaurant cards smaller, highlight on hover and entire card clickable to go to restaurant menu
   * **Payment screen/Finalize order**
     * ![](https://img.shields.io/badge/-STRETCH-purple) Mock up for debit/credit/coupons
   * **Overall styling**
