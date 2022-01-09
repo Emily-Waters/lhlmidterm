@@ -15,7 +15,7 @@ $menuItemsContainer.submit(e => {
 });
 
 const addMenuItemToOrder = (menuItemData) => {
-  // return $.post(`/api/order?menu_item=${menuItemData.id}&order_id=${}&quantity=${}`);
+  // return $.post(`/api/order?menu_item=${menuItemData.id}&order_id=${}&quantity=${menuItemData.quantity}`);
 };
 
 const createOrderItem = (orderItemData) => {//TODO:
