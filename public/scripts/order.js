@@ -21,18 +21,27 @@ const addMenuItemToOrder = (menuItemData) => {
 const createOrderItem = (orderItemData) => {//TODO:
   return `
   <div class='order-item'>
-  NUMBER IN LIST
-  DISH NAME
-  QUANTITY
-  PRICE
+    <div>
+    ${orderItemData.id}
+    </div>
+    <div>
+    ${orderItemData.name}
+    </div>
+    <div>
+    ${orderItemData.quantity}
+    </div>
+    <div>
+    ${orderItemData.cost}
+    </div>
+    <a>X</a>   <!-- REMOVE FROM ORDER BUTTON, SHOULD PROBABLY BE AN ICON -->
   </div>
   `;
 
 };
 
-const createOrderTotal = () => {
+const createOrderTotal = (orderId) => {
   // GET order total from db
-  $.get('api/order/:id/total')
+  $.get(`api/order/${orderId}/total`)
     .then((orderTotal) => {
 
       return `
@@ -45,8 +54,8 @@ const createOrderTotal = () => {
     });
 };
 
-const loadOrder = () => {
-  $.get('api/order/:id')
+const loadOrder = (orderId) => {
+  $.get(`api/order/${orderId}`)
     .then((orderData) => {
       renderOrder(orderData);
     })
