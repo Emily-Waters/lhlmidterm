@@ -10,6 +10,16 @@ const getRestaurantById = (id) => {
     });
 };
 
+const getAllRestaurants = () => {
+  return db.query('SELECT * FROM restaurants;')
+    .then((res) => {
+      return res.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
 module.exports = {
-  getRestaurantById
+  getRestaurantById, getAllRestaurants
 };

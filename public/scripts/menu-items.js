@@ -1,5 +1,6 @@
 // loadMenu gets json data from the db and serves it to renderMenu
-const loadMenu = (url) => {
+const loadMenu = () => {
+  const url = '/api/menu/';
   $.get(url)
     .then(menuData => {
       renderMenu(menuData);
