@@ -1,6 +1,6 @@
 // loadMenu gets json data from the db and serves it to renderMenu
-const loadMenu = () => {
-  $.get('/api/menu/')
+const loadMenu = (url) => {
+  $.get(url)
     .then(menuData => {
       renderMenu(menuData);
     })
@@ -18,6 +18,16 @@ const renderMenu = (menuItems) => {
     $menuItemsContainer.append($menuItem);
   }
 };
+
+// event listener for filtering
+$filterOptions.submit(function(e) {
+  e.preventDefault();
+  const formData = $(this).serialize();
+  const destinationUrl = '/api/menu?' + formData;
+  // empty the container so it can load it in anew
+  $menuItemsContainer.empty();
+  loadMenu(destinationUrl);
+});
 
 // createMenuItem takes in single menuItem and loads the information into an html template in renderMenu and returns that template to be appended to the main body
 const createMenuItem = (menuItemData) => {
