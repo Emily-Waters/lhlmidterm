@@ -6,28 +6,28 @@
 ---
 #  TODO
 ![](https://img.shields.io/badge/IN%20PROGRESS--blue)
-  * #### Create Readme
+  * Create Readme
 ![](https://img.shields.io/badge/TODO--orange)
-  * #### **Decide on a name for the app**
-  * #### **Design app logo**
-  * #### **Style nav bar**
-    * ##### Move dropdowns to the right
-    * ##### Replace buttons with icons
-    * ##### Add restaurant name, user info and app logo
-  * #### **Only logged in users should be able to place orders**
-    * ##### Implement simple login
-  * #### **Create more restaurants**
-    * ##### 2 or 3, enough to show functionality
+  * **Decide on a name for the app**
+  * **Design app logo**
+  * **Style nav bar**
+    * Move dropdowns to the right
+    * Replace buttons with icons
+    * Add restaurant name, user info and app logo
+  * **Only logged in users should be able to place orders**
+    * Implement simple login
+  * **Create more restaurants**
+    * 2 or 3, enough to show functionality
   * #### **Style menu cards**
-    * ##### Animate button on click
-    * ##### More cohesive design
-    * ##### Add Veg/V/GF icons (Green when true, red when false)
-    * ##### (STRETCH) Up and down arrows for quantity selector
-  * #### **Dropdown user tab**
-    * ##### Log In/Log Out/Register, Order History
-    * ##### (Stretch) Slide Down/Slide up Animation
-  * #### **Add more menu options**
-    * ##### More V/Veg/GF specifically to show off the filter functionality
+    * Animate button on click
+    * More cohesive design
+    * Add Veg/V/GF icons (Green when true, red when false)
+    * (STRETCH) Up and down arrows for quantity selector
+  * **Dropdown user tab**
+    * Log In/Log Out/Register, Order History
+    * (Stretch) Slide Down/Slide up Animation
+  * **Add more menu options**
+    * More V/Veg/GF specifically to show off the filter functionality
 
 ---
 ## Getting Started
