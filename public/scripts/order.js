@@ -1,9 +1,10 @@
 $menuItemsContainer.submit(e => {
   e.preventDefault();
   const $menuCard = $(e.target).parents(".menu-card");
-  console.log($menuCard);
-
-  // addMenuItemToOrder(menuItemData)
+  // console.log($menuCard);
+  const menuCardMeta = $menuCard.data().json;
+  console.log(menuCardMeta);
+  // addMenuItemToOrder(menuCardMeta)
   //   .then(() => {
   //     $('order-container').trigger('reset');//TODO:
   //   }).then(() => {
@@ -13,7 +14,7 @@ $menuItemsContainer.submit(e => {
 });
 
 const addMenuItemToOrder = (menuItemData) => {
-  // return $.post(`/api/order?menu_item=${}&order_id=${}&quantity=${}`);
+  // return $.post(`/api/order?menu_item=${menuItemData.id}&order_id=${}&quantity=${}`);
 };
 
 const createOrderItem = (orderItemData) => {//TODO:

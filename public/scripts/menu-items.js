@@ -22,11 +22,10 @@ const renderMenu = (menuItems) => {
 // createMenuItem takes in single menuItem and loads the information into an html template in renderMenu and returns that template to be appended to the main body
 const createMenuItem = (menuItemData) => {
 
-  // menu-card needs flex-direction row
-  // menu-details needs flex-direction column
-  // menu-options needs flex-direction row
+  const menuItemJSON = JSON.stringify(menuItemData);
+
   return `
-  <div class="row menu-card mb-3">
+  <div class="row menu-card mb-3" data-json='${menuItemJSON}'>
 
       <img src="${menuItemData.image_url}" class="col-3 menu-img">
       </img>
