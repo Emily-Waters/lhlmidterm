@@ -7,10 +7,10 @@
 Midterm project for Lighthouse Labs WebDev Bootcamp, Nov22/2021 Cohort.
  This is a SPA for ordering food from (a/many) fictitious restaurant(s). Visitors can browse menus, register an account, sign in and then place orders. The app will send the information to the restaurant through SMS, provide an estimated time for pickup to the user, and then alert the user when an order is ready for pickup through SMS
 #  TODO
-![](https://img.shields.io/badge/IN%20PROGRESS--blue)
+## ![](https://img.shields.io/badge/IN%20PROGRESS--blue)
   * Create Readme
 
-![](https://img.shields.io/badge/TODO--orange)
+## ![](https://img.shields.io/badge/TODO--orange)
   * **Decide on a name for the app**
   * **Design app logo**
   * **Style nav bar**
@@ -31,9 +31,22 @@ Midterm project for Lighthouse Labs WebDev Bootcamp, Nov22/2021 Cohort.
     * ![](https://img.shields.io/badge/-STRETCH-purple) Slide Down/Slide up Animation
   * **Add more menu options**
     * More V/Veg/GF specifically to show off the filter functionality
+  * **Implement 'Home' button**
+    * Top left, next to logo
+  * **Adjust styling on homepage**
+    * Consistent styling with menu cards
+    * Buttons replaced with icons
+  * **Payment screen/Finalize order**
+    * ![](https://img.shields.io/badge/-STRETCH-purple) Mock up for debit/credit/coupons
+  * **Overall styling**
+    * Fonts. How many and which ones?
+    * Coherent/consistent theme throughout
+    * Research best design practices for food webpage
+    * ![](https://img.shields.io/badge/-STRETCH-purple) Animations when switching between pages
 
-![](https://img.shields.io/badge/BUGS--red)
-  * Nothin' yet, because we're the GOAT
+## ![](https://img.shields.io/badge/NEEDS%20FIXING--red)
+  * **URL endpoints in scripts/menu-items.js**
+    * ![](https://img.shields.io/badge/-STRETCH-purple) Defend from SQL injection
 ---
 ## Getting Started
 
