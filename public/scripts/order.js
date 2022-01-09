@@ -1,37 +1,47 @@
 $menuItemsContainer.submit(e => {
   e.preventDefault();
   const $menuCard = $(e.target).parents(".menu-card");
-  // console.log($menuCard);
+  const quantityValue = e.target[0].value;
   const menuCardMeta = $menuCard.data().json;
-  console.log(menuCardMeta);
-  // addMenuItemToOrder(menuCardMeta)
-  //   .then(() => {
-  //     $('order-container').trigger('reset');//TODO:
-  //   }).then(() => {
-  //     loadOrder();
-  //   })
-  //   .catch(err => console.log(err.message));
+  menuCardMeta.quantity = quantityValue;
+  addMenuItemToOrder(menuCardMeta)
+    .then(() => {
+      // $('order-container').trigger('reset');//TODO:
+    }).then(() => {
+      loadOrder();
+    })
+    .catch(err => console.log(err.message));
 });
 
 const addMenuItemToOrder = (menuItemData) => {
-  // return $.post(`/api/order?menu_item=${menuItemData.id}&order_id=${}&quantity=${}`);
+  console.log("DOES THIS WORK?");
+  return $.post(`/api/order?&order_id=${1}&menu_item=${menuItemData.id}&quantity=${menuItemData.quantity}`);
 };
 
 const createOrderItem = (orderItemData) => {//TODO:
   return `
   <div class='order-item'>
-  NUMBER IN LIST
-  DISH NAME
-  QUANTITY
-  PRICE
+    <div>
+    ${orderItemData.id}
+    </div>
+    <div>
+    ${orderItemData.name}
+    </div>
+    <div>
+    ${orderItemData.quantity}
+    </div>
+    <div>
+    ${orderItemData.cost}
+    </div>
+    <a>X</a>   <!-- REMOVE FROM ORDER BUTTON, SHOULD PROBABLY BE AN ICON -->
   </div>
   `;
 
 };
 
-const createOrderTotal = () => {
+const createOrderTotal = (orderId) => {
   // GET order total from db
-  $.get('api/order/:id/total')
+  $.get(`api/order/${orderId}/total`)
     .then((orderTotal) => {
 
       return `
@@ -44,8 +54,8 @@ const createOrderTotal = () => {
     });
 };
 
-const loadOrder = () => {
-  $.get('api/order/:id')
+const loadOrder = (orderId) => {
+  $.get(`api/order/${orderId}`)
     .then((orderData) => {
       renderOrder(orderData);
     })
