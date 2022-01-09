@@ -4,18 +4,18 @@ $menuItemsContainer.submit(e => {
   const quantityValue = e.target[0].value;
   const menuCardMeta = $menuCard.data().json;
   menuCardMeta.quantity = quantityValue;
-
-  // addMenuItemToOrder(menuCardMeta)
-  //   .then(() => {
-  //     $('order-container').trigger('reset');//TODO:
-  //   }).then(() => {
-  //     loadOrder();
-  //   })
-  //   .catch(err => console.log(err.message));
+  addMenuItemToOrder(menuCardMeta)
+    .then(() => {
+      $('order-container').trigger('reset');//TODO:
+    }).then(() => {
+      loadOrder();
+    })
+    .catch(err => console.log(err.message));
 });
 
 const addMenuItemToOrder = (menuItemData) => {
-  // return $.post(`/api/order?menu_item=${menuItemData.id}&order_id=${}&quantity=${menuItemData.quantity}`);
+  console.log("DOES THIS WORK?");
+  return $.post(`/api/order?&order_id=${1}&menu_item=${menuItemData.id}&quantity=${menuItemData.quantity}`);
 };
 
 const createOrderItem = (orderItemData) => {//TODO:
