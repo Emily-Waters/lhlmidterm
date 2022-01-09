@@ -1,16 +1,15 @@
 $menuItemsContainer.submit(e => {
   e.preventDefault();
-  console.log('CLICKED THE BUTTON');
-  console.log(e.currentTarget);
-  const menuItem = 'id of menu item';     //  TODO:
-  const quantity = 'quantity from form';  //  TODO:
-  addMenuItemToOrder(menuItemData)
-    .then(() => {
-      $('order-container').trigger('reset');//TODO:
-    }).then(() => {
-      loadOrder();
-    })
-    .catch(err => console.log(err.message));
+  const $menuCard = $(e.target).parents(".menu-card");
+  console.log($menuCard);
+
+  // addMenuItemToOrder(menuItemData)
+  //   .then(() => {
+  //     $('order-container').trigger('reset');//TODO:
+  //   }).then(() => {
+  //     loadOrder();
+  //   })
+  //   .catch(err => console.log(err.message));
 });
 
 const addMenuItemToOrder = (menuItemData) => {
