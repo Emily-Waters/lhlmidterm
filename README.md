@@ -3,7 +3,9 @@
   * Julia Gatina - [Github](https://github.com/julia-gatina)
   * Haris Rizwan - [Github](https://github.com/harisrizwan1)
   * Emily Waters - [Github](https://github.com/Emily-Waters)
----
+## Project Description
+Midterm project for Lighthouse Labs WebDev Bootcamp, Nov22/2021 Cohort.
+ This is a SPA for ordering food from (a/many) fictitious restaurant(s). Visitors can browse menus, register an account, sign in and then place orders. The app will send the information to the restaurant through SMS, provide an estimated time for pickup to the user, and then alert the user when an order is ready for pickup through SMS
 #  TODO
 ![](https://img.shields.io/badge/IN%20PROGRESS--blue)
   * Create Readme
@@ -23,13 +25,15 @@
     * Animate button on click
     * More cohesive design
     * Add Veg/V/GF icons (Green when true, red when false)
-    * (STRETCH) Up and down arrows for quantity selector
+    * ![](https://img.shields.io/badge/-STRETCH-purple) Up and down arrows for quantity selector
   * **Dropdown user tab**
     * Log In/Log Out/Register, Order History
-    * (Stretch) Slide Down/Slide up Animation
+    * ![](https://img.shields.io/badge/-STRETCH-purple) Slide Down/Slide up Animation
   * **Add more menu options**
     * More V/Veg/GF specifically to show off the filter functionality
 
+![](https://img.shields.io/badge/BUGS--red)
+  * Nothin' yet, because we're the GOAT
 ---
 ## Getting Started
 
