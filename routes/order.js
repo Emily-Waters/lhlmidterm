@@ -2,6 +2,20 @@ const express = require('express');
 const router  = express.Router();
 const orderQueries = require('../db/order-queries');
 
+// GET orders by the id of the user
+router.get('/user/:id', (req, res) => {
+  const queryParams = req.params.id;
+  orderQueries.getOrdersByUserId(queryParams)
+    .then((orders) => {
+      res.json({ orders });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
 // GET order total by id
 router.get('/:id/total', (req, res) => {
   const queryParams = req.params.id;
@@ -22,20 +36,6 @@ router.get('/:id', (req, res) => {
   orderQueries.getOrdersById(queryParams)
     .then((order) => {
       res.json({ order });
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
-});
-
-// GET orders by the id of the user
-router.get('/user/:id', (req, res) => {
-  const queryParams = req.params.id;
-  orderQueries.getOrdersByUserId(queryParams)
-    .then((orders) => {
-      res.json({ orders });
     })
     .catch(err => {
       res
