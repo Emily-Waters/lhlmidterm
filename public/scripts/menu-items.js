@@ -37,6 +37,7 @@ const createMenuItem = (menuItemData) => {
           <div class="row">
             <div class="col menu-title p-2 font-weight-bold">
               ${menuItemData.name}
+              <p class "menu-cost">Price: ${menuItemData.cost / 100}</p>
             </div>
           </div>
 
