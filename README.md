@@ -19,7 +19,7 @@
     * Implement simple login
   * **Create more restaurants**
     * 2 or 3, enough to show functionality
-  * #### **Style menu cards**
+  * **Style menu cards**
     * Animate button on click
     * More cohesive design
     * Add Veg/V/GF icons (Green when true, red when false)
