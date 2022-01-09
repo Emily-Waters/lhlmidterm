@@ -23,7 +23,34 @@
 
 <body>
   <header>
-    <nav>NAVBAR</nav>
+    <nav>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </button>
+        <form class="dropdown-menu p-4">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="is_vegan">
+            <label class="form-check-label" for="is_vegan">
+              Vegan
+            </label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="is_vegetarian">
+            <label class="form-check-label" for="is_vegetarian">
+              Vegetarian
+            </label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="is_gluten_free">
+            <label class="form-check-label" for="is_gluten_free">
+              Gluten Free
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
+      </div>
+    </nav>
   </header>
   <main>
     <div class="container menu-items-container"></div>
