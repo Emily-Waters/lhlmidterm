@@ -7,6 +7,7 @@
 #  TODO
 ![](https://img.shields.io/badge/IN%20PROGRESS--blue)
   * Create Readme
+
 ![](https://img.shields.io/badge/TODO--orange)
   * **Decide on a name for the app**
   * **Design app logo**
