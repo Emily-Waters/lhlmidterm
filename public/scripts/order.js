@@ -1,9 +1,10 @@
 $menuItemsContainer.submit(e => {
   e.preventDefault();
   const $menuCard = $(e.target).parents(".menu-card");
-  // console.log($menuCard);
+  const quantity = e.target[0].value;
   const menuCardMeta = $menuCard.data().json;
   console.log(menuCardMeta);
+  console.log('Quantity: ',quantity);
   // addMenuItemToOrder(menuCardMeta)
   //   .then(() => {
   //     $('order-container').trigger('reset');//TODO:
