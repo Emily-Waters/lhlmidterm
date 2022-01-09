@@ -6,7 +6,7 @@ $menuItemsContainer.submit(e => {
   menuCardMeta.quantity = quantityValue;
   addMenuItemToOrder(menuCardMeta)
     .then(() => {
-      $('order-container').trigger('reset');//TODO:
+      // $('order-container').trigger('reset');//TODO:
     }).then(() => {
       loadOrder();
     })
