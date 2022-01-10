@@ -3,9 +3,11 @@ body {
   //justify-content: center;
   align-items: center;
   min-height: 100vh;
+  // background-color: #000000;
+  // background-image: url("https://www.transparenttextures.com/patterns/tileable-wood-colored.png");
 
-  background-image: url("../images/gitkraken.png");
-  background-size: cover;
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+  // background-size: cover;
 
   // background: rgb(163, 208, 219);
   // background: linear-gradient(
@@ -20,7 +22,9 @@ body {
 }
 
 main {
-
+  margin-top:4em;
   width:100vw;
   height: 100vh;
+  background-color: #000000;
+  background-image: url("https://www.transparenttextures.com/patterns/tileable-wood-colored.png");
 }
