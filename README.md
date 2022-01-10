@@ -9,44 +9,67 @@ Midterm project for Lighthouse Labs WebDev Bootcamp, Nov22/2021 Cohort.
 #  TODO
 ## ![](https://img.shields.io/badge/IN%20PROGRESS--blue)
   * Create Readme
-
+---
 ## ![](https://img.shields.io/badge/TODO--orange)
-  * **Decide on a name for the app**
-  * **Design app logo**
-  * **Style nav bar**
-    * Move dropdowns to the right
-    * Replace buttons with icons
-    * Add restaurant name, user info and app logo
-  * **Only logged in users should be able to place orders**
-    * Implement simple login
-  * **Create more restaurants**
-    * 2 or 3, enough to show functionality
-  * **Style menu cards**
-    * Animate button on click
-    * More cohesive design
-    * Add Veg/V/GF icons (Green when true, red when false)
-    * ![](https://img.shields.io/badge/-STRETCH-purple) Up and down arrows for quantity selector
-  * **Dropdown user tab**
-    * Log In/Log Out/Register, Order History
-    * ![](https://img.shields.io/badge/-STRETCH-purple) Slide Down/Slide up Animation
-  * **Add more menu options**
-    * More V/Veg/GF specifically to show off the filter functionality
-  * **Implement 'Home' button**
-    * Top left, next to logo
-  * **Adjust styling on homepage**
-    * Consistent styling with menu cards
-    * Remove buttons and make restaurant cards smaller, highlight on hover and entire card clickable to go to restaurant menu
-  * **Payment screen/Finalize order**
-    * ![](https://img.shields.io/badge/-STRETCH-purple) Mock up for debit/credit/coupons
-  * **Overall styling**
-    * Fonts. How many and which ones?
-    * Coherent/consistent theme throughout
-    * Research best design practices for food webpage
-    * ![](https://img.shields.io/badge/-STRETCH-purple) Animations when switching between pages
-
+  * ![](https://img.shields.io/badge/-USER%20EXPERIENCE-blue)
+    * **Decide on a name for the app**
+      * FüD
+      * WYSIWYG
+      * YourDash
+    * **Design app logo**
+    * **Style nav bar**
+      * Move dropdowns to the right
+      * Replace buttons with icons
+      * Add restaurant name, user info and app logo
+    * **Style menu cards**
+      * Animate button on click
+      * More cohesive design
+      * Add Veg/V/GF icons (Green when true, red when false)
+      * ![](https://img.shields.io/badge/-STRETCH-purple) Up and down arrows for quantity selector
+    * **Adjust styling on homepage**
+      * Consistent styling with menu cards
+      * Remove buttons and make restaurant cards smaller, highlight on hover and entire card clickable to go to restaurant menu
+    * **Overall styling**
+      * Fonts. How many and which ones?
+      * Coherent/consistent theme throughout
+      * Research best design practices for food webpage
+      * ![](https://img.shields.io/badge/-STRETCH-purple) Animations when switching between pages
+---
+  * ![](https://img.shields.io/badge/-USER%20INTERFACE-blue)
+    * **Only logged in users should be able to place orders**
+      * Implement simple login
+    * **Dropdown user tab**
+      * Log In/Log Out/Register, Order History
+      * ![](https://img.shields.io/badge/-STRETCH-purple) Slide Down/Slide up Animation
+    * **Dropdown Cart**
+      * Dropdown order card detailing current order, subtotals for item price * quantity (GROUP BY order item id)
+      * ORDER button to go to the payment/finalize order screen
+    * **Implement 'Home' button**
+      * Top left, next to logo (or the logo itself)
+    * **Payment screen/Finalize order**
+      * Checkout button in order cart brings the user to an order details and checkout page
+      * Checkout page will list details of the order and an ORDER button that will send SMS to the user and restaurant
+      * ![](https://img.shields.io/badge/-STRETCH-purple) Mock up for debit/credit/coupons
+---
+  * ![](https://img.shields.io/badge/-DATABASE-blue)
+    * **Create more restaurants**
+      * 2 or 3, enough to show functionality
+    * **Add more menu options**
+      * More V/Veg/GF specifically to show off the filter functionality
+      * Atleast 2 Vegan options, 2 Vegetarian but not Vegan options, and 2 GF not Vegan not Vegetarian, 1 GF and Vegan, 1 GF and Vegetarian and not Vegan options.
+---
+  * ![](https://img.shields.io/badge/-BACKEND-blue)
+    * **COOKIES**
+      * Cookies for user id
+      * Cookies for order id (order id needs to be created when selecting a restaurant)
+    * **SMS**
+      * Implement SMS API to send SMS to user and restaurant on placing an order
+    * **Routes**
+      * ![](https://img.shields.io/badge/-STRETCH-purple) Defend from SQL injection
+---
 ## ![](https://img.shields.io/badge/NEEDS%20FIXING--red)
-  * **URL endpoints in scripts/menu-items.js**
-    * ![](https://img.shields.io/badge/-STRETCH-purple) Defend from SQL injection
+  * TBD
+
 ---
 ## Getting Started
 
