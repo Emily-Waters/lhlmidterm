@@ -36,5 +36,36 @@ router.get('/:id', (req, res) => {
     });
 });
 
+const login = (userName) => {
+  return userQueries
+    .getUserByName(userName)
+    .then(user => {
+      console.log('login success!');
+      return user;
+    });
+};
+
+router.post('/login', (req, res) => {
+  const userName = req.body.name;
+  login(userName)
+    .then(user => {
+      if (!user) {
+        res.send({error: "error"});
+        return;
+      }
+      req.session.userId = user.id;
+      res.send({user: {name: user.name, id: user.id}});
+    })
+    .catch(err => res.send(err));
+});
+
+router.post('/logout', (req, res) => {
+  req.session = null;
+  res.send({message: 'logged out'});
+});
+
+
+
+
 // export router object
 module.exports = router;
