@@ -45,16 +45,16 @@ router.post('/login', (req, res) => {
         return;
       }
       req.session.userId = user.id;
-      res.redirect('/');
       res.send({user: {name: user.name, id: user.id}});
+      res.redirect('/');
     })
     .catch(err => res.send(err));
 });
 
 router.post('/logout', (req, res) => {
   req.session = null;
-  res.redirect('/');
   res.send({message: 'logged out'});
+  res.redirect('/');
 });
 
 const login = (userName) => {
