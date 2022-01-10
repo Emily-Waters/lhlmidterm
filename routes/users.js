@@ -36,15 +36,6 @@ router.get('/:id', (req, res) => {
     });
 });
 
-const login = (userName) => {
-  return userQueries
-    .getUserByName(userName)
-    .then(user => {
-      console.log('login success!');
-      return user;
-    });
-};
-
 router.post('/login', (req, res) => {
   const userName = req.body.name;
   login(userName)
@@ -54,6 +45,7 @@ router.post('/login', (req, res) => {
         return;
       }
       req.session.userId = user.id;
+      res.redirect('/');
       res.send({user: {name: user.name, id: user.id}});
     })
     .catch(err => res.send(err));
@@ -61,11 +53,18 @@ router.post('/login', (req, res) => {
 
 router.post('/logout', (req, res) => {
   req.session = null;
+  res.redirect('/');
   res.send({message: 'logged out'});
 });
 
-
-
+const login = (userName) => {
+  return userQueries
+    .getUserByName(userName)
+    .then(user => {
+      console.log('login success!');
+      return user;
+    });
+};
 
 // export router object
 module.exports = router;
