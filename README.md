@@ -38,6 +38,7 @@ Midterm project for Lighthouse Labs WebDev Bootcamp, Nov22/2021 Cohort.
   * ![](https://img.shields.io/badge/-USER%20INTERFACE-blue)
     * **Only logged in users should be able to place orders**
       * Implement simple login
+      * Logging in will create a user id cookie, logging out will delete the cookie
     * **Dropdown user tab**
       * Log In/Log Out/Register, Order History
       * ![](https://img.shields.io/badge/-STRETCH-purple) Slide Down/Slide up Animation
