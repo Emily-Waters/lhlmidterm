@@ -4,13 +4,9 @@ $menuItemsContainer.submit(e => {
   const quantityValue = e.target[0].value;
   const menuCardMeta = $menuCard.data().json;
   menuCardMeta.quantity = quantityValue;
-  addMenuItemToOrder(menuCardMeta)
-    .then(() => {
-      $('#order-container').empty();
-    }).then(() => {
-      loadOrder();
-    })
-    .catch(err => console.log(err.message));
+  addMenuItemToOrder(menuCardMeta);
+  $('#order-container').empty();
+  loadOrder();
 });
 
 const addMenuItemToOrder = (menuItemData) => {
@@ -19,22 +15,36 @@ const addMenuItemToOrder = (menuItemData) => {
 
 const createOrderItem = (orderItemData) => {//TODO:
   return `
-  <div class='order-item'>
-    <div>
-    ${orderItemData.id}
-    </div>
-    <div>
+  <div class="card text-white bg-dark mb-1" style="width: 24rem;">
+  <div class="card-header">
     ${orderItemData.name}
-    </div>
-    <div>
-    ${orderItemData.quantity}
-    </div>
-    <div>
-    ${orderItemData.cost}
-    </div>
-    <a>X</a>   <!-- REMOVE FROM ORDER BUTTON, SHOULD PROBABLY BE AN ICON -->
   </div>
+  <div class="container">
+    <div class="row justify-content-around">
+      <div class="col-4">Quantity: ${orderItemData.quantity}</div>
+      <div class="col-4">Price: $${orderItemData.cost / 100}</div>
+      <div class="col-1"><i class="fas fa-times"></i></div>
+    </div>
+  </div>
+</div>
   `;
+
+
+
+  // `
+  // <div class="row order-item">
+  //   <div>
+  //   Name: ${orderItemData.name}
+  //   </div>
+  //   <div>
+  //   Quantity: ${orderItemData.quantity}
+  //   </div>
+  //   <div>
+  //   Price: ${orderItemData.cost}
+  //   </div>
+  //   <a>X</a>   <!-- REMOVE FROM ORDER BUTTON, SHOULD PROBABLY BE AN ICON -->
+  // </div>
+  // `;
 
 };
 
@@ -64,6 +74,7 @@ const loadOrder = (orderId = 1) => {
 };
 
 const renderOrder = (orderItems) => {
+  console.log(orderItems);
   const $orderContainer = $('#order-container');
   for (const orderItem of orderItems) {
     let $orderItem = createOrderItem(orderItem);

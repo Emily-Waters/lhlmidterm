@@ -22,7 +22,7 @@ router.get('/:id/items', (req, res) => {
   const queryParams = req.params.id;
   orderQueries.gerOrderItemsByOrderId(queryParams)
     .then((items) => {
-      res.json({ items });
+      res.json(items);
     })
     .catch(err => {
       res
