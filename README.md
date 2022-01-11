@@ -56,11 +56,11 @@ Midterm project for Lighthouse Labs WebDev Bootcamp, Nov22/2021 Cohort.
       * ![](https://img.shields.io/badge/-STRETCH-purple) Mock up for debit/credit/coupons
 ---
   * ![](https://img.shields.io/badge/-DATABASE-blue)
-    * **Create more restaurants**
+    * **<s>Create more restaurants**
       * 2 or 3, enough to show functionality
     * **Add more menu options**
       * More V/Veg/GF specifically to show off the filter functionality
-      * Atleast 2 Vegan options, 2 Vegetarian but not Vegan options, and 2 GF not Vegan not Vegetarian, 1 GF and Vegan, 1 GF and Vegetarian and not Vegan options.
+      * Atleast 2 Vegan options, 2 Vegetarian but not Vegan options, and 2 GF not Vegan not Vegetarian, 1 GF and Vegan, 1 GF and Vegetarian and not Vegan options.</s>
 ---
   * ![](https://img.shields.io/badge/-BACKEND-blue)
     * **COOKIES**
