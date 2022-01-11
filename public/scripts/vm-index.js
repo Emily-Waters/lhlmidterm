@@ -1,5 +1,5 @@
 $(() => {
-  document.cookie = null;
+  // document.cookie = null;
   getAllRestaurants()
     .then(data => {
       resCards.addManyResCards(data);
