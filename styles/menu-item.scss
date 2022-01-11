@@ -1,12 +1,7 @@
-// color palette variables
-$color_1: #1D00B0;
-$color_2: #500370;
-$color_3: #B39A12;
-
 // template for on hover effects
 %basic_hover {
   transform: scale(102%);
-  //transition: .2s ease-in-out;
+  transition: .1s ease-in-out;
 }
 
 div.menu-items-container {
@@ -21,6 +16,7 @@ div.menu-card {
   img.menu-img {
     width: 300px;
     height: 200px;
+    object-fit: cover;
 
     &:hover {
       @extend %basic_hover;
@@ -31,8 +27,16 @@ div.menu-card {
     height: 200px;
     background-color: white;
     opacity: 80%;
+    border-radius: 10px;
+    box-shadow: 4px 4px 15px black;
+
+    &:hover {
+      @extend %basic_hover;
+    }
 
     .menu-title {
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: clamp(14px, 3vw, 25px);
       text-align: center;
       text-transform: uppercase;
     }
