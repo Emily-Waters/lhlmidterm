@@ -14,8 +14,10 @@ const addMenuItemToOrder = (menuItemData) => {
 };
 
 const createOrderItem = (orderItemData) => {
+  const orderItemJSON = JSON.stringify(orderItemData);
+
   return `
-  <div class="card text-white bg-dark mb-3" style="width: 24rem;">
+  <div class="card text-white bg-dark mb-3" style="width: 24rem;" data-json="${orderItemJSON}">
   <div class="card-header">
     ${orderItemData.name}
   </div>
