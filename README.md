@@ -16,8 +16,8 @@ Midterm project for Lighthouse Labs WebDev Bootcamp, Nov22/2021 Cohort.
       * FüD
     * **Design app logo**
     * **Style nav bar**
-      * Move dropdowns to the right
-      * Replace buttons with icons
+      * <s>Move dropdowns to the right</s>
+      * <s>Replace buttons with icons</s>
       * Add restaurant name, user info and app logo
     * **Style menu cards**
       * Animate button on click
@@ -25,8 +25,8 @@ Midterm project for Lighthouse Labs WebDev Bootcamp, Nov22/2021 Cohort.
       * Add Veg/V/GF icons (Green when true, red when false)
       * ![](https://img.shields.io/badge/-STRETCH-purple) Up and down arrows for quantity selector
     * **Adjust styling on homepage**
-      * Consistent styling with menu cards
-      * Remove buttons and make restaurant cards smaller, highlight on hover and entire card clickable to go to restaurant menu
+      * <s>Consistent styling with menu cards</s>
+      * <s>Remove buttons and make restaurant cards smaller, highlight on hover and entire card clickable to go to restaurant menu</s>
     * **Overall styling**
       * Fonts. How many and which ones?
       * Coherent/consistent theme throughout
@@ -38,24 +38,27 @@ Midterm project for Lighthouse Labs WebDev Bootcamp, Nov22/2021 Cohort.
       * Implement simple login
       * Logging in will create a user id cookie, logging out will delete the cookie
     * **Dropdown user tab**
-      * Log In/Log Out/Register, Order History
+      * <s>Log In/Log Out/Register, Order History</s>
+        * Skeleton done, functionality needs to be added.
       * ![](https://img.shields.io/badge/-STRETCH-purple) Slide Down/Slide up Animation
     * **Dropdown Cart**
-      * Dropdown order card detailing current order, subtotals for item price * quantity (GROUP BY order item id)
-      * ORDER button to go to the payment/finalize order screen
+      * <s>Dropdown order card detailing current order, subtotals for item price * quantity (GROUP BY order item id)</s>
+        * Buttons need to be made functional
+      * <s>ORDER button to go to the payment/finalize order screen</s>
+        * Buttons need to be made functional
     * **Implement 'Home' button**
-      * Top left, next to logo (or the logo itself)
+      * <s>Top left, next to logo (or the logo itself)</s>
     * **Payment screen/Finalize order**
       * Checkout button in order cart brings the user to an order details and checkout page
       * Checkout page will list details of the order and an ORDER button that will send SMS to the user and restaurant
       * ![](https://img.shields.io/badge/-STRETCH-purple) Mock up for debit/credit/coupons
 ---
   * ![](https://img.shields.io/badge/-DATABASE-blue)
-    * **Create more restaurants**
+    * **<s>Create more restaurants**
       * 2 or 3, enough to show functionality
     * **Add more menu options**
       * More V/Veg/GF specifically to show off the filter functionality
-      * Atleast 2 Vegan options, 2 Vegetarian but not Vegan options, and 2 GF not Vegan not Vegetarian, 1 GF and Vegan, 1 GF and Vegetarian and not Vegan options.
+      * Atleast 2 Vegan options, 2 Vegetarian but not Vegan options, and 2 GF not Vegan not Vegetarian, 1 GF and Vegan, 1 GF and Vegetarian and not Vegan options.</s>
 ---
   * ![](https://img.shields.io/badge/-BACKEND-blue)
     * **COOKIES**

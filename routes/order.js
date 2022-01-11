@@ -16,12 +16,27 @@ router.get('/user/:id', (req, res) => {
     });
 });
 
+// GET order items by order id
+
+router.get('/:id/items', (req, res) => {
+  const queryParams = req.params.id;
+  orderQueries.gerOrderItemsByOrderId(queryParams)
+    .then((items) => {
+      res.json(items);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
 // GET order total by id
 router.get('/:id/total', (req, res) => {
   const queryParams = req.params.id;
   orderQueries.getOrderTotal(queryParams)
     .then((total) => {
-      res.json({ total });
+      res.json(total);
     })
     .catch(err => {
       res

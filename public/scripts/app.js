@@ -7,4 +7,5 @@ const $filterOptions = $('#filter-options');
 
 $(document).ready(() => {
   loadRestaurants();
+  loadOrder();
 });

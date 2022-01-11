@@ -14,6 +14,7 @@
 
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 
   <!-- Latest compiled JavaScript -->
@@ -24,35 +25,131 @@
 
 <body>
   <header>
-    <nav>
-      <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </button>
-        <form class="dropdown-menu p-4" id="filter-options">
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="is_vegan" name="is_vegan" value="true">
-            <label class="form-check-label" for="is_vegan">
-              Vegan
-            </label>
+    <nav class="navbar fixed-top navbar-dark bg-dark">
+
+      <a class="navbar-brand" href="/">LOGO</a>
+
+      <div id="dropdown-section">
+
+        <!-- Dropdown for filter options -->
+        <div class="dropdown">
+          <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-filter"></i>
+          </button>
+          <form class="dropdown-menu p-4" id="filter-options">
+            <h6 class="dropdown-header">Filter Options</h6>
+            <div class="dropdown-divider"></div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="is_vegan" name="is_vegan" value="true">
+              <label class="form-check-label" for="is_vegan">
+                Vegan
+              </label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="is_vegetarian" name="is_vegetarian" value="true">
+              <label class="form-check-label" for="is_vegetarian">
+                Vegetarian
+              </label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="is_gluten_free" name="is_gluten_free" value="true">
+              <label class="form-check-label" for="is_gluten_free">
+                Gluten Free
+              </label>
+            </div>
+            <div class="dropdown-divider"></div>
+            <button type="submit" class="btn btn-primary">Filter</button>
+          </form>
+        </div>
+
+        <!-- Dropdown for cart -->
+        <div class="dropdown container justify-content-around">
+          <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-shopping-cart"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+
+            <!-- Container for order items to be dynamically be loaded in -->
+            <div class="container justify-content-center" id="order-container"></div>
+
+            <!-- Container for summary and order/cancel buttons -->
+            <div class="container">
+              <div class="row justify-content-around align-items-center">
+
+                <!-- Order Summary Card -->
+                <div class="col-8">
+                  <div class="card text-white border-light bg-dark mb-3" style="width: 14rem;">
+                    <div class="row card-header justify-content-center">
+                      Order Summary
+                    </div>
+                    <div class="container">
+                      <div class="row justify-content-around">
+                        <div class="col-5">
+                          <div class="row">
+                            Subtotal:
+                          </div>
+                          <div class="row">
+                            GST:
+                          </div>
+                          <div class="row">
+                            PST:
+                          </div>
+                          <div class="row">
+                            Total:
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="row" id="summary-subtotal">
+                          </div>
+                          <div class="row" id="summary-gst">
+                          </div>
+                          <div class="row" id="summary-pst">
+                          </div>
+                          <div class="row" id="summary-total">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Order and cancel buttons -->
+                <div class="col">
+                  <div class="row">
+                    <button class="btn btn-outline-success order-cancel">Order</button>
+                  </div>
+                  <div class="row">
+                    <button class="btn btn-outline-danger order-cancel">Cancel</button>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
           </div>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="is_vegetarian" name="is_vegetarian" value="true">
-            <label class="form-check-label" for="is_vegetarian">
-              Vegetarian
-            </label>
+        </div>
+
+        <!-- Dropdown for user info-->
+        <div class="dropdown">
+          <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="far fa-user"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <form action="api/users/login" method="post" id="login">
+              <label for="name">Username :</label>
+              <input type="text" id="name" name="name">
+              <button>Login</button>
+            </form>
+            <a class="dropdown-item" href="#">Register</a>
+            <a class="dropdown-item" href="#">Order History</a>
+            <button id='logout'>Logout</button>
           </div>
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="is_gluten_free" name="is_gluten_free" value="true">
-            <label class="form-check-label" for="is_gluten_free">
-              Gluten Free
-            </label>
-          </div>
-          <button type="submit" class="btn btn-primary">Filter</button>
-        </form>
+        </div>
+
       </div>
     </nav>
   </header>
+
   <main>
     <div class="container restaurants-container"></div>
     <div class="container menu-items-container"></div>
@@ -62,5 +159,6 @@
 <script type="text/javascript" src="/scripts/menu-items.js"></script>
 <script type="text/javascript" src="/scripts/order.js"></script>
 <script type="text/javascript" src="/scripts/restaurants.js"></script>
+<script type="text/javascript" src="/scripts/users.js"></script>
 
 </html>

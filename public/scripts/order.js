@@ -4,58 +4,51 @@ $menuItemsContainer.submit(e => {
   const quantityValue = e.target[0].value;
   const menuCardMeta = $menuCard.data().json;
   menuCardMeta.quantity = quantityValue;
-  addMenuItemToOrder(menuCardMeta)
-    .then(() => {
-      // $('order-container').trigger('reset');//TODO:
-    }).then(() => {
-      loadOrder();
-    })
-    .catch(err => console.log(err.message));
+  addMenuItemToOrder(menuCardMeta);
+  $('#order-container').empty();
+  loadOrder();
 });
 
 const addMenuItemToOrder = (menuItemData) => {
-  console.log("DOES THIS WORK?");
   return $.post(`/api/order?&order_id=${1}&menu_item=${menuItemData.id}&quantity=${menuItemData.quantity}`);
 };
 
-const createOrderItem = (orderItemData) => {//TODO:
-  return `
-  <div class='order-item'>
-    <div>
-    ${orderItemData.id}
-    </div>
-    <div>
-    ${orderItemData.name}
-    </div>
-    <div>
-    ${orderItemData.quantity}
-    </div>
-    <div>
-    ${orderItemData.cost}
-    </div>
-    <a>X</a>   <!-- REMOVE FROM ORDER BUTTON, SHOULD PROBABLY BE AN ICON -->
-  </div>
-  `;
+const createOrderItem = (orderItemData) => {
+  const orderItemJSON = JSON.stringify(orderItemData);
 
+  return `
+  <div class="card text-white bg-dark mb-3" style="width: 24rem;" data-json="${orderItemJSON}">
+  <div class="card-header">
+    ${orderItemData.name}
+  </div>
+  <div class="container">
+    <div class="row justify-content-around">
+      <div class="col-4">Quantity: ${orderItemData.quantity}</div>
+      <div class="col-4">Price: $${orderItemData.cost / 100}</div>
+      <div class="col-1"><i class="fas fa-times"></i></div>
+    </div>
+  </div>
+</div>
+  `;
 };
 
-const createOrderTotal = (orderId) => {
-  // GET order total from db
+const updateOrderSummary = (orderId = 1) => {
   $.get(`api/order/${orderId}/total`)
     .then((orderTotal) => {
-
-      return `
-      <div>
-      TOTAL
-      ${orderTotal}
-
-      </div>
-      `;
-    });
+      const subtotal = orderTotal.sum / 100;
+      const gst = subtotal * 0.05;
+      const pst = subtotal * 0.07;
+      const total = subtotal + gst + pst;
+      $('#summary-subtotal').text(`$${subtotal.toFixed(2)}`);
+      $('#summary-gst').text(`$${gst.toFixed(2)}`);
+      $('#summary-pst').text(`$${pst.toFixed(2)}`);
+      $('#summary-total').text(`$${total.toFixed(2)}`);
+    })
+    .catch(err => console.log(err.message));
 };
 
-const loadOrder = (orderId) => {
-  $.get(`api/order/${orderId}`)
+const loadOrder = (orderId = 1) => {
+  $.get(`api/order/${orderId}/items`)
     .then((orderData) => {
       renderOrder(orderData);
     })
@@ -64,11 +57,10 @@ const loadOrder = (orderId) => {
 };
 
 const renderOrder = (orderItems) => {
-  const $orderContainer = $('.order-container');
+  const $orderContainer = $('#order-container');
   for (const orderItem of orderItems) {
     let $orderItem = createOrderItem(orderItem);
     $orderContainer.append($orderItem);
   }
-  const $orderTotal = createOrderTotal();
-  $orderContainer.append($orderTotal);
+  updateOrderSummary();
 };

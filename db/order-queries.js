@@ -36,6 +36,23 @@ const getOrdersByUserId = (id) => {
     });
 };
 
+const gerOrderItemsByOrderId = (id) => {
+  return db.query(`
+  SELECT orders.id, menu_items.name, count(menu_items.*) AS quantity, sum(menu_items.cost) AS cost
+  FROM orders
+  JOIN order_items ON orders.id = order_id
+  JOIN menu_items ON menu_items.id = menu_item_id
+  WHERE orders.id = $1
+  GROUP BY orders.id, menu_items.name;
+  `, [id])
+    .then((res) => {
+      return res.rows;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
 const addMenuItem = (params) => {
   return db.query(`
   INSERT INTO order_items (order_id, menu_item_id, quantity)
@@ -50,5 +67,6 @@ module.exports = {
   getOrdersById,
   getOrderTotal,
   getOrdersByUserId,
+  gerOrderItemsByOrderId,
   addMenuItem
 };
