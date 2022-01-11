@@ -1,11 +1,11 @@
-# LHL Midterm - Food Ordering App
+# LHL Midterm - **FüD** The Food Ordering App
 ## Contributors
   * Julia Gatina - [Github](https://github.com/julia-gatina)
   * Haris Rizwan - [Github](https://github.com/harisrizwan1)
   * Emily Waters - [Github](https://github.com/Emily-Waters)
 ## Project Description
 Midterm project for Lighthouse Labs WebDev Bootcamp, Nov22/2021 Cohort.
- This is a SPA for ordering food from (a/many) fictitious restaurant(s). Visitors can browse menus, register an account, sign in and then place orders. The app will send the information to the restaurant through SMS, provide an estimated time for pickup to the user, and then alert the user when an order is ready for pickup through SMS
+**FüD** is a SPA for ordering food from (a/many) fictitious restaurant(s). Visitors can browse menus, register an account, sign in and then place orders. The app will send the information to the restaurant through SMS, provide an estimated time for pickup to the user, and then alert the user when an order is ready for pickup through SMS
 #  TODO
 ## ![](https://img.shields.io/badge/IN%20PROGRESS--blue)
   * Create Readme
@@ -14,8 +14,6 @@ Midterm project for Lighthouse Labs WebDev Bootcamp, Nov22/2021 Cohort.
   * ![](https://img.shields.io/badge/-USER%20EXPERIENCE-blue)
     * **Decide on a name for the app**
       * FüD
-      * WYSIWYG
-      * YourDash
     * **Design app logo**
     * **Style nav bar**
       * Move dropdowns to the right
