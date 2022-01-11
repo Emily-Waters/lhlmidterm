@@ -12,6 +12,7 @@ const resCardClick = (e) => {
   const resCardJSON = $resCard.data().json;
   console.log('Res Card Meta Data: ', resCardJSON);
   view.show('menu');
+  view.show('order');
   // view.show('menu', resCardJSON);
 };
 
@@ -23,3 +24,26 @@ const filterOptionSubmit = (e) => {
   console.log('url in filterOptionsSubmit: ', destinationUrl);
   view.show('menu', destinationUrl);
 };
+
+const loginUser = (e) => {
+  e.preventDefault();
+  const formData = $(e.currentTarget).serialize();
+  getUser(formData)
+    .then((userData) => {
+      if (userData) {
+        window.cookie = userData;
+      }
+      view.show('user');
+    })
+    .catch(err => console.log(err.message));
+};
+
+const logoutUser = (e) => {
+  unGetUser()
+    .then((userData) => {
+      window.cookie = userData;
+      view.show('user');
+    })
+    .catch(err => console.log(err.message));
+};
+
