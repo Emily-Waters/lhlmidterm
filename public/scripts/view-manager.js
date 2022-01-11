@@ -5,7 +5,7 @@ $(() => {
   window.view = {};
 
   //  View manager
-  window.view.show = (page = 'home', data) => {
+  window.view.show = (page, data) => {
 
     $resContainer.detach();
     $menuContainer.detach();
@@ -16,7 +16,7 @@ $(() => {
       break;
     case 'menu':
       // TODO: need to load menu cards by restaurant id and incorporate filter options
-      getMenuItems()
+      getMenuItems(data)
         .then(menuData => {
           menuCards.addManyMenuCards(menuData);
           $main.append($menuContainer);
