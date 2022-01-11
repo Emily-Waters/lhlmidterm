@@ -55,7 +55,7 @@ const createOrderTotal = (orderId) => {
 
 const loadOrder = (orderId = 1) => {
   console.log('i ran');
-  $.get(`api/order/${orderId}`)
+  $.get(`api/order/${orderId}/items`)
     .then((orderData) => {
       renderOrder(orderData);
     })
