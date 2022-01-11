@@ -23,10 +23,13 @@ $(() => {
         });
       break;
     case 'order':
+      // TODO: Update order cart
       break;
     case 'login':
+      // TODO: Update user dropdown
       break;
     case 'logout':
+      // TODO: Update user dropdown
       break;
     default:
       // Render home
