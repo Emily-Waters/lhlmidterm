@@ -49,7 +49,7 @@ router.post('/login', (req, res) => {
 
 router.post('/logout', (req, res) => {
   req.session = null;
-  res.redirect('');
+  res.json(req.session);
 });
 
 const login = (userName) => {

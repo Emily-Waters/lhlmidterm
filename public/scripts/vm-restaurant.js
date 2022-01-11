@@ -50,3 +50,5 @@ $(() => {
   $('body').on('click','#res-card', resCardClick);
 
 });
+
+

@@ -1,21 +1,30 @@
 $(() => {
 
   const $main = $('main');
-
+  const $userContainer = $('#user-container');
   window.view = {};
 
   //  View manager
   window.view.show = (page, data) => {
 
-    $resContainer.detach();
-    $menuContainer.detach();
+    if (!window.cookie) {
+      console.log('Cookie: ',window.cookie);
+      $loggedInCard.detach();
+      $userContainer.append($loggedOutCard);
+    } else {
+      console.log('Cookie: ',window.cookie);
+      $loggedOutCard.detach();
+      $userContainer.append($loggedInCard);
+    }
 
     switch (page) {
     case 'restaurants':
+      $menuContainer.detach();
       $main.append($resContainer);
       break;
     case 'menu':
-      // TODO: need to load menu cards by restaurant id and incorporate filter options
+      $resContainer.detach();
+      // TODO: need to load menu cards by restaurant id
       getMenuItems(data)
         .then(menuData => {
           menuCards.addManyMenuCards(menuData);
@@ -24,12 +33,6 @@ $(() => {
       break;
     case 'order':
       // TODO: Update order cart
-      break;
-    case 'login':
-      // TODO: Update user dropdown
-      break;
-    case 'logout':
-      // TODO: Update user dropdown
       break;
     default:
       // Render home
