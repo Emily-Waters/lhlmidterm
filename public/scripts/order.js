@@ -61,6 +61,4 @@ const renderOrder = (orderItems) => {
     $orderContainer.append($orderItem);
   }
   updateOrderSummary();
-  // const $orderSummary = createOrderSummary();
-  // $orderContainer.append($orderSummary);
 };
