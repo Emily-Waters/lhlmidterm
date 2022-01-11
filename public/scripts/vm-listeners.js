@@ -11,5 +11,15 @@ const resCardClick = (e) => {
   const $resCard = $(e.currentTarget);
   const resCardJSON = $resCard.data().json;
   console.log('Res Card Meta Data: ', resCardJSON);
-  view.show('menu', resCardJSON);
+  view.show('menu');
+  // view.show('menu', resCardJSON);
+};
+
+const filterOptionSubmit = (e) => {
+  e.preventDefault();
+  const formData = $(e.currentTarget).serialize();
+  const destinationUrl = '/api/menu?' + formData;
+  console.log('formData in filterOptionSubmit: ', formData);
+  console.log('url in filterOptionsSubmit: ', destinationUrl);
+  view.show('menu', destinationUrl);
 };
