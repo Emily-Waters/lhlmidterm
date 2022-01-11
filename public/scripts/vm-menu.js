@@ -43,7 +43,6 @@ $(() => {
   const $menuContainer = $('<div class="container menu-items-container"></div>');
 
   window.$menuContainer = $menuContainer;
-
   window.menuCards = {};
 
   const addMenuCard = (menu) => {
@@ -68,6 +67,8 @@ $(() => {
   window.menuCards.addManyMenuCards = addManyMenuCards;
 
   $('body').on('submit','#menu-card',menuCardSubmit);
+  $('body').on('submit','#filter-options',filterOptionSubmit);
+
 
 });
 
