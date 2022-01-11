@@ -13,9 +13,11 @@ const addMenuItemToOrder = (menuItemData) => {
   return $.post(`/api/order?&order_id=${1}&menu_item=${menuItemData.id}&quantity=${menuItemData.quantity}`);
 };
 
-const createOrderItem = (orderItemData) => {//TODO:
+const createOrderItem = (orderItemData) => {
+  const orderItemJSON = JSON.stringify(orderItemData);
+
   return `
-  <div class="card text-white bg-dark mb-1" style="width: 24rem;">
+  <div class="card text-white bg-dark mb-3" style="width: 24rem;" data-json="${orderItemJSON}">
   <div class="card-header">
     ${orderItemData.name}
   </div>
@@ -28,43 +30,24 @@ const createOrderItem = (orderItemData) => {//TODO:
   </div>
 </div>
   `;
-
-
-
-  // `
-  // <div class="row order-item">
-  //   <div>
-  //   Name: ${orderItemData.name}
-  //   </div>
-  //   <div>
-  //   Quantity: ${orderItemData.quantity}
-  //   </div>
-  //   <div>
-  //   Price: ${orderItemData.cost}
-  //   </div>
-  //   <a>X</a>   <!-- REMOVE FROM ORDER BUTTON, SHOULD PROBABLY BE AN ICON -->
-  // </div>
-  // `;
-
 };
 
-const createOrderTotal = (orderId) => {
-  // GET order total from db
+const updateOrderSummary = (orderId = 1) => {
   $.get(`api/order/${orderId}/total`)
     .then((orderTotal) => {
-
-      return `
-      <div>
-      TOTAL
-      ${orderTotal}
-
-      </div>
-      `;
-    });
+      const subtotal = orderTotal.sum / 100;
+      const gst = subtotal * 0.05;
+      const pst = subtotal * 0.07;
+      const total = subtotal + gst + pst;
+      $('#summary-subtotal').text(`$${subtotal.toFixed(2)}`);
+      $('#summary-gst').text(`$${gst.toFixed(2)}`);
+      $('#summary-pst').text(`$${pst.toFixed(2)}`);
+      $('#summary-total').text(`$${total.toFixed(2)}`);
+    })
+    .catch(err => console.log(err.message));
 };
 
 const loadOrder = (orderId = 1) => {
-  console.log('i ran');
   $.get(`api/order/${orderId}/items`)
     .then((orderData) => {
       renderOrder(orderData);
@@ -74,12 +57,10 @@ const loadOrder = (orderId = 1) => {
 };
 
 const renderOrder = (orderItems) => {
-  console.log(orderItems);
   const $orderContainer = $('#order-container');
   for (const orderItem of orderItems) {
     let $orderItem = createOrderItem(orderItem);
     $orderContainer.append($orderItem);
   }
-  const $orderTotal = createOrderTotal();
-  $orderContainer.append($orderTotal);
+  updateOrderSummary();
 };

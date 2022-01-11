@@ -27,8 +27,8 @@ Midterm project for Lighthouse Labs WebDev Bootcamp, Nov22/2021 Cohort.
       * Add Veg/V/GF icons (Green when true, red when false)
       * ![](https://img.shields.io/badge/-STRETCH-purple) Up and down arrows for quantity selector
     * **Adjust styling on homepage**
-      * Consistent styling with menu cards
-      * Remove buttons and make restaurant cards smaller, highlight on hover and entire card clickable to go to restaurant menu
+      * <s>Consistent styling with menu cards</s>
+      * <s>Remove buttons and make restaurant cards smaller, highlight on hover and entire card clickable to go to restaurant menu</s>
     * **Overall styling**
       * Fonts. How many and which ones?
       * Coherent/consistent theme throughout
@@ -49,7 +49,7 @@ Midterm project for Lighthouse Labs WebDev Bootcamp, Nov22/2021 Cohort.
       * <s>ORDER button to go to the payment/finalize order screen</s>
         * Buttons need to be made functional
     * **Implement 'Home' button**
-      * Top left, next to logo (or the logo itself)
+      * <s>Top left, next to logo (or the logo itself)</s>
     * **Payment screen/Finalize order**
       * Checkout button in order cart brings the user to an order details and checkout page
       * Checkout page will list details of the order and an ORDER button that will send SMS to the user and restaurant
