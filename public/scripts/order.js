@@ -6,7 +6,7 @@ $menuItemsContainer.submit(e => {
   menuCardMeta.quantity = quantityValue;
   addMenuItemToOrder(menuCardMeta)
     .then(() => {
-      // $('order-container').trigger('reset');//TODO:
+      $('#order-container').empty();
     }).then(() => {
       loadOrder();
     })
@@ -14,7 +14,6 @@ $menuItemsContainer.submit(e => {
 });
 
 const addMenuItemToOrder = (menuItemData) => {
-  console.log("DOES THIS WORK?");
   return $.post(`/api/order?&order_id=${1}&menu_item=${menuItemData.id}&quantity=${menuItemData.quantity}`);
 };
 
@@ -54,8 +53,9 @@ const createOrderTotal = (orderId) => {
     });
 };
 
-const loadOrder = (orderId) => {
-  $.get(`api/order/${orderId}`)
+const loadOrder = (orderId = 1) => {
+  console.log('i ran');
+  $.get(`api/order/${orderId}/items`)
     .then((orderData) => {
       renderOrder(orderData);
     })
@@ -64,7 +64,7 @@ const loadOrder = (orderId) => {
 };
 
 const renderOrder = (orderItems) => {
-  const $orderContainer = $('.order-container');
+  const $orderContainer = $('#order-container');
   for (const orderItem of orderItems) {
     let $orderItem = createOrderItem(orderItem);
     $orderContainer.append($orderItem);
