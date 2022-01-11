@@ -29,7 +29,6 @@ const createRestaurant = (restaurantItem) => {
     <div onclick="loadMenuById(${restaurantItem.id})" class="restaurant-card mb-3 pointer">
 
       <img src="${restaurantItem.cover_image_url}" class="col-12 restaurant-img p-0"></img>
-
       <div class="col-12 restaurant-details text-center pb-2">
         <h5 class="restaurant-title font-weight-bold text-center">${restaurantItem.name}</h5>
         <span class="mr-5">Address: ${restaurantItem.address}</span>
