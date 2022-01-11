@@ -13,3 +13,11 @@ const getOrderItems = (id = 1) => {
 const getOrderTotal = (id = 1) => {
   return $.get(`api/order/${id}/total`);
 };
+
+const getUser = (userData) => {
+  return $.post('/api/users/login', userData);
+};
+
+const unGetUser = () => {
+  return $.post('/api/users/logout');
+};

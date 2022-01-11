@@ -1,4 +1,5 @@
 $(() => {
+  // document.cookie = null;
   getAllRestaurants()
     .then(data => {
       resCards.addManyResCards(data);
