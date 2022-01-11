@@ -35,6 +35,6 @@ const createRestaurant = (restaurantItem) => {
         <span>Phone: ${restaurantItem.phone}</span>
       </div>
 
-    </div>
-    `
+  </div>
+  `;
 };

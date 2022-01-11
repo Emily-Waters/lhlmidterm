@@ -37,33 +37,32 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
+  console.log('In login', req.body.name);
   const userName = req.body.name;
   login(userName)
     .then(user => {
-      if (!user) {
-        res.send({error: "error"});
-        return;
-      }
-      req.session.userId = user.id;
-      res.send({user: {name: user.name, id: user.id}});
-      res.redirect('/');
+      req.session = user;
+      res.json(req.session);
     })
-    .catch(err => res.send(err));
+    .catch(err => console.log(err));
 });
 
 router.post('/logout', (req, res) => {
   req.session = null;
-  res.send({message: 'logged out'});
-  res.redirect('/');
+  res.redirect('');
 });
 
 const login = (userName) => {
   return userQueries
     .getUserByName(userName)
     .then(user => {
-      console.log('login success!');
-      return user;
-    });
+      if (user) {
+        console.log('login success!');
+        console.log('user: ',user);
+        return user;
+      }
+    })
+    .catch(err => err);
 };
 
 // export router object
