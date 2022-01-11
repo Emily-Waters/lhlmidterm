@@ -20,29 +20,21 @@ const renderRestaurants = (restaurants) => {
 // TODO: load menu by restaurant id?
 const loadMenuById = (restaurantId) => {
   loadMenu();
-  // TODO: create button to show back all restaurants
   $restaurantsContainer.addClass("d-none");
 };
 
 const createRestaurant = (restaurantItem) => {
   return `
 
-    <div onclick="loadMenuById(${restaurantItem.id})" class="row restaurant-card card mb-3 pointer">
+    <div onclick="loadMenuById(${restaurantItem.id})" class="restaurant-card mb-3 pointer">
 
-      <img src="${restaurantItem.cover_image_url}" class="col-12 card-img-top p-0"></img>
+      <img src="${restaurantItem.cover_image_url}" class="col-12 restaurant-img p-0"></img>
 
-      <div class="col-12 card-title p-2 font-weight-bold text-center">
-        ${restaurantItem.name}
+      <div class="col-12 restaurant-details text-center pb-2">
+        <h5 class="restaurant-title font-weight-bold text-center">${restaurantItem.name}</h5>
+        <span class="mr-5">Address: ${restaurantItem.address}</span>
+        <span>Phone: ${restaurantItem.phone}</span>
       </div>
-
-        <div class="col-12">
-          <div class="row">
-            <div class="col-6">
-              <p class="mb-0">Address: ${restaurantItem.address}</p>
-              <p>Phone: ${restaurantItem.phone}</p>
-            </div>
-          </div>
-        </div>
 
     </div>
     `
