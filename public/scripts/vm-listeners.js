@@ -12,6 +12,7 @@ const resCardClick = (e) => {
   const resCardJSON = $resCard.data().json;
   console.log('Res Card Meta Data: ', resCardJSON);
   view.show('menu');
+  view.show('order');
   // view.show('menu', resCardJSON);
 };
 

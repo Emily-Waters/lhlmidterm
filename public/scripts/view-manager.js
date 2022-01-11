@@ -32,7 +32,11 @@ $(() => {
         });
       break;
     case 'order':
-      // TODO: Update order cart
+      getOrderItems(data)
+        .then(orderData => {
+          orderCards.addManyOrderCards(orderData);
+          orderCards.updateOrderSummary();
+        });
       break;
     default:
       // Render home
