@@ -21,5 +21,17 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/:id", (req, res) => {
+  menuQueries.getMenuItems(req.query)
+    .then((menuItems) => {
+      res.json(menuItems || []);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
 // export router object
 module.exports = router;
