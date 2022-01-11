@@ -45,5 +45,5 @@ const createRestaurant = (restaurantItem) => {
     </div>
 
   </div>
-  `
+  `;
 };

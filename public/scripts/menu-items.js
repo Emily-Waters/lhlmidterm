@@ -11,8 +11,6 @@ const loadMenu = (url = '/api/menu/') => {
 
 // renderMenu
 const renderMenu = (menuItems) => {
-
-  console.log(menuItems);
   for (const item of menuItems) {
     let $menuItem = createMenuItem(item);
     $menuItemsContainer.append($menuItem);
