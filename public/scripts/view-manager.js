@@ -23,7 +23,11 @@ $(() => {
         });
       break;
     case 'order':
-      // TODO: Update order cart
+      getOrderItems(data)
+        .then(orderData => {
+          orderCards.addManyOrderCards(orderData);
+          orderCards.updateOrderSummary();
+        });
       break;
     case 'login':
       // TODO: Update user dropdown
