@@ -1,5 +1,8 @@
 @keyframes bounce {
-  0%, 20%, 60%, 100% {
+  0%,
+  20%,
+  60%,
+  100% {
     -webkit-transform: translateY(0);
     transform: translateY(0);
   }
@@ -20,15 +23,17 @@
     cursor: pointer;
     width: 70vw;
     height: 60vh;
+    margin-bottom: 120px;
 
     &:hover {
-  transform: scale(104%);
-  transition: .2s ease-in-out;
+      transform: scale(103%);
+      transition: .1s ease-in-out;
     }
 
     .restaurant-img {
       width: 100%;
-      height: 100%;
+      height:100%;
+      object-fit: cover;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
     }
@@ -40,12 +45,13 @@
       border-bottom-right-radius: 10px;
       box-shadow: 4px 4px 15px black;
 
-      .restaurant-title{
+      .restaurant-title {
         font-family: fantasy;
         font-weight: bolder;
-        font-size: 60px;
+        font-size: clamp(20px, 5vw, 52px);
         text-shadow: 2px 2px 4px olive;
-        &:hover{
+
+        &:hover {
           animation: bounce 1s;
         }
       }
