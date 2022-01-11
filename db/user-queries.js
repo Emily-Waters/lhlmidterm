@@ -24,7 +24,7 @@ const getUserByName = (name) => {
   return db
     .query(`SELECT * FROM users WHERE name = $1`, [name])
     .then(res => res.rows[0])
-    .catch(err => console.log(err.message));
+    .catch(err => err);
 };
 
 module.exports = {

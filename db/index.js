@@ -8,7 +8,7 @@ pool.connect((err,client) => {
     console.log('DB in db.index.js connected.\nClient => ', client.user);
     console.log('DB =====> ', client.database);
   } else {
-    console.log('Error: ',err);
+    console.log('Error: ', err);
   }
 });
 
