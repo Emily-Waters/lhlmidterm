@@ -47,30 +47,21 @@ const unGetUser = () => {
 const loginUser = (e) => {
   e.preventDefault();
   const formData = $(e.currentTarget).serialize();
-  console.log('Login');
   getUser(formData)
     .then((userData) => {
-      // Create new user dropdown with cookie info
-
-      console.log(userData);
       if (userData) {
         window.cookie = userData;
-        view.show('login');
       }
+      view.show('user');
     })
     .catch(err => console.log(err.message));
 };
 
 const logoutUser = (e) => {
-  console.log('Logout');
   unGetUser()
     .then((userData) => {
-      // Create new user dropdown when no cookie info
-      console.log(window.cookie);
       window.cookie = userData;
-      view.show('logout');
-      // $loggedInCard.detach();
-      // $('#user-container').append($loggedOutCard);
+      view.show('user');
     })
-    .catch();
+    .catch(err => console.log(err.message));
 };
