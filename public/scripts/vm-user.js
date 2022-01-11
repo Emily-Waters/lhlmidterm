@@ -30,38 +30,5 @@ $(() => {
 
   $('body').on('submit', '#login', loginUser);
   $('body').on('click', '#logout', logoutUser);
+
 });
-
-
-// vm-ajax ------------------------------------------
-const getUser = (userData) => {
-  return $.post('/api/users/login', userData);
-};
-
-const unGetUser = () => {
-  return $.post('/api/users/logout');
-};
-
-
-// vm-listeners -------------------------------------
-const loginUser = (e) => {
-  e.preventDefault();
-  const formData = $(e.currentTarget).serialize();
-  getUser(formData)
-    .then((userData) => {
-      if (userData) {
-        window.cookie = userData;
-      }
-      view.show('user');
-    })
-    .catch(err => console.log(err.message));
-};
-
-const logoutUser = (e) => {
-  unGetUser()
-    .then((userData) => {
-      window.cookie = userData;
-      view.show('user');
-    })
-    .catch(err => console.log(err.message));
-};
