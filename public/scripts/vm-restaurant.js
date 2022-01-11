@@ -1,8 +1,7 @@
 $(() => {
+  // Create resCard object in window
   window.resCard = {};
 
-
-  // Single Res Cards
   const createResCard = (resItemData) => {
     const resItemJSON = JSON.stringify(resItemData);
     return $(`
@@ -19,13 +18,11 @@ $(() => {
 
   window.resCard.createResCard = createResCard;
 
-  // Many Res Cards
-
   // Main Res Card Container
   const $resContainer = $(`<div class="container restaurants-container"></div>`);
-
   window.$resContainer = $resContainer;
 
+  // Create resCards object in window
   window.resCards = {};
 
   const addResCard = (restaurant) => {
@@ -39,24 +36,17 @@ $(() => {
   const addManyResCards = (resData) => {
     clearResCards();
     for (const id in resData) {
-      const res = resData[id];
-      const card = resCard.createResCard(res);
-      addResCard(card);
+      const resItemData = resData[id];
+      const resItemCard = resCard.createResCard(resItemData);
+      addResCard(resItemCard);
     }
   };
-
 
   window.resCards.addResCard = addResCard;
   window.resCards.addManyResCards = addManyResCards;
   window.resCards.clearResCards = clearResCards;
 
-
-  $('body').on('click','#res-card',(e) => {
-    const $resCard = $(e.currentTarget);
-    const resCardJSON = $resCard.data().json;
-    console.log('Res Card Meta Data: ', resCardJSON);
-    view.show('menu', resCardJSON);
-    // TODO: Load menu by restaurant id
-  });
+  // Res Cards Event Listeners
+  $('body').on('click','#res-card', resCardClick);
 
 });

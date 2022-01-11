@@ -67,13 +67,7 @@ $(() => {
   window.menuCards.clearMenuCards = clearMenuCards;
   window.menuCards.addManyMenuCards = addManyMenuCards;
 
-  $('body').on('submit','#menu-card',(e) => {
-    e.preventDefault();
-    const $menuCard = $(e.currentTarget);
-    const menuCardJSON = $menuCard.data().json;
-    console.log('Menu Card Meta Data: ', menuCardJSON);
-    // TODO: MenuCardJSON needs to be sent to the order card
-  });
+  $('body').on('submit','#menu-card',menuCardSubmit);
 
 });
 
