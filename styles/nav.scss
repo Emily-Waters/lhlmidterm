@@ -11,13 +11,26 @@ nav {
   height:4em;
   // background: rgb(0,0,0);
   // background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(43,43,43,1) 33%, rgba(74,74,74,1) 100%);
+  .dropdown-menu {
+    background-color: #212529;
+    color: white;
+
+    .dropdown-item {
+      color: white;
+    }
+    .fa-times {
+      color: red;
+    }
+  }
+
+  .dropdown-menu-right.show {
+    display: block;
+    right: 0;
+    left: auto;
+  }
 }
 
-.dropdown-menu-right.show {
-  display: block;
-  right: 0;
-  left: auto;
-}
+
 
 #dropdown-section {
   display: flex;

@@ -18,8 +18,8 @@ Midterm project for Lighthouse Labs WebDev Bootcamp, Nov22/2021 Cohort.
       * YourDash
     * **Design app logo**
     * **Style nav bar**
-      * Move dropdowns to the right
-      * Replace buttons with icons
+      * <s>Move dropdowns to the right</s>
+      * <s>Replace buttons with icons</s>
       * Add restaurant name, user info and app logo
     * **Style menu cards**
       * Animate button on click
@@ -40,11 +40,14 @@ Midterm project for Lighthouse Labs WebDev Bootcamp, Nov22/2021 Cohort.
       * Implement simple login
       * Logging in will create a user id cookie, logging out will delete the cookie
     * **Dropdown user tab**
-      * Log In/Log Out/Register, Order History
+      * <s>Log In/Log Out/Register, Order History</s>
+        * Skeleton done, functionality needs to be added.
       * ![](https://img.shields.io/badge/-STRETCH-purple) Slide Down/Slide up Animation
     * **Dropdown Cart**
-      * Dropdown order card detailing current order, subtotals for item price * quantity (GROUP BY order item id)
-      * ORDER button to go to the payment/finalize order screen
+      * <s>Dropdown order card detailing current order, subtotals for item price * quantity (GROUP BY order item id)</s>
+        * Buttons need to be made functional
+      * <s>ORDER button to go to the payment/finalize order screen</s>
+        * Buttons need to be made functional
     * **Implement 'Home' button**
       * Top left, next to logo (or the logo itself)
     * **Payment screen/Finalize order**
