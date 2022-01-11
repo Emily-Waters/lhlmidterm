@@ -3,17 +3,18 @@ $(() => {
 
 
   // Single Res Cards
-  const createResCard = (resItem) => {
-    return `
-      <div onclick="loadMenuById(${resItem.id})" class="restaurant-card mb-3 pointer">
-        <img src="${resItem.cover_image_url}" class="col-12 restaurant-img p-0"></img>
+  const createResCard = (resItemData) => {
+    const resItemJSON = JSON.stringify(resItemData);
+    return $(`
+      <div class="restaurant-card mb-3 pointer" id="res-card" data-json='${resItemJSON}'>
+        <img src="${resItemData.cover_image_url}" class="col-12 restaurant-img p-0"></img>
         <div class="col-12 restaurant-details text-center pb-2">
-          <h5 class="restaurant-title font-weight-bold text-center">${resItem.name}</h5>
-          <span class="mr-5">Address: ${resItem.address}</span>
-          <span>Phone: ${resItem.phone}</span>
+          <h5 class="restaurant-title font-weight-bold text-center">${resItemData.name}</h5>
+          <span class="mr-5">Address: ${resItemData.address}</span>
+          <span>Phone: ${resItemData.phone}</span>
         </div>
     </div>
-    `;
+    `);
   };
 
   window.resCard.createResCard = createResCard;
@@ -44,9 +45,18 @@ $(() => {
     }
   };
 
+
   window.resCards.addResCard = addResCard;
   window.resCards.addManyResCards = addManyResCards;
   window.resCards.clearResCards = clearResCards;
 
+
+  $('body').on('click','#res-card',(e) => {
+    const $resCard = $(e.currentTarget);
+    const resCardJSON = $resCard.data().json;
+    console.log('Res Card Meta Data: ', resCardJSON);
+    view.show('menu', resCardJSON);
+    // TODO: Load menu by restaurant id
+  });
 
 });
