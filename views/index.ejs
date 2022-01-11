@@ -61,21 +61,73 @@
           </form>
         </div>
 
-        <div class="dropdown">
+        <div class="dropdown container justify-content-around">
           <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-shopping-cart"></i>
           </button>
           <div class="dropdown-menu dropdown-menu-right">
-            <div id="order-container"></div>
+
+            <!-- Container for order items to be dynamically be loaded in -->
+            <div class="container justify-content-center" id="order-container"></div>
+
+            <!-- Container for summary and order/cancel buttons -->
             <div class="container">
-              <div class="row justify-content-around">
-                <button class="col-5 btn btn-outline-success">Order</button>
-                <button class="col-5 btn btn-outline-danger">Cancel</button>
+              <div class="row justify-content-around align-items-center">
+
+                <!-- Order Summary Card -->
+                <div class="col-8">
+                  <div class="card text-white border-light bg-dark mb-3" style="width: 14rem;">
+                    <div class="row card-header justify-content-center">
+                      Order Summary
+                    </div>
+                    <div class="container">
+                      <div class="row justify-content-around">
+                        <div class="col-5">
+                          <div class="row">
+                            Subtotal:
+                          </div>
+                          <div class="row">
+                            GST:
+                          </div>
+                          <div class="row">
+                            PST:
+                          </div>
+                          <div class="row">
+                            Total:
+                          </div>
+                        </div>
+                        <div class="col-3">
+                          <div class="row" id="summary-subtotal">
+                          </div>
+                          <div class="row" id="summary-gst">
+                          </div>
+                          <div class="row" id="summary-pst">
+                          </div>
+                          <div class="row" id="summary-total">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Order and cancel buttons -->
+                <div class="col">
+                  <div class="row">
+                    <button class="btn btn-outline-success order-cancel">Order</button>
+                  </div>
+                  <div class="row">
+                    <button class="btn btn-outline-danger order-cancel">Cancel</button>
+                  </div>
+                </div>
+
               </div>
+
             </div>
           </div>
         </div>
 
+        <!-- User Info Dropdown -->
         <div class="dropdown">
           <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="far fa-user"></i>

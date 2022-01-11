@@ -36,7 +36,7 @@ router.get('/:id/total', (req, res) => {
   const queryParams = req.params.id;
   orderQueries.getOrderTotal(queryParams)
     .then((total) => {
-      res.json({ total });
+      res.json(total);
     })
     .catch(err => {
       res

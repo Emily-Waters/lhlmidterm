@@ -1,25 +1,23 @@
-// header {
-//   width: 100%;
-//   position: fixed;
-//   top:0;
-//   z-index: 100;
-// }
-
 nav {
-  // border-bottom: 1px solid rgb(41, 41, 41);
-  // width: inherit;
   height:4em;
-  // background: rgb(0,0,0);
-  // background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(43,43,43,1) 33%, rgba(74,74,74,1) 100%);
+
   .dropdown-menu {
     background-color: #212529;
     color: white;
+    border-radius: 1rem;
 
     .dropdown-item {
       color: white;
+      width: 80%;
     }
+
     .fa-times {
       color: red;
+    }
+
+    .order-cancel {
+      width: 7rem;
+      margin-bottom: 1rem;
     }
   }
 
