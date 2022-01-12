@@ -47,3 +47,7 @@ const logoutUser = (e) => {
     .catch(err => console.log(err.message));
 };
 
+const logoHome = (e) => {
+  e.preventDefault();
+  view.show('restaurants');
+};
