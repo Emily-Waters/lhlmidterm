@@ -21,13 +21,17 @@ $(() => {
 
   const userStatusAttachment = () => {
     if (!window.cookie) {
+      $loggedInCard.fadeOut();
       $loggedInCard.detach();
       $('#order-cart-dropdown').prop('disabled', true);
       $userContainer.append($loggedOutCard);
+      $loggedOutCard.fadeIn();
     } else {
+      $loggedOutCard.fadeOut();
       $loggedOutCard.detach();
       $('#order-cart-dropdown').prop('disabled', false);
       $userContainer.append($loggedInCard);
+      $loggedInCard.fadeIn();
     }
   };
 
