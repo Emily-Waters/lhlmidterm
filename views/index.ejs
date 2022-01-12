@@ -75,61 +75,66 @@
           </button>
           <div class="dropdown-menu dropdown-menu-right">
 
-            <!-- Container for order items to be dynamically be loaded in -->
-            <div class="container justify-content-center" id="order-container"></div>
+            <div id="order-cart-container">
 
-            <!-- Container for summary and order/cancel buttons -->
-            <div class="container">
-              <div class="row justify-content-around align-items-center">
+              <!-- Container for order items to be dynamically be loaded in -->
+              <div class="container justify-content-center" id="order-container"></div>
 
-                <!-- Order Summary Card -->
-                <div class="col-8">
-                  <div class="card text-white border-light bg-dark mb-3" style="width: 14rem;">
-                    <div class="row card-header justify-content-center">
-                      Order Summary
-                    </div>
-                    <div class="container">
-                      <div class="row justify-content-around">
-                        <div class="col-5">
-                          <div class="row">
-                            Subtotal:
+              <!-- Container for summary and order/cancel buttons -->
+              <div class="container">
+                <div class="row justify-content-around align-items-center">
+
+                  <!-- Order Summary Card -->
+                  <div class="col-8">
+                    <div class="card text-white border-light bg-dark" style="width: 14rem;">
+                      <div class="row card-header justify-content-center">
+                        Order Summary
+                      </div>
+                      <div class="container">
+                        <div class="row justify-content-around">
+                          <div class="col-5">
+                            <div class="row">
+                              Subtotal:
+                            </div>
+                            <div class="row">
+                              GST:
+                            </div>
+                            <div class="row">
+                              PST:
+                            </div>
+                            <div class="row">
+                              Total:
+                            </div>
                           </div>
-                          <div class="row">
-                            GST:
-                          </div>
-                          <div class="row">
-                            PST:
-                          </div>
-                          <div class="row">
-                            Total:
-                          </div>
-                        </div>
-                        <div class="col-3">
-                          <div class="row" id="summary-subtotal">
-                          </div>
-                          <div class="row" id="summary-gst">
-                          </div>
-                          <div class="row" id="summary-pst">
-                          </div>
-                          <div class="row" id="summary-total">
+                          <div class="col-3">
+                            <div class="row" id="summary-subtotal">
+                            </div>
+                            <div class="row" id="summary-gst">
+                            </div>
+                            <div class="row" id="summary-pst">
+                            </div>
+                            <div class="row" id="summary-total">
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <!-- Order and cancel buttons -->
-                <div class="col">
-                  <div class="row">
-                    <button class="btn btn-outline-success order-cancel">Order</button>
-                  </div>
-                  <div class="row">
-                    <button class="btn btn-outline-danger order-cancel">Cancel</button>
+                  <!-- Order and cancel buttons -->
+                  <div class="col">
+                    <div class="row">
+                      <button class="btn btn-outline-success order-cancel" id="order">Order</button>
+                    </div>
+                    <div class="row">
+                      <button class="btn btn-outline-danger order-cancel" id="cancel">Cancel</button>
+                    </div>
                   </div>
                 </div>
               </div>
+
             </div>
+
           </div>
         </div>
 
@@ -159,6 +164,7 @@
   <script type="text/javascript" src="/scripts/vm-menu.js"></script>
   <script type="text/javascript" src="/scripts/vm-user.js"></script>
   <script type="text/javascript" src="/scripts/vm-order.js"></script>
+  <script type="text/javascript" src="/scripts/vm-checkout.js"></script>
   <script type="text/javascript" src="/scripts/vm-listeners.js"></script>
   <script type="text/javascript" src="/scripts/vm-ajax.js"></script>
   <script type="text/javascript" src="/scripts/vm-index.js"></script>

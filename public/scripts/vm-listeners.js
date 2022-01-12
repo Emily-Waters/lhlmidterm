@@ -3,9 +3,9 @@ const menuCardSubmit = (e) => {
   const $menuCard = $(e.currentTarget);
   const menuCardJSON = $menuCard.data().json;
   menuCardJSON.quantity = Number(e.target[0].value);
-  deleteOrderItem(menuCardJSON.id);
-  addMenuItemToOrder(menuCardJSON);
-  view.show('order');
+  deleteOrderItem(menuCardJSON.id)
+    .then(addMenuItemToOrder(menuCardJSON))
+    .then(view.show('order'));
 };
 
 const resCardClick = (e) => {
@@ -41,13 +41,18 @@ $('#is_gluten_free').click(function() {
   } else $('#gluten_free').removeClass('green');
 });
 
-// not working TODO:
 const deleteItem = (e) => {
   e.preventDefault();
   const $orderItem = $(e.target).parents('.menu-item-card');
   const orderCardJSON = $orderItem.data().json;
   deleteOrderItem(orderCardJSON.menu_item_id);
   view.show('order');
+};
+
+const loadCheckout = (e) => {
+  e.preventDefault();
+  $('#order-cart-container').detach();
+  $('#cart-dropdown .dropdown-menu').append(checkoutCard);
 };
 
 const loginUser = (e) => {
