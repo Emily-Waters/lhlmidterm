@@ -7,7 +7,6 @@ $(() => {
   window.view = {};
   //  View manager
   window.view.show = (page, data) => {
-
     switch (page) {
     case 'restaurants':
       $filterButton.prop('disabled', true);

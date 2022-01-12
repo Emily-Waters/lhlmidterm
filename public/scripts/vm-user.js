@@ -20,7 +20,6 @@ $(() => {
   window.$loggedInCard = $loggedInCard;
 
   const userStatusAttachment = () => {
-    // $userContainer.empty();
     if (!window.cookie) {
       $loggedInCard.detach();
       $('#order-cart-dropdown').prop('disabled', true);
