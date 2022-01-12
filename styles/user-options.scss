@@ -63,12 +63,26 @@ div.user-options {
       box-shadow: -6px 0px 25px 10px rgba(0, 0, 0, 0.95);
     }
 
+    @keyframes rotate-180 {
+      from {transform: rotate(0deg);}
+      to {transform: rotate(180deg);}
+    }
+
     .rotate {
-      transform: rotate(180deg);
+      animation-name: rotate-180;
+      animation-duration: 0.5s;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-fill-mode: forwards;
     }
 
     .unrotate {
-      transform: rotate(0deg);
+      animation-name: rotate-180;
+      animation-duration: 0.5s;
+      animation-iteration-count: 1;
+      animation-direction: reverse;
+      animation-fill-mode: forwards;
+
     }
 
 }

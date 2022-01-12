@@ -50,21 +50,21 @@ $(() => {
 
   $('body').on('click', '.user-options', (e) => {
     const $this = $(e.currentTarget);
+    $this.children('i').removeClass('rotate unrotate');
     if ($this.hasClass('out')) {
-      $this.children('i');
-      console.log($this.children('i'));
       $this
         .removeClass('out')
-        .addClass('in shadow')
+        .addClass('in')
         .animate({left:'97vw'},500)
         .children('i')
         .addClass('rotate');
     } else {
-      $this.removeClass('in shadow')
+      $this
+        .removeClass('in shadow')
         .addClass('out')
         .animate({left:'67vw'},500)
         .children('i')
-        .removeClass('rotate');
+        .addClass('unrotate');
     }
   });
 
