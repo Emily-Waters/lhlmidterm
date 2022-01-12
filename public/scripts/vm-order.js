@@ -21,7 +21,6 @@ $(() => {
   };
 
   const $orderContainer = $('#order-container');
-
   window.$orderContainer = $orderContainer;
 
   const addOrderCard = (order) => {
@@ -60,7 +59,6 @@ $(() => {
     e.stopPropagation();
   });
 
-  // NOT WORKING TODO:
   $(document).on('click', '.fa-times', deleteItem);
 
   window.orderCards = {

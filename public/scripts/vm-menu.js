@@ -4,7 +4,7 @@ $(() => {
   // Single Menu Cards
   const createMenuCard = (menuItemData) => {
     const menuItemJSON = JSON.stringify(menuItemData);
-    return `
+    return $(`
       <div class="row menu-card mb-3" id="menu-card" data-json='${menuItemJSON}'>
         <img src="${menuItemData.image_url}" class="col-3 menu-img">
         </img>
@@ -45,16 +45,16 @@ $(() => {
           </div>
         </div>
       </div>
-  `;
-};
+  `);
+  };
 
-const isOptionActive = (optionValue) => {
-let assignClass = 'green';
-if (!optionValue) {
-  assignClass = 'red';
-}
-return assignClass;
-};
+  const isOptionActive = (optionValue) => {
+    let assignClass = 'green';
+    if (!optionValue) {
+      assignClass = 'red';
+    }
+    return assignClass;
+  };
 
   window.menuCard.createMenuCard = createMenuCard;
 

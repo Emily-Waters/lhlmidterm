@@ -1,71 +1,50 @@
 $(() => {
   window.user = {};
+
   const $loggedOutCard = $(`
+  <line class="user-row-1">
+  <i class="fas fa-user-circle" id="user-icon"></i>
+  <div class="user-col-1">
   <form action="api/users/login" method="post" id="login">
-    <label for="name">Username :</label>
-    <input type="text" id="name" name="name">
-    <button>Login</button>
-  </form>
+    <label for="name">Login :</label>
+    <input class="name-input" type="text" id="name" name="name" placeholder="Username">
+    </form>
+  <line id="login-button">Submit</line>
+  </div>
+  </line>
+  <line id="user-register">Don't have an account? <a href="">Sign up</a> and enjoy some <b>FüD</b></line>
+
   `);
 
   const $loggedInCard = $(`
-  <a class="dropdown-item" href="#">Register</a>
-  <a class="dropdown-item" href="#">Order History</a>
-  <a class="dropdown-item" href="#" id='logout'>Logout</a>
-`);
+  <a href="#">Order History</a>
+  <a href="#" id='logout'>Logout</a>
+  `);
 
   window.$loggedOutCard = $loggedOutCard;
   window.$loggedInCard = $loggedInCard;
 
-  const userStatusAttachment = ($userContainer) => {
+  const userStatusAttachment = () => {
     if (!window.cookie) {
+      $loggedInCard.fadeOut();
       $loggedInCard.detach();
       $('#order-cart-dropdown').prop('disabled', true);
       $userContainer.append($loggedOutCard);
+      $loggedOutCard.fadeIn();
     } else {
+      $loggedOutCard.fadeOut();
       $loggedOutCard.detach();
       $('#order-cart-dropdown').prop('disabled', false);
       $userContainer.append($loggedInCard);
+      $loggedInCard.fadeIn();
     }
   };
 
-  const $userOptions = $(`
-  <div class="user-options in rotate">
-    <i class="fas fa-chevron-right"></i>
-    <div class="options">
-      <line>THIS IS TEXT</line>
-      <line>THIS IS ALSO TEXT</line>
-      <line>THIS IS NOT TEXT</line>
-      <line>K, THAT LAST ONE WAS A LIE</line>
-    </div>
-  </div>
-  `);
-
-  $('main').append($userOptions);
-
   window.user.userStatusAttachment = userStatusAttachment;
 
-  $('body').on('submit', '#login', loginUser);
+  $('body').on('click', '#login-button', loginUser);
   $('body').on('click', '#logout', logoutUser);
-
-  $('body').on('click', '.user-options', (e) => {
-    const $this = $(e.currentTarget);
-    $this.children('i').removeClass('rotate unrotate');
-    if ($this.hasClass('out')) {
-      $this
-        .removeClass('out')
-        .addClass('in')
-        .animate({left:'97vw'},500)
-        .children('i')
-        .addClass('rotate');
-    } else {
-      $this
-        .removeClass('in shadow')
-        .addClass('out')
-        .animate({left:'67vw'},500)
-        .children('i')
-        .addClass('unrotate');
-    }
-  });
+  $('body').on('submit', '#login', loginUser);
+  $('body').on('click', '#slide-button', userContainerSlide);
 
 });
