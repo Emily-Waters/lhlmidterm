@@ -10,17 +10,22 @@ $(() => {
     switch (page) {
     case 'restaurants':
       $filterButton.prop('disabled', true);
+      $menuContainer.fadeOut();
       $menuContainer.detach();
       $main.append($resContainer);
+      $resContainer.fadeIn();
       break;
     case 'menu':
       $filterButton.prop('disabled', false);
+      $resContainer.fadeOut();
       $resContainer.detach();
       // TODO: need to load menu cards by restaurant id
       getMenuItems(data)
         .then(menuData => {
           menuCards.addManyMenuCards(menuData);
           $main.append($menuContainer);
+          $menuContainer.fadeIn();
+
         })
         .catch(err => console.log(err.message));
       break;
