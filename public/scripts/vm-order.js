@@ -1,7 +1,5 @@
 $(() => {
 
-  // window.orderCard = {};
-
   // Single Order Card
   const createOrderCard = (orderItemData) => {
     const orderItemJSON = JSON.stringify(orderItemData);
@@ -14,15 +12,13 @@ $(() => {
       <div class="container">
         <div class="row justify-content-around">
           <div class="col-4">Quantity: ${orderItemData.quantity}</div>
-          <div class="col-4">Price: $${orderItemData.cost / 100}</div>
+          <div class="col-4">Price: $${(orderItemData.cost * orderItemData.quantity) / 100}</div>
           <div class="col-1"><i class="fas fa-times"></i></div>
         </div>
       </div>
     </div>
     `;
   };
-
-  // window.orderCard.createOrderCard = createOrderCard;
 
   const $orderContainer = $('#order-container');
 
@@ -53,16 +49,15 @@ $(() => {
 
   const addManyOrderCards = (orderData) => {
     clearOrderCards();
-    // console.log("orderData", orderData);
     for (const id in orderData) {
       const orderItemData = orderData[id];
-      // console.log('id: ', id);
-      // console.log('value: ', orderItemData);
-      // const orderItemCard = orderCard.createOrderCard(orderItemData);
       const orderItemCard = createOrderCard(orderItemData);
       addOrderCard(orderItemCard);
     }
   };
+
+  // NOT WORKING TODO:
+  $('.fa-times').on('click', deleteItem);
 
   window.orderCards = {
     addOrderCard,

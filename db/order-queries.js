@@ -12,7 +12,7 @@ const getOrdersById = (id) => {
 
 const getOrderTotal = (id) => {
   return db.query(`
-  SELECT sum(cost)
+  SELECT sum(menu_items.cost * order_items.quantity)
   FROM orders
   JOIN order_items ON orders.id = order_id
   JOIN menu_items ON menu_items.id = menu_item_id
@@ -38,12 +38,11 @@ const getOrdersByUserId = (id) => {
 
 const gerOrderItemsByOrderId = (id) => {
   return db.query(`
-  SELECT orders.id, menu_items.name, count(menu_items.*) AS quantity, sum(menu_items.cost) AS cost
+  SELECT orders.id, menu_items.name, order_items.quantity, menu_items.cost
   FROM orders
   JOIN order_items ON orders.id = order_id
   JOIN menu_items ON menu_items.id = menu_item_id
-  WHERE orders.id = $1
-  GROUP BY orders.id, menu_items.name;
+  WHERE orders.id = $1;
   `, [id])
     .then((res) => {
       return res.rows;
@@ -53,11 +52,18 @@ const gerOrderItemsByOrderId = (id) => {
     });
 };
 
+const deleteItemFromCart = (params) => {
+  return db.query(`
+  DELETE FROM order_items WHERE order_id = $1 AND menu_item_id = $2;
+  `, [params.order_id, params.item_id]);
+};
+
 const addMenuItem = (params) => {
   return db.query(`
   INSERT INTO order_items (order_id, menu_item_id, quantity)
-  VALUES ($1, $2, $3)
+  VALUES ($1, $2, $3);
   `, [params.order_id, params.menu_item, params.quantity])
+    .then()
     .catch((err) => {
       console.log(err.message);
     });
@@ -68,5 +74,6 @@ module.exports = {
   getOrderTotal,
   getOrdersByUserId,
   gerOrderItemsByOrderId,
+  deleteItemFromCart,
   addMenuItem
 };
