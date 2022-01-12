@@ -1,0 +1,81 @@
+div.user-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  left:97vw;
+  width:33vw;
+  position: fixed;
+  top:4em;
+  bottom: 0;
+  right:0;
+  background-color: #212529;
+  color: white;
+  z-index: 10;
+  border-left: 2px solid black;
+  -webkit-box-shadow: -6px 0px 25px 10px rgba(0, 0, 0, 0.95);
+  box-shadow: -6px 0px 25px 10px rgba(0, 0, 0, 0.95);
+
+    .options {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      left: 1em;
+      position: relative;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      border-left: 2px solid black;
+    }
+
+    line {
+      color:grey;
+      text-align: center;
+      width: 100%;
+      border-bottom: 1px solid black;
+      border-top: 1px solid black;
+      padding: 0.5em 0em 0.5em 0em;
+    }
+
+    i {
+      transform: rotate(180deg);
+      color:grey;
+      height:1em;
+      width:1em;
+      position: relative;
+      left: .5rem;
+    }
+
+    .in {
+      box-shadow: -6px 0px 10px 5px rgba(0, 0, 0, 0.95);
+    }
+
+    .out {
+      box-shadow: -6px 0px 25px 10px rgba(0, 0, 0, 0.95);
+    }
+
+    @keyframes rotate-180 {
+      from {transform: rotate(0deg);}
+      to {transform: rotate(180deg);}
+    }
+
+    .rotate {
+      animation-name: rotate-180;
+      animation-duration: 0.5s;
+      animation-iteration-count: 1;
+      animation-direction: normal;
+      animation-fill-mode: forwards;
+    }
+
+    .unrotate {
+      animation-name: rotate-180;
+      animation-duration: 0.5s;
+      animation-iteration-count: 1;
+      animation-direction: reverse;
+      animation-fill-mode: forwards;
+
+    }
+
+}
+
