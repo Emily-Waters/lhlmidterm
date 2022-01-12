@@ -57,3 +57,23 @@ const logoHome = (e) => {
   e.preventDefault();
   view.show('restaurants');
 };
+
+const userContainerSlide = (e) => {
+  const $this = $(e.currentTarget).parent();
+  $this.children('i').removeClass('rotate unrotate');
+  if ($this.hasClass('out')) {
+    $this
+      .removeClass('out')
+      .addClass('in')
+      .animate({left:'97vw'},500)
+      .children('i')
+      .addClass('rotate');
+  } else {
+    $this
+      .removeClass('in shadow')
+      .addClass('out')
+      .animate({left:'67vw'},500)
+      .children('i')
+      .addClass('unrotate');
+  }
+};
