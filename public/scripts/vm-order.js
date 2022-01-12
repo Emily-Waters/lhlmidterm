@@ -5,7 +5,7 @@ $(() => {
     const orderItemJSON = JSON.stringify(orderItemData);
 
     return `
-    <div class="card text-white bg-dark mb-3" style="width: 24rem;" data-json="${orderItemJSON}">
+    <div class="card menu-item-card text-white bg-dark mb-3" style="width: 24rem;" data-json='${orderItemJSON}'>
       <div class="card-header">
         ${orderItemData.name}
       </div>
@@ -56,8 +56,12 @@ $(() => {
     }
   };
 
+  $(document).on('click', '#cart-dropdown .dropdown-menu', function(e) {
+    e.stopPropagation();
+  });
+
   // NOT WORKING TODO:
-  $('.fa-times').on('click', deleteItem);
+  $(document).on('click', '.fa-times', deleteItem);
 
   window.orderCards = {
     addOrderCard,
