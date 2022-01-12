@@ -1,3 +1,4 @@
+//  Grabs all restaurants
 const getAllRestaurants = () => {
   return $.get('/api/restaurants/');
 };
@@ -6,10 +7,17 @@ const getMenuItems = (url = '/api/menu') => { // TODO: Make it so menus can be g
   return $.get(url);
 };
 
+// On submission from menu, item is added to cart
+const addMenuItemToOrder = (menuItemData, id = 1) => {
+  return $.post(`/api/order?order_id=${id}&menu_item=${menuItemData.id}&quantity=${menuItemData.quantity}`);
+};
+
+// Grabs items from current order
 const getOrderItems = (id = 1) => {
   return $.get(`api/order/${id}/items`);
 };
 
+// Grabs current order total
 const getOrderTotal = (id = 1) => {
   return $.get(`api/order/${id}/total`);
 };

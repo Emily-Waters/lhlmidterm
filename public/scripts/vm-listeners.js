@@ -2,7 +2,10 @@ const menuCardSubmit = (e) => {
   e.preventDefault();
   const $menuCard = $(e.currentTarget);
   const menuCardJSON = $menuCard.data().json;
+  menuCardJSON.quantity = e.target[0].value;
   console.log('Menu Card Meta Data: ', menuCardJSON);
+  addMenuItemToOrder(menuCardJSON);
+  view.show('order');
   // TODO: MenuCardJSON needs to be sent to the order card
 };
 
