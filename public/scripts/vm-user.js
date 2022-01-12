@@ -29,9 +29,43 @@ $(() => {
     }
   };
 
+  const $userOptions = $(`
+  <div class="user-options in rotate">
+    <i class="fas fa-chevron-right"></i>
+    <div class="options">
+      <line>THIS IS TEXT</line>
+      <line>THIS IS ALSO TEXT</line>
+      <line>THIS IS NOT TEXT</line>
+      <line>K, THAT LAST ONE WAS A LIE</line>
+    </div>
+  </div>
+  `);
+
+  $('main').append($userOptions);
+
   window.user.userStatusAttachment = userStatusAttachment;
 
   $('body').on('submit', '#login', loginUser);
   $('body').on('click', '#logout', logoutUser);
+
+  $('body').on('click', '.user-options', (e) => {
+    const $this = $(e.currentTarget);
+    $this.children('i').removeClass('rotate unrotate');
+    if ($this.hasClass('out')) {
+      $this
+        .removeClass('out')
+        .addClass('in')
+        .animate({left:'97vw'},500)
+        .children('i')
+        .addClass('rotate');
+    } else {
+      $this
+        .removeClass('in shadow')
+        .addClass('out')
+        .animate({left:'67vw'},500)
+        .children('i')
+        .addClass('unrotate');
+    }
+  });
 
 });
