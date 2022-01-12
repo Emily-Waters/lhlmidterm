@@ -3,7 +3,6 @@ const menuCardSubmit = (e) => {
   const $menuCard = $(e.currentTarget);
   const menuCardJSON = $menuCard.data().json;
   menuCardJSON.quantity = Number(e.target[0].value);
-  console.log(menuCardJSON.id);
   deleteOrderItem(menuCardJSON.id);
   addMenuItemToOrder(menuCardJSON);
   view.show('order');
@@ -27,8 +26,10 @@ const filterOptionSubmit = (e) => {
 // not working TODO:
 const deleteItem = (e) => {
   e.preventDefault();
-  const $orderItem = $(e.currentTarget);
-  console.log($orderItem);
+  const $orderItem = $(e.target).parents('.menu-item-card');
+  const orderCardJSON = $orderItem.data().json;
+  deleteOrderItem(orderCardJSON.menu_item_id);
+  view.show('order');
 };
 
 const loginUser = (e) => {
