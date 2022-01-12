@@ -22,12 +22,10 @@ $(() => {
   const userStatusAttachment = () => {
     if (!window.cookie) {
       $loggedInCard.detach();
-      $('#user-icon').toggleClass('icon-active');
       $('#order-cart-dropdown').prop('disabled', true);
       $userContainer.append($loggedOutCard);
     } else {
       $loggedOutCard.detach();
-      $('#user-icon').toggleClass('icon-active');
       $('#order-cart-dropdown').prop('disabled', false);
       $userContainer.append($loggedInCard);
     }
