@@ -24,14 +24,16 @@ $(() => {
         .then(menuData => {
           menuCards.addManyMenuCards(menuData);
           $main.append($menuContainer);
-        });
+        })
+        .catch(err => console.log(err.message));
       break;
     case 'order':
       getOrderItems(data)
         .then(orderData => {
           orderCards.addManyOrderCards(orderData);
           orderCards.updateOrderSummary();
-        });
+        })
+        .catch(err => console.log(err.message));
       break;
     default:
     }

@@ -22,22 +22,28 @@ $(() => {
             </div>
           </div>
 
-          <div class="row">
-            <div class="col menu-options">
+          <div class="row justify-content-between">
+            <div class="col-3 menu-options">
               <div>
-              <i class="fas fa-leaf mr-2 ${isOptionActive(menuItemData.is_vegan)}" title="Vegan"></i>
-              <i class="fas fa-carrot mr-2 ${isOptionActive(menuItemData.is_vegetarian)}" title="Vegetarian"></i>
-              <i class="fab fa-goodreads ${isOptionActive(menuItemData.is_gluten_free)}" title="Gluten Free"></i>
-            </div class="row">
-            <form name="order-add">
-              <input class="input-group" type="number" placeholder="QTY"></input>
-              <button class="btn btn-success">ADD</button>
-            </form>
+                <i class="fas fa-leaf mr-2 ${isOptionActive(menuItemData.is_vegan)}" title="Vegan"></i>
+                <i class="fas fa-carrot mr-2 ${isOptionActive(menuItemData.is_vegetarian)}" title="Vegetarian"></i>
+                <i class="fab fa-goodreads ${isOptionActive(menuItemData.is_gluten_free)}" title="Gluten Free"></i>
+              </div class="row">
+            </div>
+            <div class="col-2">
+              <form class="row form-group" name="order-add">
+                <select class="form-control" id="menu-quantity">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+                <button class="btn btn-success">ADD</button>
+              </form>
+            </div>
           </div>
-          </div>
-
-         </div>
-       </div>
+        </div>
       </div>
   `;
 };
@@ -80,7 +86,5 @@ return assignClass;
 
   $('body').on('submit','#menu-card',menuCardSubmit);
   $('body').on('submit','#filter-options',filterOptionSubmit);
-
-
 });
 
