@@ -52,7 +52,7 @@ const deleteItem = (e) => {
 
 const loginUser = (e) => {
   e.preventDefault();
-  $('#user-icon').toggleClass('icon-active');
+  $('#user-icon-status').toggleClass('icon-active');
   const $loginForm = $('#login');
   const formData = $loginForm.serialize();
   getUser(formData)
@@ -66,7 +66,7 @@ const loginUser = (e) => {
 };
 
 const logoutUser = (e) => {
-  $('#user-icon').toggleClass('icon-active');
+  $('#user-icon-status').toggleClass('icon-active');
   unGetUser()
     .then((userData) => {
       window.cookie = userData;
