@@ -15,34 +15,40 @@ $(() => {
                 ${menuItemData.name}
               </h4>
               <h5 class="col-2 menu-cost p-0">Price: $<span class="label label-success">${menuItemData.cost / 100}</span></h5>
-
            </div>
-
             <div class="row mb-3">
               <div class="col menu-description">
                 <p class="mb-0">${menuItemData.description}</p>
-              </div>
             </div>
+          </div>
 
           <div class="row">
             <div class="col menu-options">
               <div>
-                <i class="fas fa-leaf mr-2" title="Vegan"></i>
-                <i class="fas fa-carrot mr-2" title="Vegetarian"></i>
-                <i class="fab fa-goodreads mr-2" title="Gluten Free"></i>
-              </div class="row">
-              <form name="order-add">
-                <input class="input-group" type="number" placeholder="QTY"></input>
-                <button class="btn btn-success">ADD</button>
-              </form>
-            </div>
+              <i class="fas fa-leaf mr-2 ${isOptionActive(menuItemData.is_vegan)}" title="Vegan"></i>
+              <i class="fas fa-carrot mr-2 ${isOptionActive(menuItemData.is_vegetarian)}" title="Vegetarian"></i>
+              <i class="fab fa-goodreads ${isOptionActive(menuItemData.is_gluten_free)}" title="Gluten Free"></i>
+            </div class="row">
+            <form name="order-add">
+              <input class="input-group" type="number" placeholder="QTY"></input>
+              <button class="btn btn-success">ADD</button>
+            </form>
+          </div>
           </div>
 
-        </div>
+         </div>
+       </div>
       </div>
-    </div>
-    `;
-  };
+  `;
+};
+
+const isOptionActive = (optionValue) => {
+let assignClass = 'green';
+if (!optionValue) {
+  assignClass = 'red';
+}
+return assignClass;
+};
 
   window.menuCard.createMenuCard = createMenuCard;
 
