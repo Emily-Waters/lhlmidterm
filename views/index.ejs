@@ -28,13 +28,13 @@
   <header>
     <nav class="navbar fixed-top navbar-dark bg-dark">
 
-      <a class="navbar-brand" href="/">LOGO</a>
+      <a class="navbar-brand" href="" id="logo-button">FüD</a>
 
       <div id="dropdown-section">
 
         <!-- Dropdown for filter options -->
         <div class="dropdown">
-          <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="filter-option-button">
             <i class="fas fa-filter"></i>
           </button>
           <form class="dropdown-menu p-4" id="filter-options">
@@ -64,8 +64,8 @@
         </div>
 
         <!-- Dropdown for cart -->
-        <div class="dropdown container justify-content-around">
-          <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="dropdown container justify-content-around" >
+          <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="order-cart-dropdown">
             <i class="fas fa-shopping-cart"></i>
           </button>
           <div class="dropdown-menu dropdown-menu-right">
@@ -131,20 +131,12 @@
         </div>
 
         <!-- Dropdown for user info-->
-        <div class="dropdown" id="user-container">
-          <!-- <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div class="dropdown">
+          <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="far fa-user"></i>
           </button>
-          <div class="dropdown-menu dropdown-menu-right">
-            <form action="api/users/login" method="post" id="login">
-              <label for="name">Username :</label>
-              <input type="text" id="name" name="name">
-              <button>Login</button>
-            </form>
-            <a class="dropdown-item" href="#">Register</a>
-            <a class="dropdown-item" href="#">Order History</a>
-            <button id='logout'>Logout</button>
-          </div> -->
+          <div class="dropdown-menu dropdown-menu-right" id="user-container">
+          </div>
         </div>
 
       </div>

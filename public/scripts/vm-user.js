@@ -1,32 +1,35 @@
 $(() => {
-
+  window.user = {};
   const $loggedOutCard = $(`
-  <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <i class="far fa-user"></i>
-  </button>
-
-  <div class="dropdown-menu dropdown-menu-right">
-    <form action="api/users/login" method="post" id="login">
-      <label for="name">Username :</label>
-      <input type="text" id="name" name="name">
-      <button>Login</button>
-    </form>
-  </div>`);
+  <form action="api/users/login" method="post" id="login">
+    <label for="name">Username :</label>
+    <input type="text" id="name" name="name">
+    <button>Login</button>
+  </form>
+  `);
 
   const $loggedInCard = $(`
-  <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <i class="far fa-user"></i>
-  </button>
-  <div class="dropdown-menu dropdown-menu-right">
-  <button id='logout'>Logout</button>
   <a class="dropdown-item" href="#">Register</a>
   <a class="dropdown-item" href="#">Order History</a>
-  </div>
+  <a class="dropdown-item" href="#" id='logout'>Logout</a>
 `);
-
 
   window.$loggedOutCard = $loggedOutCard;
   window.$loggedInCard = $loggedInCard;
+
+  const userStatusAttachment = ($userContainer) => {
+    if (!window.cookie) {
+      $loggedInCard.detach();
+      $('#order-cart-dropdown').prop('disabled', true);
+      $userContainer.append($loggedOutCard);
+    } else {
+      $loggedOutCard.detach();
+      $('#order-cart-dropdown').prop('disabled', false);
+      $userContainer.append($loggedInCard);
+    }
+  };
+
+  window.user.userStatusAttachment = userStatusAttachment;
 
   $('body').on('submit', '#login', loginUser);
   $('body').on('click', '#logout', logoutUser);

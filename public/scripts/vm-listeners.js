@@ -13,15 +13,12 @@ const resCardClick = (e) => {
   console.log('Res Card Meta Data: ', resCardJSON);
   view.show('menu');
   view.show('order');
-  // view.show('menu', resCardJSON);
 };
 
 const filterOptionSubmit = (e) => {
   e.preventDefault();
   const formData = $(e.currentTarget).serialize();
   const destinationUrl = '/api/menu?' + formData;
-  console.log('formData in filterOptionSubmit: ', formData);
-  console.log('url in filterOptionsSubmit: ', destinationUrl);
   view.show('menu', destinationUrl);
 };
 
@@ -47,3 +44,7 @@ const logoutUser = (e) => {
     .catch(err => console.log(err.message));
 };
 
+const logoHome = (e) => {
+  e.preventDefault();
+  view.show('restaurants');
+};

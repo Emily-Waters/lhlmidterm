@@ -1,28 +1,23 @@
 $(() => {
 
-  const $main = $('main');
   const $userContainer = $('#user-container');
+  const $logoButton = $('#logo-button');
+  const $main = $('main');
+  const $filterButton = $('#filter-option-button');
   window.view = {};
 
   //  View manager
   window.view.show = (page, data) => {
 
-    if (!window.cookie) {
-      console.log('Cookie: ',window.cookie);
-      $loggedInCard.detach();
-      $userContainer.append($loggedOutCard);
-    } else {
-      console.log('Cookie: ',window.cookie);
-      $loggedOutCard.detach();
-      $userContainer.append($loggedInCard);
-    }
 
     switch (page) {
     case 'restaurants':
+      $filterButton.prop('disabled', true);
       $menuContainer.detach();
       $main.append($resContainer);
       break;
     case 'menu':
+      $filterButton.prop('disabled', false);
       $resContainer.detach();
       // TODO: need to load menu cards by restaurant id
       getMenuItems(data)
@@ -39,10 +34,11 @@ $(() => {
         });
       break;
     default:
-      // Render home
-      break;
     }
 
-  };
+    user.userStatusAttachment($userContainer);
 
+    $logoButton.on('click', logoHome);
+
+  };
 });
