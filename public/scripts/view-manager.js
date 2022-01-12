@@ -3,6 +3,7 @@ $(() => {
   const $main = $('main');
   const $filterButton = $('#filter-option-button');
   const $userContainer = $('#user-options');
+  const $cartDropdownContainer = $('#cart-dropdown .dropdown-menu');
   window.$userContainer = $userContainer;
   window.view = {};
   //  View manager
