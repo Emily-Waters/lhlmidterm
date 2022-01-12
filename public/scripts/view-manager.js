@@ -1,15 +1,12 @@
 $(() => {
-
-  const $userContainer = $('#user-container');
   const $logoButton = $('#logo-button');
   const $main = $('main');
   const $filterButton = $('#filter-option-button');
+  const $userContainer = $('#user-options');
+  window.$userContainer = $userContainer;
   window.view = {};
-
   //  View manager
   window.view.show = (page, data) => {
-
-
     switch (page) {
     case 'restaurants':
       $filterButton.prop('disabled', true);
@@ -37,10 +34,7 @@ $(() => {
       break;
     default:
     }
-
     user.userStatusAttachment($userContainer);
-
     $logoButton.on('click', logoHome);
-
   };
 });

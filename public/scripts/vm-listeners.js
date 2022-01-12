@@ -26,19 +26,19 @@ const filterOptionSubmit = (e) => {
 $('#is_vegan').click(function() {
   if ($(this).is(':checked')) {
     $('#vegan').addClass('green');
-  } else $('#vegan').removeClass('green')
+  } else $('#vegan').removeClass('green');
 });
 
 $('#is_vegetarian').click(function() {
   if ($(this).is(':checked')) {
     $('#vegetarian').addClass('green');
-  } else $('#vegetarian').removeClass('green')
+  } else $('#vegetarian').removeClass('green');
 });
 
 $('#is_gluten_free').click(function() {
   if ($(this).is(':checked')) {
     $('#gluten_free').addClass('green');
-  } else $('#gluten_free').removeClass('green')
+  } else $('#gluten_free').removeClass('green');
 });
 
 // not working TODO:
@@ -51,8 +51,7 @@ const deleteItem = (e) => {
 };
 
 const loginUser = (e) => {
-  e.preventDefault();
-  const formData = $(e.currentTarget).serialize();
+  const formData = $(e.currentTarget).prev('#login').serialize();
   getUser(formData)
     .then((userData) => {
       if (userData) {
@@ -75,4 +74,28 @@ const logoutUser = (e) => {
 const logoHome = (e) => {
   e.preventDefault();
   view.show('restaurants');
+};
+
+const userContainerSlide = (e) => {
+  const $this = $(e.currentTarget).parent();
+  $this.children('i').removeClass('rotate unrotate');
+  if ($this.hasClass('out')) {
+    $this
+      .removeClass('out')
+      .addClass('in')
+      .animate({left:'97vw'},500)
+      .children('i')
+      .addClass('rotate');
+  } else {
+    $this
+      .removeClass('in shadow')
+      .addClass('out')
+      .animate({left:'67vw'},500)
+      .children('i')
+      .addClass('unrotate');
+  }
+};
+
+const isUserLogged = () => {
+  return window.cookie ? true : false;
 };

@@ -14,29 +14,8 @@ div.user-options {
   color: white;
   z-index: 10;
   border-left: 2px solid black;
-  -webkit-box-shadow: -6px 0px 25px 10px rgba(0, 0, 0, 0.95);
-  box-shadow: -6px 0px 25px 10px rgba(0, 0, 0, 0.95);
-
-    .options {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      left: 1em;
-      position: relative;
-      top: 0;
-      height: 100%;
-      width: 100%;
-      border-left: 2px solid black;
-    }
-
-    line {
-      color:grey;
-      text-align: center;
-      width: 100%;
-      border-bottom: 1px solid black;
-      border-top: 1px solid black;
-      padding: 0.5em 0em 0.5em 0em;
-    }
+  -webkit-box-shadow: -5px 0px 15px  rgba(0, 0, 0);
+  box-shadow: -5px 0px 15px  rgba(0, 0, 0);
 
     i {
       transform: rotate(180deg);
@@ -45,14 +24,6 @@ div.user-options {
       width:1em;
       position: relative;
       left: .5rem;
-    }
-
-    .in {
-      box-shadow: -6px 0px 10px 5px rgba(0, 0, 0, 0.95);
-    }
-
-    .out {
-      box-shadow: -6px 0px 25px 10px rgba(0, 0, 0, 0.95);
     }
 
     @keyframes rotate-180 {
@@ -77,5 +48,29 @@ div.user-options {
 
     }
 
+    #user-container {
+
+      border-left: 2px black;
+      top:4em;
+      width: 100%;
+      height: 100%;
+
+    }
+
+    #user-options {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      position: relative;
+      border: 2px solid black;
+      top:0em;
+      left: 1em;
+      height: 50%;
+      width: 100%;
+    }
+
+    .name-input {
+      width: 5rem;
+    }
 }
 
