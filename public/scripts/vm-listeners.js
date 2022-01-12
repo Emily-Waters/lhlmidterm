@@ -32,8 +32,11 @@ const deleteItem = (e) => {
 };
 
 const loginUser = (e) => {
-  e.preventDefault();
-  const formData = $(e.currentTarget).serialize();
+  // console.log('E is for cookie : ',$(e.currentTarget).prev('#login'));
+
+
+  // e.target.preventDefault();
+  const formData = $(e.currentTarget).prev('#login').serialize();
   getUser(formData)
     .then((userData) => {
       if (userData) {

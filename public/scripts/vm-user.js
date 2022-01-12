@@ -4,11 +4,11 @@ $(() => {
   const $loggedOutCard = $(`
   <form action="api/users/login" method="post" id="login">
     <label for="name">Username :</label>
-    <input type="text" id="name" name="name">
-    <button>Login</button>
-    <a href="#">Register</a>
+    <input class="name-input" type="text" id="name" name="name">
+    </form>
+  <line id="login-button">Login</line>
+  <a href="#">Register</a>
 
-  </form>
   `);
 
   const $loggedInCard = $(`
@@ -34,7 +34,7 @@ $(() => {
 
   window.user.userStatusAttachment = userStatusAttachment;
 
-  $('body').on('submit', '#login', loginUser);
+  $('body').on('click', '#login-button', loginUser);
   $('body').on('click', '#logout', logoutUser);
   $('body').on('click', '#slide-button', userContainerSlide);
 
