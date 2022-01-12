@@ -1,18 +1,17 @@
 $(() => {
   window.user = {};
   const $loggedOutCard = $(`
-    <form action="api/users/login" method="post" id="login">
-      <label for="name">Username :</label>
-      <input type="text" id="name" name="name">
-      <button>Login</button>
-    </form>
+  <form action="api/users/login" method="post" id="login">
+    <label for="name">Username :</label>
+    <input type="text" id="name" name="name">
+    <button>Login</button>
+  </form>
   `);
 
   const $loggedInCard = $(`
   <a class="dropdown-item" href="#">Register</a>
   <a class="dropdown-item" href="#">Order History</a>
   <a class="dropdown-item" href="#" id='logout'>Logout</a>
-  </div>
 `);
 
   window.$loggedOutCard = $loggedOutCard;

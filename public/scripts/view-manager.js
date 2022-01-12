@@ -37,6 +37,7 @@ $(() => {
     }
 
     user.userStatusAttachment($userContainer);
+
     $logoButton.on('click', logoHome);
 
   };
