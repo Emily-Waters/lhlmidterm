@@ -3,7 +3,9 @@ const getAllRestaurants = () => {
   return $.get('/api/restaurants/');
 };
 
-const getMenuItems = (url = '/api/menu') => { // TODO: Make it so menus can be got by id
+// Get menus by restaurant ID
+const getMenuItems = (restaurantId) => {
+  const url = `/api/menu/${restaurantId || ''}`;
   return $.get(url);
 };
 

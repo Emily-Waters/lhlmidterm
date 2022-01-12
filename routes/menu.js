@@ -22,7 +22,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/:id", (req, res) => {
-  menuQueries.getMenuItems(req.query)
+  menuQueries.getMenuItems(req.query, req.params.id)
     .then((menuItems) => {
       res.json(menuItems || []);
     })

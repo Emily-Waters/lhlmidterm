@@ -12,7 +12,7 @@ const resCardClick = (e) => {
   e.preventDefault();
   const $resCard = $(e.currentTarget);
   const resCardJSON = $resCard.data().json;
-  view.show('menu');
+  view.show('menu', resCardJSON.id);
   view.show('order');
 };
 

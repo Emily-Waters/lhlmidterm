@@ -20,7 +20,8 @@ $(() => {
       $filterButton.prop('disabled', false);
       $resContainer.detach();
       // TODO: need to load menu cards by restaurant id
-      getMenuItems(data)
+      const restaurantId = data;
+      getMenuItems(restaurantId)
         .then(menuData => {
           menuCards.addManyMenuCards(menuData);
           $main.append($menuContainer);
