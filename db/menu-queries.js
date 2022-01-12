@@ -1,6 +1,6 @@
 const db = require('./index');
 
-const getMenuItems = (options, id) => {
+const getMenuItems = (options, restaurantId) => {
   let queryString = `
   SELECT *
   FROM menu_items
@@ -19,7 +19,7 @@ const getMenuItems = (options, id) => {
     queryString += `AND is_gluten_free = true `;
   }
 
-  if (id) {
+  if (restaurantId) {
     queryString += `AND restaurant_id = $1 `;
   }
 
@@ -27,7 +27,7 @@ const getMenuItems = (options, id) => {
   ORDER BY menu_items.id
   `;
 
-  return db.query(queryString, [id])
+  return db.query(queryString, [restaurantId])
     .then((res) => {
       return res.rows;
     })

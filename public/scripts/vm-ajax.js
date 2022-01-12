@@ -4,8 +4,16 @@ const getAllRestaurants = () => {
 };
 
 // Get menus by restaurant ID
-const getMenuItems = (restaurantId) => {
-  const url = `/api/menu/${restaurantId || ''}`;
+const getMenuItems = (menuRequestObj) => {
+  const restaurantId = menuRequestObj.restaurantId;
+  const options = menuRequestObj.options;
+
+  // 1. set id and path param
+  let url = `/api/menu/${restaurantId || ''}`;
+  // 2. set url params
+  if (options) {
+    url += `?${options}`;
+  }
   return $.get(url);
 };
 
