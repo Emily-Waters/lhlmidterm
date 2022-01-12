@@ -62,6 +62,9 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   const queryParams = req.query;
   orderQueries.addMenuItem(queryParams)
+    .then(data => {
+      res.send(data);
+    })
     .catch(err => {
       res
         .status(500)
@@ -72,6 +75,9 @@ router.post('/', (req, res) => {
 router.post('/delete', (req, res) => {
   const queryParams = req.query;
   orderQueries.deleteItemFromCart(queryParams)
+    .then(data => {
+      res.send(data);
+    })
     .catch(err => {
       res
         .status(500)

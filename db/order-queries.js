@@ -38,7 +38,7 @@ const getOrdersByUserId = (id) => {
 
 const gerOrderItemsByOrderId = (id) => {
   return db.query(`
-  SELECT orders.id, menu_items.name, order_items.quantity, menu_items.cost
+  SELECT orders.id, menu_items.name, menu_items.id AS menu_item_id, order_items.quantity, menu_items.cost
   FROM orders
   JOIN order_items ON orders.id = order_id
   JOIN menu_items ON menu_items.id = menu_item_id
@@ -54,16 +54,26 @@ const gerOrderItemsByOrderId = (id) => {
 
 const deleteItemFromCart = (params) => {
   return db.query(`
-  DELETE FROM order_items WHERE order_id = $1 AND menu_item_id = $2;
-  `, [params.order_id, params.item_id]);
+  DELETE FROM order_items WHERE order_id = $1 AND menu_item_id = $2 RETURNING *;
+  `, [params.order_id, params.item_id])
+    .then(res => {
+      return res;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 };
 
 const addMenuItem = (params) => {
   return db.query(`
   INSERT INTO order_items (order_id, menu_item_id, quantity)
-  VALUES ($1, $2, $3);
+  VALUES ($1, $2, $3)
+  RETURNING *
+  ;
   `, [params.order_id, params.menu_item, params.quantity])
-    .then()
+    .then(res => {
+      return res;
+    })
     .catch((err) => {
       console.log(err.message);
     });

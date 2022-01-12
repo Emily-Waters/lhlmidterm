@@ -3,7 +3,6 @@ const menuCardSubmit = (e) => {
   const $menuCard = $(e.currentTarget);
   const menuCardJSON = $menuCard.data().json;
   menuCardJSON.quantity = Number(e.target[0].value);
-  console.log(menuCardJSON.id);
   deleteOrderItem(menuCardJSON.id);
   addMenuItemToOrder(menuCardJSON);
   view.show('order');
@@ -24,11 +23,31 @@ const filterOptionSubmit = (e) => {
   view.show('menu', destinationUrl);
 };
 
+$('#is_vegan').click(function() {
+  if ($(this).is(':checked')) {
+    $('#vegan').addClass('green');
+  } else $('#vegan').removeClass('green')
+});
+
+$('#is_vegetarian').click(function() {
+  if ($(this).is(':checked')) {
+    $('#vegetarian').addClass('green');
+  } else $('#vegetarian').removeClass('green')
+});
+
+$('#is_gluten_free').click(function() {
+  if ($(this).is(':checked')) {
+    $('#gluten_free').addClass('green');
+  } else $('#gluten_free').removeClass('green')
+});
+
 // not working TODO:
 const deleteItem = (e) => {
   e.preventDefault();
-  const $orderItem = $(e.currentTarget);
-  console.log($orderItem);
+  const $orderItem = $(e.target).parents('.menu-item-card');
+  const orderCardJSON = $orderItem.data().json;
+  deleteOrderItem(orderCardJSON.menu_item_id);
+  view.show('order');
 };
 
 const loginUser = (e) => {
