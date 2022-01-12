@@ -51,13 +51,15 @@ const deleteItem = (e) => {
 };
 
 const loginUser = (e) => {
-  const formData = $(e.currentTarget).prev('#login').serialize();
+  e.preventDefault();
+  const $loginForm = $('#login');
+  const formData = $loginForm.serialize();
   getUser(formData)
     .then((userData) => {
       if (userData) {
         window.cookie = userData;
       }
-      view.show('user');
+      view.show('restaurants');
     })
     .catch(err => console.log(err.message));
 };
@@ -66,7 +68,8 @@ const logoutUser = (e) => {
   unGetUser()
     .then((userData) => {
       window.cookie = userData;
-      view.show('user');
+      view.show('restaurants');
+      $('#name').focus();
     })
     .catch(err => console.log(err.message));
 };

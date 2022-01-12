@@ -35,6 +35,7 @@ $(() => {
 
   $('body').on('click', '#login-button', loginUser);
   $('body').on('click', '#logout', logoutUser);
+  $('body').on('submit', '#login', loginUser);
   $('body').on('click', '#slide-button', userContainerSlide);
 
 });
