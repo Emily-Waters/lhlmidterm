@@ -30,7 +30,7 @@ $(() => {
   };
 
   const $userOptions = $(`
-  <div class="user-options out">
+  <div class="user-options in rotate">
     <i class="fas fa-chevron-right"></i>
     <div class="options">
       <line>THIS IS TEXT</line>
