@@ -48,6 +48,7 @@ $(() => {
   window.$signUpCard = $signUpCard;
 
   const userStatusAttachment = () => {
+    $signUpCard.detach();
     if (!window.cookie) {
       $loggedInCard.fadeOut();
       $loggedInCard.detach();

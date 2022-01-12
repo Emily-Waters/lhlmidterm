@@ -57,13 +57,13 @@ const loadCheckout = (e) => {
 
 const loginUser = (e) => {
   e.preventDefault();
-  $('#user-icon-status').toggleClass('icon-active');
-  $('#user-sign-card').fadeOut('slow').detach();
   const $loginForm = $('#login');
   const formData = $loginForm.serialize();
   getUser(formData)
     .then((userData) => {
       if (userData) {
+        $('#user-icon-status').toggleClass('icon-active');
+        $('#user-sign-card').fadeOut('slow').detach();
         window.cookie = userData;
       }
       view.show('restaurants');
@@ -116,7 +116,6 @@ const signupClick = (e) => {
   e.preventDefault();
   $signUpCard.hide();
   $signUpCard.fadeIn('slow');
-  // $('#user-log-card').animate({opacity:'0.25'},200);
   $userContainer.append($signUpCard);
   $('#new-name').focus();
 };
