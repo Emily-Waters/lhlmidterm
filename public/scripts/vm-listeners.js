@@ -3,17 +3,16 @@ const menuCardSubmit = (e) => {
   const $menuCard = $(e.currentTarget);
   const menuCardJSON = $menuCard.data().json;
   menuCardJSON.quantity = Number(e.target[0].value);
-  console.log('Menu Card Meta Data: ', menuCardJSON);
+  console.log(menuCardJSON.id);
+  deleteOrderItem(menuCardJSON.id);
   addMenuItemToOrder(menuCardJSON);
   view.show('order');
-  // TODO: MenuCardJSON needs to be sent to the order card
 };
 
 const resCardClick = (e) => {
   e.preventDefault();
   const $resCard = $(e.currentTarget);
   const resCardJSON = $resCard.data().json;
-  console.log('Res Card Meta Data: ', resCardJSON);
   view.show('menu');
   view.show('order');
 };
@@ -23,6 +22,13 @@ const filterOptionSubmit = (e) => {
   const formData = $(e.currentTarget).serialize();
   const destinationUrl = '/api/menu?' + formData;
   view.show('menu', destinationUrl);
+};
+
+// not working TODO:
+const deleteItem = (e) => {
+  e.preventDefault();
+  const $orderItem = $(e.currentTarget);
+  console.log($orderItem);
 };
 
 const loginUser = (e) => {

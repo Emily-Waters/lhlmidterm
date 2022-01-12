@@ -69,5 +69,15 @@ router.post('/', (req, res) => {
     });
 });
 
+router.post('/delete', (req, res) => {
+  const queryParams = req.query;
+  orderQueries.deleteItemFromCart(queryParams)
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
+
 // export router object
 module.exports = router;

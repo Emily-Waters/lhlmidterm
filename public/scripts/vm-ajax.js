@@ -22,6 +22,10 @@ const getOrderTotal = (id = 1) => {
   return $.get(`api/order/${id}/total`);
 };
 
+const deleteOrderItem = (itemId, orderId = 1) => {
+  return $.post(`api/order/delete?order_id=${orderId}&item_id=${itemId}`);
+};
+
 const getUser = (userData) => {
   return $.post('/api/users/login', userData);
 };
