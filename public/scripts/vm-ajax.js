@@ -52,3 +52,7 @@ const unGetUser = () => {
 const createUser = (formData) => {
   return $.post(`api/users/register?${formData}`);
 };
+
+const getUserOrderHistory = (userId) => {
+  return $.get(`api/users/history/${userId.id}`);
+};
