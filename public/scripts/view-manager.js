@@ -12,13 +12,13 @@ $(() => {
 
     case 'restaurants':
       $('input[type=checkbox]').prop('checked',false);
+      $('.form-check').children('i').removeClass('green');
       $filterButton.prop('disabled', true);
       $menuContainer.fadeOut();
       $menuContainer.detach();
       $main.append($resContainer);
       $resContainer.fadeIn();
       break;
-
     case 'menu':
       $filterButton.prop('disabled', false);
       $resContainer.fadeOut();
