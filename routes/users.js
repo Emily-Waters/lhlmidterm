@@ -37,7 +37,6 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/login', (req, res) => {
-  console.log('In login', req.body.name);
   const userName = req.body.name;
   login(userName)
     .then(user => {
@@ -50,6 +49,15 @@ router.post('/login', (req, res) => {
 router.post('/logout', (req, res) => {
   req.session = null;
   res.json(req.session);
+});
+
+router.post('/register', (req,res) => {
+  // const userName = req.query.name;
+  // const userPhone = req.query.phone;
+  userQueries.
+    registerUser(req.query)
+    .then((data) => res.send(data))
+    .catch(err => console.log('ERROR: ', err.messages));
 });
 
 const login = (userName) => {

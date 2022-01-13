@@ -77,12 +77,13 @@ const loadCheckout = (e) => {
 
 const loginUser = (e) => {
   e.preventDefault();
-  $('#user-icon-status').toggleClass('icon-active');
   const $loginForm = $('#login');
   const formData = $loginForm.serialize();
   getUser(formData)
     .then((userData) => {
       if (userData) {
+        $('#user-icon-status').toggleClass('icon-active');
+        $('#user-sign-card').fadeOut('slow').detach();
         window.cookie = userData;
       }
       view.show('restaurants');
@@ -91,6 +92,7 @@ const loginUser = (e) => {
 };
 
 const logoutUser = (e) => {
+  e.preventDefault();
   $('#user-icon-status').toggleClass('icon-active');
   unGetUser()
     .then((userData) => {
@@ -128,4 +130,28 @@ const userContainerSlide = (e) => {
 
 const isUserLogged = () => {
   return window.cookie ? true : false;
+};
+
+const signupClick = (e) => {
+  e.preventDefault();
+  $signUpCard.hide();
+  $signUpCard.fadeIn('slow');
+  $userContainer.append($signUpCard);
+  $('#new-name').focus();
+};
+
+const focusClicked = (e) => {
+  console.log(e);
+  $(e.currentTarget).animate({opacity:'1'},200);
+};
+
+const registerUser = (e) => {
+  e.preventDefault();
+  const formData = $('#signup').serialize();
+  createUser(formData)
+    .then((data) => {
+      console.log(data);
+      view.show('restaurants');
+    })
+    .catch(err => console.log(err));
 };
