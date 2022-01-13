@@ -60,9 +60,7 @@ $(() => {
   window.$signUpCard = $signUpCard;
 
   const userStatusAttachment = () => {
-    console.log($orderHistoryContainer);
     $signUpCard.detach();
-    // $orderHistoryContainer.empty();
     if (!window.cookie) {
       $orderHistory.fadeOut();
       $orderHistory.detach();
