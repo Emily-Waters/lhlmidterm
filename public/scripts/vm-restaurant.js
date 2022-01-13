@@ -6,8 +6,8 @@ $(() => {
     const resItemJSON = JSON.stringify(resItemData);
     return $(`
       <div class="restaurant-card pointer" id="res-card" data-json='${resItemJSON}'>
-        <img src="${resItemData.cover_image_url}" class="col-12 restaurant-img p-0"></img>
-        <div class="col-12 restaurant-details text-center pb-2">
+        <img src="${resItemData.cover_image_url}" class="col-12 restaurant-img rounded-top p-0"></img>
+        <div class="col-12 restaurant-details rounded-bottom text-center pb-2">
           <h5 class="restaurant-title text-center">${resItemData.name}</h5>
           <span class="mr-5">Address: ${resItemData.address}</span>
           <span>Phone: ${resItemData.phone}</span>
