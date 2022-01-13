@@ -1,4 +1,5 @@
 $(() => {
+
   window.user = {};
 
   const $signUpCard = $(`
@@ -25,7 +26,7 @@ $(() => {
   const $loggedOutCard = $(`
   <div class="user-data-card" id="user-log-card">
     <line class="user-row-1">
-      <i class="fas fa-user-circle" id="user-icon"></i>
+      <i class="fas fa-user-circle icon-inactive" id="user-icon"></i>
       <div class="user-col-1">
         <form action="api/users/login" method="post" class="user-form" id="login">
           <label for="name">Login :</label>
@@ -39,8 +40,19 @@ $(() => {
   `);
 
   const $loggedInCard = $(`
-  <a href="">Order History</a>
-  <a href="" id='logout'>Logout</a>
+  <div class="user-data-card" id="user-log-card">
+    <line class="user-row-1">
+      <i class="fas fa-user-circle" id="user-icon"></i>
+      <div class="user-col-1">
+        <line id="username">USERNAME</line>
+        <line>
+        <i class="fas fa-phone-square icon-active"></i><line id="phonenumber">PHONE NUMBER</line>
+        </line>
+        <line class="styled-submit" id="logout">Logout</line>
+      </div>
+    </line>
+    <line class="empty-space">Eat <b>FüD</b></line>
+  </div>
   `);
 
   window.$loggedOutCard = $loggedOutCard;
@@ -48,18 +60,30 @@ $(() => {
   window.$signUpCard = $signUpCard;
 
   const userStatusAttachment = () => {
+    console.log($orderHistoryContainer);
     $signUpCard.detach();
+    // $orderHistoryContainer.empty();
     if (!window.cookie) {
+      $orderHistory.fadeOut();
+      $orderHistory.detach();
       $loggedInCard.fadeOut();
       $loggedInCard.detach();
       $('#order-cart-dropdown').prop('disabled', true);
       $userContainer.append($loggedOutCard);
       $loggedOutCard.fadeIn();
     } else {
+      const userId = window.cookie.id;
+      getUserOrderHistory(window.cookie)
+        .then(orderData => orderHistory.addManyOrderHistoryItems(orderData))
+        .catch(err => console.log(err));
       $loggedOutCard.fadeOut();
       $loggedOutCard.detach();
       $('#order-cart-dropdown').prop('disabled', false);
       $userContainer.append($loggedInCard);
+      $userContainer.append($orderHistory);
+      $('#username').text(window.cookie.name);
+      $('#phonenumber').text(window.cookie.phone);
+      $orderHistory.fadeIn();
       $loggedInCard.fadeIn();
     }
   };

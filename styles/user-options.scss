@@ -4,7 +4,7 @@ div.user-options {
   align-items: center;
   justify-content: center;
   text-align: center;
-  left:97vw;
+  left:98vw;
   width:33vw;
   position: fixed;
   top:4em;
@@ -96,7 +96,7 @@ div.user-options {
 }
 
 #user-icon {
-  color:rgba(255, 255, 255, 0.685);
+  // color:rgba(255, 255, 255, 0.685);
   background-color: transparent;
   font-size:5rem;
 }
@@ -105,15 +105,18 @@ div.user-options {
   color:rgba(255, 255, 255, 0.685)
 }
 
+.icon-inactive {
+  color: #424242;
+}
+
 .user-row-1 {
-  margin-top: 1rem;
   padding-left: 1em;
   padding-right: 3em;
   flex-direction: row;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
-  height: 5rem;
+  height: 75%;
 }
 
 .user-col-1 {
@@ -126,25 +129,16 @@ div.user-options {
 }
 
 #user-register {
-  margin-top: 1rem;
+  height: 25%;
+  // margin-top: 1rem;
   color: grey;
   font-size: 0.75rem;
 }
 
-#user-log-card {
-  opacity:0.25;
-}
-
-#user-sign-card {
-  opacity:0.25;
-}
-
-#user-sign-card:hover {
-  opacity: 1;
-}
-
-#user-log-card:hover {
-  opacity:1;
+.empty-space {
+  height: 25%;
+  color: grey;
+  font-size: 0.75rem;
 }
 
 .user-data-card {
@@ -180,3 +174,67 @@ div.user-options {
   align-items: flex-end;
   width: 12rem;
 }
+
+#phonenumber {
+  margin-left:1em;
+}
+
+#logout {
+  width: 50%;
+}
+
+#order-history-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 50%;
+}
+
+#order-history {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  height: 25%;
+  width: 100%;
+  text-align: center;
+  padding:3px;
+}
+
+// #order-history:hover {
+//   border-top: 3px solid black;
+//   border-bottom: 3px solid black;
+//   text-shadow: 0px 0px 10px black;
+//   background-color: rgb(49, 49, 49);
+//   color:rgb(95, 95, 95);
+// }
+
+.order-col-1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+}
+
+#order-history-container {
+  height: 75%;
+  width: 100%;
+  overflow: scroll;
+  box-shadow: 0px 0px 5px 0px black inset;
+}
+
+.order-history-item {
+  font-size: 0.6em;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+  color: grey;
+  border-bottom: 1px solid black;
+
+  line {
+    width:33%
+  }
+}
+

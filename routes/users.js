@@ -22,6 +22,14 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/history/:id", (req,res) => {
+  const userId = req.params.id;
+  userQueries
+    .getUserHistory(userId)
+    .then(data => res.json(data))
+    .catch(err => console.log(err));
+});
+
 // GET user by id
 router.get('/:id', (req, res) => {
   const queryParams = req.params.id;

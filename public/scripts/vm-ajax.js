@@ -37,6 +37,11 @@ const getOrderTotal = (orderId = window.cookie.orderId) => {
   return $.get(`api/order/${orderId}/total`);
 };
 
+// adds interval to order
+const addIntervalToOrder = (interval, orderId = window.cookie.orderId) => {
+  return $.post(`api/order/interval?interval=${interval}&order_id=${orderId}`);
+};
+
 const deleteOrderItem = (itemId, orderId = window.cookie.orderId) => {
   return $.post(`api/order/delete?order_id=${orderId}&item_id=${itemId}`);
 };
@@ -51,4 +56,8 @@ const unGetUser = () => {
 
 const createUser = (formData) => {
   return $.post(`api/users/register?${formData}`);
+};
+
+const getUserOrderHistory = (userId) => {
+  return $.get(`api/users/history/${userId.id}`);
 };
