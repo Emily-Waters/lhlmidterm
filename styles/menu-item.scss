@@ -18,6 +18,7 @@ div.menu-card {
     width: 300px;
     height: 200px;
     object-fit: cover;
+    box-shadow: 4px 4px 15px black;
 
     &:hover {
       @extend %basic_hover;

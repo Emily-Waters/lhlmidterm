@@ -63,10 +63,10 @@ $('#is_gluten_free').click(function() {
 
 const displayNotification = (message) => {
   const alert = `
-  <h5><span class="badge badge-secondary">${message}</span></h5>`;
+  <h5><span class="badge badge-secondary" id="notification">${message}</span></h5>`;
   $('#dropdown-section').prepend(alert);
   setTimeout(() => {
-    $('.badge').slideUp();
+    $('#notification').slideUp();
   }, 1000);
 
 };
