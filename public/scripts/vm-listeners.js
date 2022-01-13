@@ -1,15 +1,12 @@
 const menuCardSubmit = (e) => {
   e.preventDefault();
-  if (!window.cookie.orderId) {
-    createNewOrder(window.cookie.id);
-  }
-  console.log(window.cookie);
   const $menuCard = $(e.currentTarget);
   const menuCardJSON = $menuCard.data().json;
   menuCardJSON.quantity = Number(e.target[0].value);
   deleteOrderItem(menuCardJSON.id)
     .then(addMenuItemToOrder(menuCardJSON))
-    .then(view.show('order'));
+    .then(view.show('order'))
+    .catch(err => console.log(err.message));
 };
 
 let currentRestaurantId;
@@ -22,7 +19,15 @@ const resCardClick = (e) => {
   const menuRequestObj = {
     restaurantId: currentRestaurantId,
     options: null
-  }
+  };
+
+  // create order id and store in cookie
+  createNewOrder(window.cookie.id)
+    .then(data => {
+      window.cookie.orderId = data;
+    })
+    .catch(err => console.log(err.message));
+
   view.show('menu', menuRequestObj);
   view.show('order');
 };
@@ -33,7 +38,7 @@ const filterOptionSubmit = (e) => {
   const menuRequestObj = {
     restaurantId: currentRestaurantId,
     options: options
-  }
+  };
   view.show('menu', menuRequestObj);
 
 };

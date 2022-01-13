@@ -31,7 +31,7 @@ app.use(express.static("public"));
 
 app.use(cookieSession({
   name: 'session',
-  keys: ['id', 'name', 'phone'],
+  keys: ['id', 'name', 'phone', 'orderId'],
 }));
 
 // Separated Routes for each Resource
