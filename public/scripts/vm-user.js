@@ -25,7 +25,7 @@ $(() => {
   const $loggedOutCard = $(`
   <div class="user-data-card" id="user-log-card">
     <line class="user-row-1">
-      <i class="fas fa-user-circle" id="user-icon"></i>
+      <i class="fas fa-user-circle icon-inactive" id="user-icon"></i>
       <div class="user-col-1">
         <form action="api/users/login" method="post" class="user-form" id="login">
           <label for="name">Login :</label>
@@ -38,9 +38,25 @@ $(() => {
   </div>
   `);
 
+  // const $loggedInCard = $(`
+  // <a href="">Order History</a>
+  // <a href="" id='logout'>Logout</a>
+  // `);
+
   const $loggedInCard = $(`
-  <a href="">Order History</a>
-  <a href="" id='logout'>Logout</a>
+  <div class="user-data-card" id="user-log-card">
+    <line class="user-row-1">
+      <i class="fas fa-user-circle" id="user-icon"></i>
+      <div class="user-col-1">
+        <line id="username">USERNAME</line>
+        <line>
+        <i class="fas fa-phone-square icon-active"></i><line id="phonenumber">PHONE NUMBER</line>
+        </line>
+        <line class="styled-submit" id="logout">Logout</line>
+      </div>
+    </line>
+    <line class="empty-space"></line>
+  </div>
   `);
 
   window.$loggedOutCard = $loggedOutCard;
@@ -60,6 +76,9 @@ $(() => {
       $loggedOutCard.detach();
       $('#order-cart-dropdown').prop('disabled', false);
       $userContainer.append($loggedInCard);
+      $('#username').text(window.cookie.name);
+      $('#phonenumber').text(window.cookie.phone);
+
       $loggedInCard.fadeIn();
     }
   };

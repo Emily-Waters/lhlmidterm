@@ -96,7 +96,7 @@ div.user-options {
 }
 
 #user-icon {
-  color:rgba(255, 255, 255, 0.685);
+  // color:rgba(255, 255, 255, 0.685);
   background-color: transparent;
   font-size:5rem;
 }
@@ -105,15 +105,20 @@ div.user-options {
   color:rgba(255, 255, 255, 0.685)
 }
 
+.icon-inactive {
+  color: #424242;
+}
+
 .user-row-1 {
-  margin-top: 1rem;
+
+  // margin-top: 1rem;
   padding-left: 1em;
   padding-right: 3em;
   flex-direction: row;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
-  height: 5rem;
+  height: 75%;
 }
 
 .user-col-1 {
@@ -126,7 +131,15 @@ div.user-options {
 }
 
 #user-register {
-  margin-top: 1rem;
+  height: 25%;
+  // margin-top: 1rem;
+  color: grey;
+  font-size: 0.75rem;
+}
+
+.empty-space {
+  height: 25%;
+  // margin-top: 1rem;
   color: grey;
   font-size: 0.75rem;
 }
@@ -163,4 +176,12 @@ div.user-options {
   justify-content: center;
   align-items: flex-end;
   width: 12rem;
+}
+
+#phonenumber {
+  margin-left:1em;
+}
+
+#logout {
+  width: 50%;
 }
