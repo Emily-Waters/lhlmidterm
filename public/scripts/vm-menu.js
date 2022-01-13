@@ -29,14 +29,14 @@ $(() => {
             </div>
             <div class="col-2 p-0 foobar">
               <form class="row form-group m-0" name="order-add">
-                <select class="form-control col-5" id="menu-quantity">
+                <select class="form-control" id="menu-quantity">
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
                   <option>4</option>
                   <option>5</option>
                 </select>
-                <button class="btn btn-success col-7">ADD</button>
+                <button class="btn btn-success">ADD</button>
               </form>
             </div>
           </div>
