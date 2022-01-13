@@ -11,6 +11,7 @@ $(() => {
     switch (page) {
 
     case 'restaurants':
+      $('input[type=checkbox]').prop('checked',false);
       $filterButton.prop('disabled', true);
       $menuContainer.fadeOut();
       $menuContainer.detach();
