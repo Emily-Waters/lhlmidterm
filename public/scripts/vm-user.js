@@ -1,4 +1,5 @@
 $(() => {
+
   window.user = {};
 
   const $signUpCard = $(`
@@ -38,11 +39,6 @@ $(() => {
   </div>
   `);
 
-  // const $loggedInCard = $(`
-  // <a href="">Order History</a>
-  // <a href="" id='logout'>Logout</a>
-  // `);
-
   const $loggedInCard = $(`
   <div class="user-data-card" id="user-log-card">
     <line class="user-row-1">
@@ -55,7 +51,7 @@ $(() => {
         <line class="styled-submit" id="logout">Logout</line>
       </div>
     </line>
-    <line class="empty-space"></line>
+    <line class="empty-space">Eat <b>FüD</b></line>
   </div>
   `);
 
@@ -66,6 +62,8 @@ $(() => {
   const userStatusAttachment = () => {
     $signUpCard.detach();
     if (!window.cookie) {
+      $orderHistory.fadeOut();
+      $orderHistory.detach();
       $loggedInCard.fadeOut();
       $loggedInCard.detach();
       $('#order-cart-dropdown').prop('disabled', true);
@@ -76,9 +74,10 @@ $(() => {
       $loggedOutCard.detach();
       $('#order-cart-dropdown').prop('disabled', false);
       $userContainer.append($loggedInCard);
+      $userContainer.append($orderHistory);
       $('#username').text(window.cookie.name);
       $('#phonenumber').text(window.cookie.phone);
-
+      $orderHistory.fadeIn();
       $loggedInCard.fadeIn();
     }
   };
