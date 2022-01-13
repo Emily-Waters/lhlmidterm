@@ -11,6 +11,7 @@ $(() => {
     switch (page) {
 
     case 'restaurants':
+      $('input[type=checkbox]').prop('checked',false);
       $filterButton.prop('disabled', true);
       $menuContainer.fadeOut();
       $menuContainer.detach();
@@ -26,8 +27,12 @@ $(() => {
         .then(menuData => {
           menuCards.addManyMenuCards(menuData);
           $main.append($menuContainer);
+          if (!window.cookie) {
+            $('.foobar').hide();
+          } else {
+            $('.foobar').fadeIn();
+          }
           $menuContainer.fadeIn();
-
         })
         .catch(err => console.log(err.message));
       break;
