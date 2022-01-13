@@ -16,21 +16,6 @@ router.get('/user/:id', (req, res) => {
     });
 });
 
-// CREATE new order
-router.post('/create', (req, res) => {
-  const queryParams = req.query;
-  orderQueries.createOrder(queryParams)
-    .then(orderId => {
-      req.session.orderId = orderId.id;
-      res.json(req.session.orderId);
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({error: err.message});
-    });
-});
-
 // GET order items by order id
 router.get('/:id/items', (req, res) => {
   const queryParams = req.params.id;
@@ -96,6 +81,35 @@ router.post('/delete', (req, res) => {
       res
         .status(500)
         .json({ error: err.message });
+    });
+});
+
+// CREATE new order
+router.post('/create', (req, res) => {
+  const queryParams = req.query;
+  orderQueries.createOrder(queryParams)
+    .then(orderId => {
+      req.session.orderId = orderId.id;
+      res.json(req.session.orderId);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({error: err.message});
+    });
+});
+
+// add interval to order
+router.post('/interval', (req, res) => {
+  const queryParams = req.query;
+  orderQueries.addInterval(queryParams)
+    .then(interval => {
+      res.json(interval);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({error: err.message});
     });
 });
 

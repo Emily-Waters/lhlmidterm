@@ -8,7 +8,9 @@ $(() => {
   </div>
   `;
 
+
+
   window.checkoutCard = checkoutCard;
-  $(document).on('click', '#order', loadCheckout);
+  $(document).on('click', '#checkout', loadCheckout);
 
 });

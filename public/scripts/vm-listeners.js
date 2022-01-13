@@ -71,6 +71,14 @@ const deleteItem = (e) => {
 
 const loadCheckout = (e) => {
   e.preventDefault();
+  // number in brackets represents max minutes for the db to generate random interval with
+  addIntervalToOrder(5)
+    .then(interval => {
+      // this gives you back the rng interval that was put in db, to be used in SMS
+      console.log(interval);
+    })
+    .catch(err => console.log(err.message));
+  // Send first SMS here with message that the order has been placed and the interval TODO:
   $('#order-cart-container').detach();
   $('#cart-dropdown .dropdown-menu').append(checkoutCard);
 };
