@@ -27,8 +27,12 @@ $(() => {
         .then(menuData => {
           menuCards.addManyMenuCards(menuData);
           $main.append($menuContainer);
+          if (!window.cookie) {
+            $('.foobar').hide();
+          } else {
+            $('.foobar').fadeIn();
+          }
           $menuContainer.fadeIn();
-
         })
         .catch(err => console.log(err.message));
       break;
