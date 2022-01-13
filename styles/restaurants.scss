@@ -9,7 +9,6 @@
 
     &:hover {
       transform: scale(101%);
-      transition: all .1s ease-in-out;
     }
 
     .restaurant-img {
@@ -19,12 +18,12 @@
     }
 
     .restaurant-details {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
       background-color: white;
       opacity: 80%;
       box-shadow: 4px 4px 15px black;
 
       .restaurant-title {
-        font-family: fantasy;
         font-weight: bolder;
         font-size: clamp(20px, 5vw, 52px);
         text-shadow: 2px 2px 4px olive;

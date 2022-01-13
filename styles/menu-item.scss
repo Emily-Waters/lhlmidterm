@@ -1,7 +1,6 @@
 // template for on hover effects
 %basic_hover {
   transform: scale(101%);
-  transition: all .1s ease-in-out;
 }
 
 div.menu-items-container {
@@ -23,7 +22,8 @@ div.menu-card {
     }
   }
 
-  div.menu-details {
+  .menu-details {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     height: 200px;
     background-color: white;
     opacity: 80%;
@@ -35,7 +35,6 @@ div.menu-card {
     }
 
     .menu-title {
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       font-size: clamp(14px, 3vw, 25px);
       text-align: center;
       text-transform: uppercase;
