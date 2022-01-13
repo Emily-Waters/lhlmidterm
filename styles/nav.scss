@@ -42,7 +42,10 @@ nav {
   align-items: center;
 }
 
-#logo {
+#logo-button {
   padding: 10px 20px;
+  &#logo-button:active {
+    transform: translateY(1px);
+  }
 }
 
