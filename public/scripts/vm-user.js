@@ -66,12 +66,6 @@ $(() => {
 
   window.user.userStatusAttachment = userStatusAttachment;
 
-  const displayMessageToLogin = () => {
-    const 
-  };
-
-  window.displayMessageToLogin = displayMessageToLogin;
-
   $('body').on('click', '#login-button', loginUser);
   $('body').on('submit', '#login', loginUser);
   $('body').on('click', '#logout', logoutUser);

@@ -11,13 +11,8 @@ const menuCardSubmit = (e) => {
 
 let currentRestaurantId;
 
-const resCardClick = (e,cookie) => {
+const resCardClick = (e, cookie) => {
   e.preventDefault();
-
-  if(!window.cookie) {
-    displayMessageToLogin();
-  }
-
   const $resCard = $(e.currentTarget);
   const resCardJSON = $resCard.data().json;
   currentRestaurantId = resCardJSON.id;
@@ -66,6 +61,22 @@ $('#is_gluten_free').click(function() {
   } else $('#gluten_free').removeClass('green');
 });
 
+const displayNotification = (message) => {
+  const alert = `
+  <h4><span class="badge badge-secondary">${message}</span><h4>`
+  $('#dropdown-section').prepend(alert)
+  setTimeout(() => {
+    $('.badge').slideUp();
+  }, 1500);
+
+};
+
+$('#dropdown-section').click(function() {
+  if (!window.cookie) {
+    displayNotification(`Please log in and get some FüD.`);
+  }
+});
+
 const deleteItem = (e) => {
   e.preventDefault();
   const $orderItem = $(e.target).parents('.menu-item-card');
@@ -90,6 +101,7 @@ const loginUser = (e) => {
         $('#user-icon-status').toggleClass('icon-active');
         $('#user-sign-card').fadeOut('slow').detach();
         window.cookie = userData;
+        $('#dropdown-section').prepend(`<h5><span class="badge badge-secondary" id="signed-in">Signed in as ${userData.name}</span></h5>`)
       }
       view.show('restaurants');
     })
@@ -99,6 +111,7 @@ const loginUser = (e) => {
 const logoutUser = (e) => {
   e.preventDefault();
   $('#user-icon-status').toggleClass('icon-active');
+  $('#signed-in').detach();
   unGetUser()
     .then((userData) => {
       window.cookie = userData;
@@ -120,14 +133,18 @@ const userContainerSlide = (e) => {
     $this
       .removeClass('out')
       .addClass('in')
-      .animate({left:'97vw'},500)
+      .animate({
+        left: '97vw'
+      }, 500)
       .children('i')
       .addClass('rotate');
   } else {
     $this
       .removeClass('in shadow')
       .addClass('out')
-      .animate({left:'67vw'},500)
+      .animate({
+        left: '67vw'
+      }, 500)
       .children('i')
       .addClass('unrotate');
   }
@@ -147,7 +164,9 @@ const signupClick = (e) => {
 
 const focusClicked = (e) => {
   console.log(e);
-  $(e.currentTarget).animate({opacity:'1'},200);
+  $(e.currentTarget).animate({
+    opacity: '1'
+  }, 200);
 };
 
 const registerUser = (e) => {
