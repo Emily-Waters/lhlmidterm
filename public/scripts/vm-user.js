@@ -60,7 +60,9 @@ $(() => {
   window.$signUpCard = $signUpCard;
 
   const userStatusAttachment = () => {
+    console.log($orderHistoryContainer);
     $signUpCard.detach();
+    // $orderHistoryContainer.empty();
     if (!window.cookie) {
       $orderHistory.fadeOut();
       $orderHistory.detach();
@@ -71,7 +73,6 @@ $(() => {
       $loggedOutCard.fadeIn();
     } else {
       const userId = window.cookie.id;
-      console.log(userId);
       getUserOrderHistory(window.cookie)
         .then(orderData => orderHistory.addManyOrderHistoryItems(orderData))
         .catch(err => console.log(err));

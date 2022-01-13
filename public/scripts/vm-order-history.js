@@ -1,7 +1,6 @@
 $(() => {
 
   window.orderHistory = {};
-
   const $orderHistory = $(`
   <div class="order-col-1" id="order-history-card">
     <line id="order-history">Order History</line>
@@ -9,19 +8,25 @@ $(() => {
       </div>
   </div>
   `);
+  const $orderHistoryContainer = $('#order-history-container');
+
+  window.$orderHistoryContainer = $orderHistoryContainer;
 
   window.$orderHistory = $orderHistory;
   // window.$orderHistoryCard = $orderHistoryCard;
-  window.$orderHistoryContainer = $('#order-history-container');
 
   const createOrderHistoryCard = (orderData) => {
 
-    console.log(orderData.time);
+    const subtotal = orderData.total / 100;
+    const gst = subtotal * 0.05;
+    const pst = subtotal * 0.07;
+    const total = subtotal + gst + pst;
+
     return $(`
       <div class="order-history-item">
         <line>${orderData.name}</line>
         <line>${orderData.time}</line>
-        <line>${'$' + (orderData.total / 100).toFixed(2)}</line>
+        <line>${'$' + total.toFixed(2)}</line>
       </div>
     `);
   };
@@ -30,13 +35,11 @@ $(() => {
 
 
   const addOrderHistoryItem = (order) => {
-    console.log('Order: ',order);
-    console.log('Order Container: ',$('#order-history-container'));
     $('#order-history-container').append(order);
   };
 
   const clearOrderHistoryItems = () => {
-    $orderHistoryContainer.empty();
+    $('#order-history-container').empty();
   };
 
   const addManyOrderHistoryItems = (orderData) => {
