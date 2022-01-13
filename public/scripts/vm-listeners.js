@@ -13,6 +13,11 @@ let currentRestaurantId;
 
 const resCardClick = (e) => {
   e.preventDefault();
+
+  if(!window.cookie) {
+    displayMessageToLogin();
+  }
+
   const $resCard = $(e.currentTarget);
   const resCardJSON = $resCard.data().json;
   currentRestaurantId = resCardJSON.id;
