@@ -27,8 +27,17 @@ const getUserByName = (name) => {
     .catch(err => err);
 };
 
+const registerUser = (userData) => {
+  console.log(userData);
+  return db
+    .query(`INSERT INTO users (name, phone) VALUES ($1, $2)`, [userData.name, '+1' + userData.phone])
+    .then(res => res.rows[0])
+    .catch(err => err);
+};
+
 module.exports = {
   getUsers,
   getUsersById,
-  getUserByName
+  getUserByName,
+  registerUser
 };

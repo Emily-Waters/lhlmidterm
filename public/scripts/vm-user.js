@@ -32,7 +32,7 @@ $(() => {
           <input class="user-input" type="text" id="name" name="name" placeholder="Username">
         </form>
         <line class="styled-submit" id="login-button">Submit</line>
-        </div>
+      </div>
     </line>
     <line id="user-register">Don't have an account? <a href="" id="sign-up">Sign up</a> and enjoy some <b>FüD</b></line>
   </div>
@@ -67,10 +67,12 @@ $(() => {
   window.user.userStatusAttachment = userStatusAttachment;
 
   $('body').on('click', '#login-button', loginUser);
-  $('body').on('click', '#logout', logoutUser);
   $('body').on('submit', '#login', loginUser);
-  $('body').on('click', '#slide-button', userContainerSlide);
+  $('body').on('click', '#logout', logoutUser);
   $('body').on('click', '#sign-up',signupClick);
+  $('body').on('click', '#sign-button',registerUser);
+  $('body').on('submit', '#signup', registerUser);
+  $('body').on('click', '#slide-button', userContainerSlide);
 
 });
 

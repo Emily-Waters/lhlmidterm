@@ -124,3 +124,14 @@ const focusClicked = (e) => {
   console.log(e);
   $(e.currentTarget).animate({opacity:'1'},200);
 };
+
+const registerUser = (e) => {
+  e.preventDefault();
+  const formData = $('#signup').serialize();
+  createUser(formData)
+    .then((data) => {
+      console.log(data);
+      view.show('restaurants');
+    })
+    .catch(err => console.log(err));
+};

@@ -33,3 +33,7 @@ const getUser = (userData) => {
 const unGetUser = () => {
   return $.post('/api/users/logout');
 };
+
+const createUser = (formData) => {
+  return $.post(`api/users/register?${formData}`);
+};
