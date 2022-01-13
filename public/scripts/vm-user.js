@@ -70,6 +70,11 @@ $(() => {
       $userContainer.append($loggedOutCard);
       $loggedOutCard.fadeIn();
     } else {
+      const userId = window.cookie.id;
+      console.log(userId);
+      getUserOrderHistory(window.cookie)
+        .then(orderData => orderHistory.addManyOrderHistoryItems(orderData))
+        .catch(err => console.log(err));
       $loggedOutCard.fadeOut();
       $loggedOutCard.detach();
       $('#order-cart-dropdown').prop('disabled', false);
