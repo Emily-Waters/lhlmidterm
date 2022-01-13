@@ -49,13 +49,15 @@ div.menu-card {
       justify-content: center;
     }
 
-    .menu-options {
-      display: flex;
-      justify-content: space-between;
-    }
+      #add-button:hover {
+        background-color: #3e8e41;
+      }
 
-    #menu-quantity {
-      width: auto;
+    #add-button:active {
+      background-color: #3e8e41;
+      box-shadow: 0 5px #666;
+      transform: translateY(2px);
+
     }
   }
 }

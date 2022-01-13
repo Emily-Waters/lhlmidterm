@@ -41,7 +41,7 @@ $(() => {
                   <option>9</option>
                   <option>10</option>
                 </select>
-                <button class="btn btn-success col-6 ">ADD</button>
+                <button class="btn btn-success col-6" id="add-button">ADD</button>
               </form>
             </div>
           </div>
