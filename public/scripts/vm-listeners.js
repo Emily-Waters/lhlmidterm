@@ -63,8 +63,8 @@ $('#is_gluten_free').click(function() {
 
 const displayNotification = (message) => {
   const alert = `
-  <h4><span class="badge badge-secondary">${message}</span><h4>`
-  $('#dropdown-section').prepend(alert)
+  <h4><span class="badge badge-secondary">${message}</span><h4>`;
+  $('#dropdown-section').prepend(alert);
   setTimeout(() => {
     $('.badge').slideUp();
   }, 1500);
@@ -118,7 +118,7 @@ const loginUser = (e) => {
         $('#user-icon-status').toggleClass('icon-active');
         $('#user-sign-card').fadeOut('slow').detach();
         window.cookie = userData;
-        const singedAsBadge = `<h5><span class="badge badge-secondary" id="signed-in">Signed in as ${userData.name}</span></h5>`
+        const singedAsBadge = `<h5><span class="badge badge-secondary" id="signed-in">Signed in as ${userData.name}</span></h5>`;
         $('#dropdown-section').prepend(singedAsBadge);
       }
       view.show('restaurants');
@@ -151,9 +151,7 @@ const userContainerSlide = (e) => {
     $this
       .removeClass('out')
       .addClass('in')
-      .animate({
-        left: '97vw'
-      }, 500)
+      .animate({left:'98vw'},500)
       .children('i')
       .addClass('rotate');
   } else {
