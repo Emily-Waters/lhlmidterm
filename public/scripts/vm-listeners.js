@@ -20,16 +20,16 @@ const resCardClick = (e) => {
     restaurantId: currentRestaurantId,
     options: null
   };
-
   // create order id and store in cookie
-  createNewOrder(window.cookie.id)
-    .then(data => {
-      window.cookie.orderId = data;
-    })
-    .catch(err => console.log(err.message));
-
+  if (document.cookie) {
+    createNewOrder(window.cookie.id)
+      .then(data => {
+        window.cookie.orderId = data;
+      })
+      .catch(err => console.log(err.message));
+    view.show('order');
+  }
   view.show('menu', menuRequestObj);
-  view.show('order');
 };
 
 const filterOptionSubmit = (e) => {
