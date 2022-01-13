@@ -21,7 +21,7 @@ router.post('/create', (req, res) => {
   const queryParams = req.query;
   orderQueries.createOrder(queryParams)
     .then(orderId => {
-      req.session.orderId = orderId;
+      req.session.orderId = orderId.id;
       res.json(req.session.orderId);
     })
     .catch(err => {

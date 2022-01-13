@@ -86,7 +86,7 @@ const createOrder = (params) => {
   RETURNING id
   `, [params.user_id])
     .then(res => {
-      return res;
+      return res.rows[0];
     })
     .catch((err) => {
       console.log(err.message);
