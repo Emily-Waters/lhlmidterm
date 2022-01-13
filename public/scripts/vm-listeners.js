@@ -11,7 +11,7 @@ const menuCardSubmit = (e) => {
 
 let currentRestaurantId;
 
-const resCardClick = (e) => {
+const resCardClick = (e,cookie) => {
   e.preventDefault();
   const $resCard = $(e.currentTarget);
   const resCardJSON = $resCard.data().json;
@@ -21,7 +21,7 @@ const resCardClick = (e) => {
     options: null
   };
   // create order id and store in cookie
-  if (document.cookie) {
+  if (cookie) {
     createNewOrder(window.cookie.id)
       .then(data => {
         window.cookie.orderId = data;

@@ -47,8 +47,9 @@ $(() => {
   window.resCards.clearResCards = clearResCards;
 
   // Res Cards Event Listeners
-  $('body').on('click','#res-card', resCardClick);
-
+  $('body').on('click','#res-card', (e) =>  {
+    resCardClick(e, window.cookie);
+  });
 });
 
 
