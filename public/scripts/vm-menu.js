@@ -30,7 +30,7 @@ $(() => {
                 <i class="fab fa-goodreads ${isOptionActive(menuItemData.is_gluten_free)}" title="Gluten Free"></i>
               </div class="row">
             </div>
-            <div class="col-2">
+            <div class="col-2 foobar">
               <form class="row form-group" name="order-add">
                 <select class="form-control" id="menu-quantity">
                   <option>1</option>
