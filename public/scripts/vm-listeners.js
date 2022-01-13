@@ -75,7 +75,16 @@ const loadCheckout = (e) => {
   addIntervalToOrder(5)
     .then(interval => {
       // this gives you back the rng interval that was put in db, to be used in SMS
-      console.log(interval);
+      $('#timer-counter').text(interval.date_part);
+
+      const timer = setInterval(function() {
+        let count = parseInt($('#timer-counter').html());
+        if (count !== 0) {
+          $('#timer-counter').html(count - 1);
+        } else {
+          clearInterval(timer);
+        }
+      }, 1000);
     })
     .catch(err => console.log(err.message));
   // Send first SMS here with message that the order has been placed and the interval TODO:

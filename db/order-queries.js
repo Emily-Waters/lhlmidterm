@@ -96,7 +96,7 @@ const createOrder = (params) => {
 // TODO: fix parameter bug if there's time
 const addInterval = (params) => {
   return db.query(`
-  UPDATE orders SET estimated_time = justify_interval(random() * (interval '2 minutes')) WHERE id = $1 RETURNING estimated_time;
+  UPDATE orders SET estimated_time = justify_interval(random() * (interval '2 minutes')) WHERE id = $1 RETURNING extract(epoch from estimated_time);
   `, [params.order_id])
     .then(res => {
       return res.rows[0];
