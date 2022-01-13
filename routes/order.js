@@ -16,8 +16,22 @@ router.get('/user/:id', (req, res) => {
     });
 });
 
-// GET order items by order id
+// CREATE new order
+router.post('/create', (req, res) => {
+  const queryParams = req.query;
+  orderQueries.createOrder(queryParams)
+    .then(orderId => {
+      req.session.orderId = orderId;
+      res.json(req.session.orderId);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({error: err.message});
+    });
+});
 
+// GET order items by order id
 router.get('/:id/items', (req, res) => {
   const queryParams = req.params.id;
   orderQueries.gerOrderItemsByOrderId(queryParams)

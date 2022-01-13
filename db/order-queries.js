@@ -79,11 +79,26 @@ const addMenuItem = (params) => {
     });
 };
 
+const createOrder = (params) => {
+  return db.query(`
+  INSERT INTO orders (user_id)
+  VALUES ($1)
+  RETURNING id
+  `, [params.user_id])
+    .then(res => {
+      return res;
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
 module.exports = {
   getOrdersById,
   getOrderTotal,
   getOrdersByUserId,
   gerOrderItemsByOrderId,
   deleteItemFromCart,
-  addMenuItem
+  addMenuItem,
+  createOrder
 };

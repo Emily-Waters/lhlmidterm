@@ -1,5 +1,9 @@
 const menuCardSubmit = (e) => {
   e.preventDefault();
+  if (!window.cookie.orderId) {
+    createNewOrder(window.cookie.id);
+  }
+  console.log(window.cookie);
   const $menuCard = $(e.currentTarget);
   const menuCardJSON = $menuCard.data().json;
   menuCardJSON.quantity = Number(e.target[0].value);

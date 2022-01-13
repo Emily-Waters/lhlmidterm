@@ -58,7 +58,7 @@ const login = (userName) => {
     .then(user => {
       if (user) {
         console.log('login success!');
-        console.log('user: ',user);
+        console.log('user: ', user);
         return user;
       }
     })
