@@ -9,6 +9,7 @@ $(() => {
   //  View manager
   window.view.show = (page, data) => {
     switch (page) {
+
     case 'restaurants':
       $filterButton.prop('disabled', true);
       $menuContainer.fadeOut();
@@ -16,11 +17,11 @@ $(() => {
       $main.append($resContainer);
       $resContainer.fadeIn();
       break;
+
     case 'menu':
       $filterButton.prop('disabled', false);
       $resContainer.fadeOut();
       $resContainer.detach();
-      // TODO: need to load menu cards by restaurant id
       getMenuItems(data)
         .then(menuData => {
           menuCards.addManyMenuCards(menuData);
@@ -30,6 +31,7 @@ $(() => {
         })
         .catch(err => console.log(err.message));
       break;
+
     case 'order':
       getOrderItems(data)
         .then(orderData => {
@@ -38,9 +40,11 @@ $(() => {
         })
         .catch(err => console.log(err.message));
       break;
+
     default:
     }
     user.userStatusAttachment($userContainer);
     $logoButton.on('click', logoHome);
   };
+
 });

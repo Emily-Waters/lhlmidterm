@@ -12,19 +12,30 @@ const menuCardSubmit = (e) => {
     .then(view.show('order'));
 };
 
+let currentRestaurantId;
+
 const resCardClick = (e) => {
   e.preventDefault();
   const $resCard = $(e.currentTarget);
   const resCardJSON = $resCard.data().json;
-  view.show('menu');
+  currentRestaurantId = resCardJSON.id;
+  const menuRequestObj = {
+    restaurantId: currentRestaurantId,
+    options: null
+  }
+  view.show('menu', menuRequestObj);
   view.show('order');
 };
 
 const filterOptionSubmit = (e) => {
   e.preventDefault();
-  const formData = $(e.currentTarget).serialize();
-  const destinationUrl = '/api/menu?' + formData;
-  view.show('menu', destinationUrl);
+  const options = $(e.currentTarget).serialize();
+  const menuRequestObj = {
+    restaurantId: currentRestaurantId,
+    options: options
+  }
+  view.show('menu', menuRequestObj);
+
 };
 
 $('#is_vegan').click(function() {

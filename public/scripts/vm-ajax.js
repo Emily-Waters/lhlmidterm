@@ -3,7 +3,17 @@ const getAllRestaurants = () => {
   return $.get('/api/restaurants/');
 };
 
-const getMenuItems = (url = '/api/menu') => { // TODO: Make it so menus can be got by id
+// Get menus by restaurant ID
+const getMenuItems = (menuRequestObj) => {
+  const restaurantId = menuRequestObj.restaurantId;
+  const options = menuRequestObj.options;
+
+  // 1. set id and path param
+  let url = `/api/menu/${restaurantId || ''}`;
+  // 2. set url params
+  if (options) {
+    url += `?${options}`;
+  }
   return $.get(url);
 };
 
