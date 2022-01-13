@@ -11,7 +11,7 @@ $(() => {
   `);
 
   window.$orderHistory = $orderHistory;
-  window.$orderHistoryCard = $orderHistoryCard;
+  // window.$orderHistoryCard = $orderHistoryCard;
   window.$orderHistoryContainer = $('#order-history-container');
 
   const createOrderHistoryCard = (orderData) => {
@@ -28,7 +28,9 @@ $(() => {
 
 
   const addOrderHistoryItem = (order) => {
-    $orderHistoryContainer.append(order);
+    console.log('Order: ',order);
+    console.log('Order Container: ',$('#order-history-container'));
+    $('#order-history-container').append(order);
   };
 
   const clearOrderHistoryItems = () => {
