@@ -102,6 +102,7 @@ const loginUser = (e) => {
         $('#user-sign-card').fadeOut('slow').detach();
         window.cookie = userData;
         $('#dropdown-section').prepend(`<h5><span class="badge badge-secondary" id="signed-in">Signed in as ${userData.name}</span></h5>`)
+        $('#user-details').toggle()
       }
       view.show('restaurants');
     })
