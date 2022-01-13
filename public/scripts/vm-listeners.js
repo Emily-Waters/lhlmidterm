@@ -115,7 +115,7 @@ const userContainerSlide = (e) => {
     $this
       .removeClass('out')
       .addClass('in')
-      .animate({left:'97vw'},500)
+      .animate({left:'98vw'},500)
       .children('i')
       .addClass('rotate');
   } else {

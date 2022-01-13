@@ -6,3 +6,11 @@ html {
   background-color: #000000;
   background-image: url("https://www.transparenttextures.com/patterns/tileable-wood-colored.png");
 }
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+

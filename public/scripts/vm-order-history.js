@@ -15,11 +15,13 @@ $(() => {
   window.$orderHistoryContainer = $('#order-history-container');
 
   const createOrderHistoryCard = (orderData) => {
+
+    console.log(orderData.time);
     return $(`
       <div class="order-history-item">
         <line>${orderData.name}</line>
         <line>${orderData.time}</line>
-        <line>${orderData.total}</line>
+        <line>${'$' + (orderData.total / 100).toFixed(2)}</line>
       </div>
     `);
   };

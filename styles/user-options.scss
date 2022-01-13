@@ -4,7 +4,7 @@ div.user-options {
   align-items: center;
   justify-content: center;
   text-align: center;
-  left:97vw;
+  left:98vw;
   width:33vw;
   position: fixed;
   top:4em;
@@ -110,8 +110,6 @@ div.user-options {
 }
 
 .user-row-1 {
-
-  // margin-top: 1rem;
   padding-left: 1em;
   padding-right: 3em;
   flex-direction: row;
@@ -139,17 +137,9 @@ div.user-options {
 
 .empty-space {
   height: 25%;
-  // margin-top: 1rem;
   color: grey;
   font-size: 0.75rem;
 }
-
-// #order-history {
-//   text-align: center;
-//   height: 25%;
-//   // margin-top: 1rem;
-//   color: grey;
-// }
 
 .user-data-card {
   width: 100%;
@@ -228,4 +218,21 @@ div.user-options {
 #order-history-container {
   height: 75%;
   width: 100%;
+}
+
+.order-history-item {
+
+  font-size: 0.75em;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+  color: grey;
+  border-bottom: 1px solid black;
+
+  line {
+    width:33%
+  }
 }
