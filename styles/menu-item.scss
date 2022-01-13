@@ -1,6 +1,8 @@
 // template for on hover effects
 %basic_hover {
-  transform: scale(101%);
+  border: yellowgreen solid 1px;
+  box-shadow: 2px 2px 4px yellow;
+  background:#fff;
 }
 
 div.menu-items-container {

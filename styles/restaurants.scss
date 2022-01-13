@@ -6,9 +6,11 @@
     width: 70vw;
     height: 60vh;
     margin-bottom: 120px;
+    box-shadow: 4px 4px 15px black;
+    transition: all .1s ease-in-out;
 
     &:hover {
-      transform: scale(101%);
+      transform: scale(1.03);
     }
 
     .restaurant-img {
