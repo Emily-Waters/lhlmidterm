@@ -27,16 +27,16 @@ $(() => {
                 <i class="fab fa-goodreads ${isOptionActive(menuItemData.is_gluten_free)}" title="Gluten Free"></i>
               </div class="row">
             </div>
-            <div class="col-2 foobar">
-              <form class="row form-group" name="order-add">
-                <select class="form-control" id="menu-quantity">
+            <div class="col-2 p-0 foobar">
+              <form class="row form-group m-0" name="order-add">
+                <select class="form-control col-5" id="menu-quantity">
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
                   <option>4</option>
                   <option>5</option>
                 </select>
-                <button type="button" id="animatebutton" class="btn btn-success btn-icon-text animatebutton"><i class="fa fa-check btn-icon-prepend"></i> ADD </button> </div>
+                <button class="btn btn-success col-7">ADD</button>
               </form>
             </div>
           </div>
