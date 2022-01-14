@@ -4,7 +4,6 @@ $(() => {
   const $filterButton = $('#filter-option-button');
   const $userContainer = $('#user-options');
   const orderOptionsContainer = $('#order-options');
-  const $cartDropdownContainer = $('#cart-dropdown .dropdown-menu');
 
   window.$userContainer = $userContainer;
   window.$currentOrderContainer = orderOptionsContainer;

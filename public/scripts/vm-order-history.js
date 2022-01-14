@@ -1,8 +1,5 @@
 $(() => {
 
-  window.orderHistory = {};
-  window.currentOrder = {};
-
   const $orderHistory = $(`
   <div class="order-col-1 order-info-card" id="order-history-card">
     <line class="order-info" id="order-history">Order History</line>
@@ -19,6 +16,13 @@ $(() => {
   </div>
  `);
 
+  const $latestTimer = $(`
+  <div class="order-col-1 order-info-card">
+    <line class="order-info">Latest Timer</line>
+      <line id="timer-counter"></line>
+  </div>
+  `);
+
   const $orderHistoryContainer = $('#order-history-container');
   const $currentOrderContainer = $('#current-order-container');
   window.$currentOrderContainer = $currentOrderContainer;
@@ -26,6 +30,16 @@ $(() => {
 
   window.$orderHistory = $orderHistory;
   window.$currentOrder = $currentOrder;
+  window.$latestTimer = $latestTimer;
+
+  const convertTimestamp = (timestamp) => {
+    const timeZoneOptions = {
+      timeZone: 'PST',
+      timeZoneName: 'short'
+    };
+    const orderDate = new Date(timestamp).toLocaleTimeString('en-US', timeZoneOptions);
+    return orderDate;
+  };
 
   const createOrderHistoryCard = (orderData) => {
     const subtotal = orderData.total / 100;
@@ -35,7 +49,7 @@ $(() => {
     return $(`
       <div class="order-history-item">
         <line>${orderData.name}</line>
-        <line>${orderData.time}</line>
+        <line>${convertTimestamp(orderData.time)}</line>
         <line>${'$' + total.toFixed(2)}</line>
       </div>
     `);
@@ -51,26 +65,19 @@ $(() => {
     return $(`
       <div class="order-history-item">
         <line>${orderData.name}</line>
-        <line>${orderData.time}</line>
+        <line>${convertTimestamp(orderData.time)}</line>
         <line>${'$' + total.toFixed(2)}</line>
       </div>
     `);
   };
 
-  window.orderHistory.createOrderHistoryCard = createOrderHistoryCard;
-  window.currentOrder.createCurrentOrderCard = createCurrentOrderCard;
-
   const addOrderHistoryItem = (order) => {
     $('#order-history-container').append(order);
   };
 
-  window.orderHistory.addOrderHistoryItem = addOrderHistoryItem;
-
   const clearOrderHistoryItems = () => {
     $('#order-history-container').empty();
   };
-
-  window.orderHistory.clearOrderHistoryItems = clearOrderHistoryItems;
 
   const addManyOrderHistoryItems = (orderData) => {
     clearOrderHistoryItems();
@@ -80,8 +87,6 @@ $(() => {
       addOrderHistoryItem(orderHistoryCard);
     }
   };
-
-  window.orderHistory.addManyOrderHistoryItems = addManyOrderHistoryItems;
 
   const addCurrentOrderItem = (order) => {
     $('#current-order-container').append(order);
@@ -100,8 +105,19 @@ $(() => {
     }
   };
 
-  window.currentOrder.addCurrentOrderItem = addCurrentOrderItem;
-  window.currentOrder.clearCurrentOrderItems = clearCurrentOrderItems;
-  window.currentOrder.addManyCurrentOrderItems = addManyCurrentOrderItems;
+  window.orderHistory = {
+    createOrderHistoryCard,
+    addOrderHistoryItem,
+    clearOrderHistoryItems,
+    addManyOrderHistoryItems
+
+  };
+
+  window.currentOrder = {
+    createCurrentOrderCard,
+    addCurrentOrderItem,
+    clearCurrentOrderItems,
+    addManyCurrentOrderItems
+  };
 
 });

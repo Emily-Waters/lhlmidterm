@@ -6,8 +6,10 @@ $(() => {
     const menuItemJSON = JSON.stringify(menuItemData);
     return $(`
       <div class="row menu-card mb-3" id="menu-card" data-json='${menuItemJSON}'>
-        <img src="${menuItemData.image_url}" class="col-3 menu-img rounded p-0 mr-3"></img>
-        <div class="col-8 menu-details rounded">
+        <div class="col-12 col-sm-3 p-0">
+          <img src="${menuItemData.image_url}" class="menu-img rounded">
+        </div>
+        <div class="col-12 col-sm-9 menu-details rounded">
           <div class="container">
             <div class="row mt-3">
               <h4 class="col-10 menu-title font-weight-bold">${menuItemData.name}</h4>
@@ -20,14 +22,14 @@ $(() => {
           </div>
 
           <div class="row justify-content-between">
-            <div class="col-3 menu-options">
+            <div class="px-3 menu-options">
               <div>
                 <i class="fas fa-leaf mr-2 ${isOptionActive(menuItemData.is_vegan)}" title="Vegan"></i>
                 <i class="fas fa-carrot mr-2 ${isOptionActive(menuItemData.is_vegetarian)}" title="Vegetarian"></i>
                 <i class="fab fa-goodreads ${isOptionActive(menuItemData.is_gluten_free)}" title="Gluten Free"></i>
               </div class="row">
             </div>
-            <div class="col-2 p-0 foobar">
+            <div class="p-0 foobar">
               <form class="row form-group m-0" name="order-add">
                 <select class="form-control col-6" id="menu-quantity">
                   <option>1</option>
@@ -41,7 +43,7 @@ $(() => {
                   <option>9</option>
                   <option>10</option>
                 </select>
-                <button class="btn btn-success col-6" id="add-button">ADD</button>
+                <button class="btn btn-outline-success col-6" id="add-button">ADD</button>
               </form>
             </div>
           </div>

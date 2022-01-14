@@ -106,6 +106,18 @@ const addInterval = (params) => {
     });
 };
 
+const setComplete = (params) => {
+  return db.query(`
+  UPDATE orders SET is_completed = true WHERE id = $1;
+  `, [params.order_id])
+    .then(res => {
+      return res.rows[0];
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+};
+
 module.exports = {
   getOrdersById,
   getOrderTotal,
@@ -114,5 +126,6 @@ module.exports = {
   deleteItemFromCart,
   addMenuItem,
   createOrder,
-  addInterval
+  addInterval,
+  setComplete
 };
