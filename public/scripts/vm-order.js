@@ -1,3 +1,6 @@
+const $cardDropdownMenu = $('#card-dropdown-menu');
+const $closeCardDropdownBtn = $('#close-card-dropdown');
+
 $(() => {
 
   // Single Order Card
@@ -59,11 +62,12 @@ $(() => {
     e.stopPropagation();
   });
 
-  $(document).on('click', '.fa-times', deleteItem);
+  $closeCardDropdownBtn.on('click', ()=> {
+    $cardDropdownMenu.removeClass('show');
+  })
 
-  $('#cancel').click(function () {
-    $('.dropdown-menu').slideToggle();
-  });
+
+  $(document).on('click', '.fa-times', deleteItem);
 
   window.orderCards = {
     addOrderCard,
