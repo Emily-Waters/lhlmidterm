@@ -32,6 +32,15 @@ $(() => {
   window.$currentOrder = $currentOrder;
   window.$latestTimer = $latestTimer;
 
+  const convertTimestamp = (timestamp) => {
+    const timeZoneOptions = {
+      timeZone: 'PST',
+      timeZoneName: 'short'
+    };
+    const orderDate = new Date(timestamp).toLocaleTimeString('en-US', timeZoneOptions);
+    return orderDate;
+  };
+
   const createOrderHistoryCard = (orderData) => {
     const subtotal = orderData.total / 100;
     const gst = subtotal * 0.05;
@@ -40,7 +49,7 @@ $(() => {
     return $(`
       <div class="order-history-item">
         <line>${orderData.name}</line>
-        <line>${orderData.time}</line>
+        <line>${convertTimestamp(orderData.time)}</line>
         <line>${'$' + total.toFixed(2)}</line>
       </div>
     `);
@@ -56,7 +65,7 @@ $(() => {
     return $(`
       <div class="order-history-item">
         <line>${orderData.name}</line>
-        <line>${orderData.time}</line>
+        <line>${convertTimestamp(orderData.time)}</line>
         <line>${'$' + total.toFixed(2)}</line>
       </div>
     `);
