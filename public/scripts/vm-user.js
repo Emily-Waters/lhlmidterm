@@ -1,7 +1,5 @@
 $(() => {
 
-  window.user = {};
-
   const $signUpCard = $(`
   <div class="user-data-card" id="user-sign-card">
     <line class="user-row-1">
@@ -66,6 +64,8 @@ $(() => {
       $orderHistory.detach();
       $currentOrder.fadeOut();
       $currentOrder.detach();
+      $latestTimer.fadeOut();
+      $latestTimer.detach();
       $loggedInCard.fadeOut();
       $loggedInCard.detach();
       $('#order-cart-dropdown').prop('disabled', true);
@@ -85,15 +85,19 @@ $(() => {
       $userContainer.append($loggedInCard);
       $userContainer.append($orderHistory);
       $('#order-options').append($currentOrder);
+      $('#order-options').append($latestTimer);
       $('#username').text(window.cookie.name);
       $('#phonenumber').text(window.cookie.phone);
       $orderHistory.fadeIn();
       $currentOrder.fadeIn();
+      $latestTimer.fadeIn();
       $loggedInCard.fadeIn();
     }
   };
 
-  window.user.userStatusAttachment = userStatusAttachment;
+  window.user = {
+    userStatusAttachment
+  };
 
   $('body').on('click', '#login-button', loginUser);
   $('body').on('submit', '#login', loginUser);
