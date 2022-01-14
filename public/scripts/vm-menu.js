@@ -6,7 +6,7 @@ $(() => {
     const menuItemJSON = JSON.stringify(menuItemData);
     return $(`
       <div class="row menu-card mb-3" id="menu-card" data-json='${menuItemJSON}'>
-        <div class="col-12 col-sm-3 px-0">
+        <div class="col-12 col-sm-3 p-0">
           <img src="${menuItemData.image_url}" class="menu-img rounded">
         </div>
         <div class="col-12 col-sm-9 menu-details rounded">
