@@ -113,5 +113,25 @@ router.post('/interval', (req, res) => {
     });
 });
 
+// sets order state to complete
+router.post('/complete', (req, res) => {
+  const queryParams = req.query;
+  orderQueries.setComplete(queryParams)
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({error: err.message});
+    });
+});
+
+// clear orderId cookie
+router.post('/clear', (req, res) => {
+  req.session.orderId = null;
+  res.json(req.session);
+});
+
 // export router object
 module.exports = router;

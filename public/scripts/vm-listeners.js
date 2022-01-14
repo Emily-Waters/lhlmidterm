@@ -20,16 +20,15 @@ const resCardClick = (e, cookie) => {
     restaurantId: currentRestaurantId,
     options: null
   };
-  // create order id and store in cookie
-  if (cookie) {
-    window.cookie.restaurantId = currentRestaurantId;
-    createNewOrder(window.cookie.id)
-      .then(data => {
-        window.cookie.orderId = data;
-      })
-      .catch(err => console.log(err.message));
-    view.show('order');
-  }
+
+  window.cookie.restaurantId = currentRestaurantId;
+  createNewOrder(window.cookie.id)
+    .then(data => {
+      window.cookie.orderId = data;
+    })
+    .catch(err => console.log(err.message));
+  view.show('order');
+
   view.show('menu', menuRequestObj);
 };
 
@@ -88,20 +87,40 @@ const deleteItem = (e) => {
 const loadCheckout = (e) => {
   e.preventDefault();
   // number in brackets represents max minutes for the db to generate random interval with
-  addIntervalToOrder(5)
+  addIntervalToOrder()
     .then(interval => {
       // this gives you back the rng interval that was put in db, to be used in SMS
       const secondsLeft = Math.round(interval.date_part);
       $('#timer-counter').text(secondsLeft);
-      getUserById()
-        .then(data => {
-          sendMessage(`Your order will be ready in ${secondsLeft} seconds`, data.phone);
-        });
-      getRestaurantById()
-        .then(data => {
-          sendMessage('New order received', data.phone);
-        });
+      getUserById().then(data => {
+        sendMessage(`Your order will be ready in ${secondsLeft} seconds`, data.phone);
+      });
+      getRestaurantById().then(data => {
+        sendMessage('New order received', data.phone);
+      });
 
+      // set timeout to redirect to homepage and clear order
+      setTimeout(() => {
+        clearCart()
+          .then((userData) => {
+            window.cookie = userData;
+          })
+          .catch(err => console.log(err.message));
+
+        orderCards.clearOrderCards();
+        $('#checkout-card').detach();
+        view.show('restaurants');
+      }, 3000);
+
+      // set timeout to send message after food is ready
+      setTimeout(() => {
+        setStateComplete();
+        getUserById().then(data => {
+          sendMessage(`Your order is ready for pickup!`, data.phone);
+        });
+      }, secondsLeft * 1000);
+
+      // set interval function for timer updates
       const timer = setInterval(function() {
         let count = parseInt($('#timer-counter').html());
         if (count !== 0) {
@@ -112,8 +131,7 @@ const loadCheckout = (e) => {
       }, 1000);
     })
     .catch(err => console.log(err.message));
-  $('#order-cart-container').detach();
-  $('#cart-dropdown .dropdown-menu').append(checkoutCard);
+  $('#order-cart-container').append(checkoutCard);
 };
 
 const loginUser = (e) => {
