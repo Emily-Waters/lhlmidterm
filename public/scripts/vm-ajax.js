@@ -42,6 +42,11 @@ const addIntervalToOrder = (interval, orderId = window.cookie.orderId) => {
   return $.post(`api/order/interval?interval=${interval}&order_id=${orderId}`);
 };
 
+// sets is_completed of order to true
+const setStateComplete = (orderId = window.cookie.orderId) => {
+  return $.post(`api/order/complete?order_id=${orderId}`);
+};
+
 // send message with body as param
 const sendMessage = (body, number) => {
   return $.post(`api/sms?body=${body}&number=${number}`);
@@ -49,6 +54,10 @@ const sendMessage = (body, number) => {
 
 const deleteOrderItem = (itemId, orderId = window.cookie.orderId) => {
   return $.post(`api/order/delete?order_id=${orderId}&item_id=${itemId}`);
+};
+
+const clearCart = () => {
+  return $.post(`api/order/clear`);
 };
 
 const getUserById = (id = window.cookie.id) => {
