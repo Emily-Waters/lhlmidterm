@@ -1,8 +1,7 @@
 // template for on hover effects
 %basic_hover {
   border: yellowgreen solid 1px;
-  box-shadow: 2px 2px 4px yellow;
-  background:#fff;
+  box-shadow: 1px 1px 2px yellow;
 }
 
 div.menu-items-container {
@@ -14,7 +13,7 @@ div.menu-items-container {
 div.menu-card {
   align-items: center;
 
-  img.menu-img {
+  .menu-img {
     width: 300px;
     height: 200px;
     object-fit: cover;
