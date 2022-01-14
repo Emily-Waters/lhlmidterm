@@ -93,6 +93,11 @@ $(() => {
     }
   };
 
+  const getViewportWidth = () => {
+    return $(window).width();
+  };
+
+  window.user.getViewportWidth = getViewportWidth;
   window.user.userStatusAttachment = userStatusAttachment;
 
   $('body').on('click', '#login-button', loginUser);

@@ -153,13 +153,26 @@ const logoHome = (e) => {
 };
 
 const userContainerSlide = (e) => {
+  console.log(window.user.getViewportWidth());
   const $this = $(e.currentTarget).parent();
   $this.children('i').removeClass('rotate unrotate');
+
+  let vwMax;
+  let vwMin;
+
+  if (window.user.getViewportWidth() >= 768) {
+    vwMax = '98vw';
+    vwMin = '67vw';
+  } else {
+    vwMax = '90vw';
+    vwMin = '0vw';
+  }
+
   if ($this.hasClass('out')) {
     $this
       .removeClass('out')
       .addClass('in')
-      .animate({left:'98vw'},500)
+      .animate({left:vwMax},500)
       .children('i')
       .addClass('rotate');
   } else {
@@ -167,7 +180,7 @@ const userContainerSlide = (e) => {
       .removeClass('in shadow')
       .addClass('out')
       .animate({
-        left: '67vw'
+        left: vwMin
       }, 500)
       .children('i')
       .addClass('unrotate');

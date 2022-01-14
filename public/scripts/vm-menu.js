@@ -79,6 +79,7 @@ $(() => {
       const menuItemData = menuData[id];
       const menuItemCard = menuCard.createMenuCard(menuItemData);
       addMenuCard(menuItemCard);
+      $('#menu-img').children('img').detach();
     }
   };
 

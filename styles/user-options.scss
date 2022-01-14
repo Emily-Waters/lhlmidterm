@@ -240,4 +240,23 @@ div.user-options {
   border-top: 0px solid black;
 }
 
+.none-display {
+  display:none !important
+}
 
+@media only screen and (max-width: 768px) {
+
+  .menu-items-container {
+    font-size: 12px;
+  }
+
+  div.user-options {
+    width:100vw;
+    left:90vw;
+  }
+
+  #signed-in {
+    display:none;
+  }
+
+}
