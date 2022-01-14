@@ -22,6 +22,7 @@ const resCardClick = (e, cookie) => {
   };
   // create order id and store in cookie
   if (cookie) {
+    window.cookie.restaurantId = currentRestaurantId;
     createNewOrder(window.cookie.id)
       .then(data => {
         window.cookie.orderId = data;

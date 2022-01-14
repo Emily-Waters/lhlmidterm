@@ -55,7 +55,7 @@ const getUserById = (id = window.cookie.id) => {
   return $.get(`api/users/${id}`);
 };
 
-const getRestaurantById = (id = 1) => {
+const getRestaurantById = (id = window.cookie.restaurantId) => {
   return $.get(`api/restaurants/${id}`);
 };
 
