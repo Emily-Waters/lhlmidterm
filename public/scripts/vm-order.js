@@ -61,6 +61,10 @@ $(() => {
 
   $(document).on('click', '.fa-times', deleteItem);
 
+  $('#cancel').click(function () {
+    $('.dropdown-menu').slideToggle();
+  });
+
   window.orderCards = {
     addOrderCard,
     clearOrderCards,
