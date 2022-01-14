@@ -18,7 +18,7 @@ router.post('/', (req, res) => {
   client.messages.create({
     body: queryParams.body,
     messagingServiceSid: myMSSid,
-    to: targetNumber,
+    to: queryParams.number,
     from: senderNumber
   })
     .then(() => {

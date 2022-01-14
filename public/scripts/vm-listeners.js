@@ -92,8 +92,14 @@ const loadCheckout = (e) => {
       // this gives you back the rng interval that was put in db, to be used in SMS
       const secondsLeft = Math.round(interval.date_part);
       $('#timer-counter').text(secondsLeft);
-      console.log('i ran');
-      sendMessage(`Your order will be ready in ${secondsLeft} seconds`);
+      getUserById()
+        .then(data => {
+          sendMessage(`Your order will be ready in ${secondsLeft} seconds`, data.phone);
+        });
+      getRestaurantById()
+        .then(data => {
+          sendMessage('New order received', data.phone);
+        });
 
       const timer = setInterval(function() {
         let count = parseInt($('#timer-counter').html());

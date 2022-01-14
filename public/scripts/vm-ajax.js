@@ -43,12 +43,20 @@ const addIntervalToOrder = (interval, orderId = window.cookie.orderId) => {
 };
 
 // send message with body as param
-const sendMessage = (body) => {
-  return $.post(`api/sms?body=${body}`);
+const sendMessage = (body, number) => {
+  return $.post(`api/sms?body=${body}&number=${number}`);
 };
 
 const deleteOrderItem = (itemId, orderId = window.cookie.orderId) => {
   return $.post(`api/order/delete?order_id=${orderId}&item_id=${itemId}`);
+};
+
+const getUserById = (id = window.cookie.id) => {
+  return $.get(`api/users/${id}`);
+};
+
+const getRestaurantById = (id = 1) => {
+  return $.get(`api/restaurants/${id}`);
 };
 
 const getUser = (userData) => {
