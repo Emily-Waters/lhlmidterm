@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
   const queryParams = req.params.id;
   userQueries.getUsersById(queryParams)
     .then((user) => {
-      res.json({ user });
+      res.json(user);
     })
     .catch(err => {
       res
