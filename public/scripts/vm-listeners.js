@@ -21,15 +21,16 @@ const resCardClick = (e, cookie) => {
     options: null
   };
 
+  view.show('menu', menuRequestObj);
+
   window.cookie.restaurantId = currentRestaurantId;
   createNewOrder(window.cookie.id)
     .then(data => {
       window.cookie.orderId = data;
     })
     .catch(err => console.log(err.message));
-  view.show('order');
 
-  view.show('menu', menuRequestObj);
+  view.show('order');
 };
 
 const filterOptionSubmit = (e) => {
@@ -85,7 +86,10 @@ const deleteItem = (e) => {
 };
 
 const loadCheckout = (e) => {
+  const saveUserId = window.cookie.id;
+  const saveOrderId = window.cookie.orderId;
   e.preventDefault();
+
   // number in brackets represents max minutes for the db to generate random interval with
   addIntervalToOrder()
     .then(interval => {
@@ -114,8 +118,8 @@ const loadCheckout = (e) => {
 
       // set timeout to send message after food is ready
       setTimeout(() => {
-        setStateComplete();
-        getUserById().then(data => {
+        setStateComplete(saveOrderId);
+        getUserById(saveUserId).then(data => {
           sendMessage(`Your order is ready for pickup!`, data.phone);
         });
       }, secondsLeft * 1000);
