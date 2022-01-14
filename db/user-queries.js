@@ -37,7 +37,7 @@ const registerUser = (userData) => {
 
 const getUserHistory = (userId) => {
   return db
-    .query(`SELECT restaurants.name AS name, date_trunc('day', orders.time_placed) AS time, SUM(menu_items.cost * order_items.quantity) AS total
+    .query(`SELECT restaurants.name AS name, orders.time_placed AS time, SUM(menu_items.cost * order_items.quantity) AS total
     FROM users
     JOIN orders ON orders.user_id = users.id
     JOIN order_items ON orders.id = order_items.order_id
@@ -52,7 +52,7 @@ const getUserHistory = (userId) => {
 
 const getActiveOrders = (userId) => {
   return db
-    .query(`SELECT restaurants.name AS name, date_trunc('day', orders.time_placed) AS time, SUM(menu_items.cost * order_items.quantity) AS total
+    .query(`SELECT restaurants.name AS name, orders.time_placed AS time, SUM(menu_items.cost * order_items.quantity) AS total
     FROM users
     JOIN orders ON orders.user_id = users.id
     JOIN order_items ON orders.id = order_items.order_id

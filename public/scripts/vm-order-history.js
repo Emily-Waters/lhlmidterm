@@ -60,8 +60,6 @@ $(() => {
     const gst = subtotal * 0.05;
     const pst = subtotal * 0.07;
     const total = subtotal + gst + pst;
-
-    //TODO: Put the timer in here
     return $(`
       <div class="order-history-item">
         <line>${orderData.name}</line>

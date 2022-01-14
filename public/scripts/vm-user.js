@@ -1,5 +1,7 @@
 $(() => {
 
+  window.user = {};
+
   const $signUpCard = $(`
   <div class="user-data-card" id="user-sign-card">
     <line class="user-row-1">

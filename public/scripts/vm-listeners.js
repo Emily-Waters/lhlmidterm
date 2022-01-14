@@ -73,7 +73,7 @@ const displayNotification = (message) => {
 
 $('#user-icon-status').click(function() {
   if (!window.cookie) {
-    displayNotification(`Please log in by clicking arrow of the side bar.`);
+    displayNotification(`Log in to start placing orders.`);
   }
 });
 
@@ -121,6 +121,8 @@ const loadCheckout = (e) => {
         setStateComplete(saveOrderId);
         getUserById(saveUserId).then(data => {
           sendMessage(`Your order is ready for pickup!`, data.phone);
+          alert('Your Order Is Ready!');
+          window.view.show();
         });
       }, secondsLeft * 1000);
 
@@ -148,7 +150,7 @@ const loginUser = (e) => {
         $('#user-icon-status').toggleClass('icon-active');
         $('#user-sign-card').fadeOut('slow').detach();
         window.cookie = userData;
-        const singedInBadge = `<h5><span class="badge badge-secondary" id="signed-in">Signed in as ${userData.name}</span></h5>`;
+        const singedInBadge = `<h5><span class="badge badge-secondary" id="signed-in">${userData.name}</span></h5>`;
         $('#dropdown-section').prepend(singedInBadge).fadeIn('slow');
       }
       view.show('restaurants');
