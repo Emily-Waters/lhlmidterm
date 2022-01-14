@@ -71,9 +71,9 @@ const displayNotification = (message) => {
 
 };
 
-$('#dropdown-section').click(function() {
+$('#user-icon-status').click(function() {
   if (!window.cookie) {
-    displayNotification(`Please log in to get some FüD.`);
+    displayNotification(`Please log in by clicking arrow of the side bar.`);
   }
 });
 
