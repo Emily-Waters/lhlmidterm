@@ -62,17 +62,17 @@ $('#is_gluten_free').click(function() {
 
 const displayNotification = (message) => {
   const alert = `
-  <h4><span class="badge badge-secondary">${message}</span><h4>`;
+  <h5><span class="badge badge-secondary">${message}</span></h5>`;
   $('#dropdown-section').prepend(alert);
   setTimeout(() => {
     $('.badge').slideUp();
-  }, 1500);
+  }, 1000);
 
 };
 
 $('#dropdown-section').click(function() {
   if (!window.cookie) {
-    displayNotification(`Please log in and get some FüD.`);
+    displayNotification(`Please log in to get some FüD.`);
   }
 });
 

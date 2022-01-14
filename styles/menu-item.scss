@@ -1,7 +1,8 @@
 // template for on hover effects
 %basic_hover {
-  transform: scale(102%);
-  transition: .1s ease-in-out;
+  border: yellowgreen solid 1px;
+  box-shadow: 2px 2px 4px yellow;
+  background:#fff;
 }
 
 div.menu-items-container {
@@ -23,7 +24,8 @@ div.menu-card {
     }
   }
 
-  div.menu-details {
+  .menu-details {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     height: 200px;
     background-color: white;
     opacity: 80%;
@@ -35,7 +37,6 @@ div.menu-card {
     }
 
     .menu-title {
-      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
       font-size: clamp(14px, 3vw, 25px);
       text-align: center;
       text-transform: uppercase;
@@ -48,13 +49,14 @@ div.menu-card {
       justify-content: center;
     }
 
-    .menu-options {
-      display: flex;
-      justify-content: space-between;
-    }
+      #add-button:hover {
+        background-color: #3e8e41;
+      }
 
-    #menu-quantity {
-      width: auto;
+    #add-button:active {
+      background-color: #3e8e41;
+      box-shadow: 0 5px #666;
+      transform: translateY(2px);
     }
   }
 }
