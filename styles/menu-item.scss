@@ -2,6 +2,8 @@
 %basic_hover {
   border: yellowgreen solid 1px;
   box-shadow: 1px 1px 2px yellow;
+  background-color: white;
+  opacity: 95%;
 }
 
 div.menu-items-container {
@@ -14,7 +16,7 @@ div.menu-card {
   align-items: center;
 
   .menu-img {
-    width: 300px;
+    width: 230px;
     height: 200px;
     object-fit: cover;
     box-shadow: 4px 4px 15px black;
@@ -55,7 +57,6 @@ div.menu-card {
 
     #add-button:active {
       background-color: #3e8e41;
-      box-shadow: 0 3px #666;
       transform: translateY(1px);
     }
   }
