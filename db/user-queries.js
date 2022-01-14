@@ -43,7 +43,7 @@ const getUserHistory = (userId) => {
     JOIN order_items ON orders.id = order_items.order_id
     JOIN menu_items ON order_items.menu_item_id = menu_items.id
     JOIN restaurants ON restaurants.id = menu_items.restaurant_id
-    WHERE users.id = $1
+    WHERE users.id = $1 AND orders.is_completed = True
     GROUP BY restaurants.name, orders.time_placed
     ORDER BY time DESC;`,[userId])
     .then(res => res.rows)
