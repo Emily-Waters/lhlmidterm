@@ -29,7 +29,7 @@ div.menu-card {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     height: 200px;
     background-color: white;
-    opacity: 80%;
+    opacity: 85%;
     border-radius: 10px;
     box-shadow: 4px 4px 15px black;
 
@@ -56,8 +56,8 @@ div.menu-card {
 
     #add-button:active {
       background-color: #3e8e41;
-      box-shadow: 0 5px #666;
-      transform: translateY(2px);
+      box-shadow: 0 3px #666;
+      transform: translateY(1px);
     }
   }
 }
