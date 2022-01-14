@@ -1,6 +1,7 @@
 $(() => {
 
   window.orderHistory = {};
+  window.currentOrder = {};
 
   const $orderHistory = $(`
   <div class="order-col-1 order-info-card" id="order-history-card">
@@ -12,7 +13,7 @@ $(() => {
 
   const $currentOrder = $(`
   <div class="order-col-1 order-info-card" id="current-order-card">
-    <line id="current-order">Active Orders</line>
+    <line class="order-info" id="current-order">Active Orders</line>
       <div id="current-order-container">
       </div>
   </div>
@@ -24,6 +25,7 @@ $(() => {
   window.$orderHistoryContainer = $orderHistoryContainer;
 
   window.$orderHistory = $orderHistory;
+  window.$currentOrder = $currentOrder;
 
   const createOrderHistoryCard = (orderData) => {
     const subtotal = orderData.total / 100;
@@ -56,15 +58,19 @@ $(() => {
   };
 
   window.orderHistory.createOrderHistoryCard = createOrderHistoryCard;
-  window.orderHistory.createCurrentOrderCard = createCurrentOrderCard;
+  window.currentOrder.createCurrentOrderCard = createCurrentOrderCard;
 
   const addOrderHistoryItem = (order) => {
     $('#order-history-container').append(order);
   };
 
+  window.orderHistory.addOrderHistoryItem = addOrderHistoryItem;
+
   const clearOrderHistoryItems = () => {
     $('#order-history-container').empty();
   };
+
+  window.orderHistory.clearOrderHistoryItems = clearOrderHistoryItems;
 
   const addManyOrderHistoryItems = (orderData) => {
     clearOrderHistoryItems();
@@ -75,8 +81,6 @@ $(() => {
     }
   };
 
-  window.orderHistory.addOrderHistoryItem = addOrderHistoryItem;
-  window.orderHistory.clearOrderHistoryItems = clearOrderHistoryItems;
   window.orderHistory.addManyOrderHistoryItems = addManyOrderHistoryItems;
 
   const addCurrentOrderItem = (order) => {
@@ -84,20 +88,20 @@ $(() => {
   };
 
   const clearCurrentOrderItems = () => {
-    $('#current-order-container').append(order);
+    $('#current-order-container').empty();
   };
 
   const addManyCurrentOrderItems = (orderData) => {
     clearCurrentOrderItems();
     for (const id in orderData) {
-      const orderHistoryData = orderData[id];
-      const orderHistoryCard = orderHistory.createOrderHistoryCard(orderHistoryData);
-      addCurrentOrderItem(orderHistoryCard);
+      const currentOrderData = orderData[id];
+      const currentOrderCard = currentOrder.createCurrentOrderCard(currentOrderData);
+      addCurrentOrderItem(currentOrderCard);
     }
   };
 
-  window.orderHistory.addCurrentOrderItem = addCurrentOrderItem;
-  window.orderHistory.clearCurrentOrderItems = clearCurrentOrderItems;
-  window.orderHistory.addManyCurrentOrderItems = addManyCurrentOrderItems;
+  window.currentOrder.addCurrentOrderItem = addCurrentOrderItem;
+  window.currentOrder.clearCurrentOrderItems = clearCurrentOrderItems;
+  window.currentOrder.addManyCurrentOrderItems = addManyCurrentOrderItems;
 
 });

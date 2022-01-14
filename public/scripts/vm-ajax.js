@@ -61,3 +61,7 @@ const createUser = (formData) => {
 const getUserOrderHistory = (userId) => {
   return $.get(`api/users/history/${userId.id}`);
 };
+
+const getActiveOrders = (userId) => {
+  return $.get(`api/users/active/${userId.id}`);
+};

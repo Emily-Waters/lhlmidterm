@@ -64,24 +64,31 @@ $(() => {
     if (!window.cookie) {
       $orderHistory.fadeOut();
       $orderHistory.detach();
+      $currentOrder.fadeOut();
+      $currentOrder.detach();
       $loggedInCard.fadeOut();
       $loggedInCard.detach();
       $('#order-cart-dropdown').prop('disabled', true);
       $userContainer.append($loggedOutCard);
       $loggedOutCard.fadeIn();
     } else {
-      const userId = window.cookie.id;
-      getUserOrderHistory(window.cookie)
+      const userCookie = window.cookie;
+      getUserOrderHistory(userCookie)
         .then(orderData => orderHistory.addManyOrderHistoryItems(orderData))
+        .catch(err => console.log(err));
+      getActiveOrders(userCookie)
+        .then(orderData => currentOrder.addManyCurrentOrderItems(orderData))
         .catch(err => console.log(err));
       $loggedOutCard.fadeOut();
       $loggedOutCard.detach();
       $('#order-cart-dropdown').prop('disabled', false);
       $userContainer.append($loggedInCard);
       $userContainer.append($orderHistory);
+      $('#order-options').append($currentOrder);
       $('#username').text(window.cookie.name);
       $('#phonenumber').text(window.cookie.phone);
       $orderHistory.fadeIn();
+      $currentOrder.fadeIn();
       $loggedInCard.fadeIn();
     }
   };
