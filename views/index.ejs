@@ -3,6 +3,7 @@
 
 <head>
   <title>Home Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -72,7 +73,7 @@
           <button class="btn btn-outline-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="order-cart-dropdown">
             <i class="fas fa-shopping-cart"></i>
           </button>
-          <div class="dropdown-menu dropdown-menu-right">
+          <div class="dropdown-menu dropdown-menu-right" id="card-dropdown-menu">
 
             <div id="order-cart-container">
 
@@ -126,7 +127,7 @@
                       <button class="btn btn-outline-success order-cancel" id="checkout">Checkout</button>
                     </div>
                     <div class="row">
-                      <button class="btn btn-outline-danger order-cancel" id="cancel">Cancel</button>
+                      <button class="btn btn-outline-danger order-cancel" id="close-card-dropdown">Cancel</button>
                     </div>
                   </div>
                 </div>
