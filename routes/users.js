@@ -30,12 +30,21 @@ router.get("/history/:id", (req,res) => {
     .catch(err => console.log(err));
 });
 
+router.get("/active/:id", (req,res) => {
+  const userId = req.params.id;
+  userQueries
+    .getActiveOrders(userId)
+    .then(data => res.json(data))
+    .catch(err => console.log(err));
+});
+
+
 // GET user by id
 router.get('/:id', (req, res) => {
   const queryParams = req.params.id;
   userQueries.getUsersById(queryParams)
     .then((user) => {
-      res.json({ user });
+      res.json(user);
     })
     .catch(err => {
       res

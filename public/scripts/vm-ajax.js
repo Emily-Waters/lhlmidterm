@@ -42,8 +42,21 @@ const addIntervalToOrder = (interval, orderId = window.cookie.orderId) => {
   return $.post(`api/order/interval?interval=${interval}&order_id=${orderId}`);
 };
 
+// send message with body as param
+const sendMessage = (body, number) => {
+  return $.post(`api/sms?body=${body}&number=${number}`);
+};
+
 const deleteOrderItem = (itemId, orderId = window.cookie.orderId) => {
   return $.post(`api/order/delete?order_id=${orderId}&item_id=${itemId}`);
+};
+
+const getUserById = (id = window.cookie.id) => {
+  return $.get(`api/users/${id}`);
+};
+
+const getRestaurantById = (id = window.cookie.restaurantId) => {
+  return $.get(`api/restaurants/${id}`);
 };
 
 const getUser = (userData) => {
@@ -60,4 +73,8 @@ const createUser = (formData) => {
 
 const getUserOrderHistory = (userId) => {
   return $.get(`api/users/history/${userId.id}`);
+};
+
+const getActiveOrders = (userId) => {
+  return $.get(`api/users/active/${userId.id}`);
 };

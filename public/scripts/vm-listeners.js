@@ -22,6 +22,7 @@ const resCardClick = (e, cookie) => {
   };
   // create order id and store in cookie
   if (cookie) {
+    window.cookie.restaurantId = currentRestaurantId;
     createNewOrder(window.cookie.id)
       .then(data => {
         window.cookie.orderId = data;
@@ -40,7 +41,6 @@ const filterOptionSubmit = (e) => {
     options: options
   };
   view.show('menu', menuRequestObj);
-
 };
 
 $('#is_vegan').click(function() {
@@ -91,7 +91,16 @@ const loadCheckout = (e) => {
   addIntervalToOrder(5)
     .then(interval => {
       // this gives you back the rng interval that was put in db, to be used in SMS
-      $('#timer-counter').text(interval.date_part);
+      const secondsLeft = Math.round(interval.date_part);
+      $('#timer-counter').text(secondsLeft);
+      getUserById()
+        .then(data => {
+          sendMessage(`Your order will be ready in ${secondsLeft} seconds`, data.phone);
+        });
+      getRestaurantById()
+        .then(data => {
+          sendMessage('New order received', data.phone);
+        });
 
       const timer = setInterval(function() {
         let count = parseInt($('#timer-counter').html());
@@ -103,7 +112,6 @@ const loadCheckout = (e) => {
       }, 1000);
     })
     .catch(err => console.log(err.message));
-  // Send first SMS here with message that the order has been placed and the interval TODO:
   $('#order-cart-container').detach();
   $('#cart-dropdown .dropdown-menu').append(checkoutCard);
 };
