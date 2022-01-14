@@ -40,6 +40,7 @@ const usersRoutes = require("./routes/users");
 const menuRoutes = require("./routes/menu");
 const orderRoutes = require("./routes/order");
 const restaurantsRoutes = require("./routes/restaurants");
+const smsRoutes = require("./routes/sms");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -49,6 +50,7 @@ app.use("/api/users", usersRoutes);
 app.use("/api/menu", menuRoutes);
 app.use("/api/order", orderRoutes);
 app.use("/api/restaurants", restaurantsRoutes);
+app.use("/api/sms", smsRoutes);
 
 // Note: mount other resources here, using the same pattern above
 
