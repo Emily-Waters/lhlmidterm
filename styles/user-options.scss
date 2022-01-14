@@ -61,6 +61,7 @@ div.user-options {
       justify-content: flex-start;
       position: relative;
       border: 2px solid black;
+      border-top: 0px solid black;
       top:0em;
       left: 1em;
       height: 50%;
@@ -83,8 +84,6 @@ div.user-options {
       background-color: honeydew;
       color: green;
     }
-
-
 }
 
 #user-icon-status {
@@ -94,7 +93,6 @@ div.user-options {
 }
 
 #user-icon {
-  // color:rgba(255, 255, 255, 0.685);
   background-color: transparent;
   font-size:5rem;
 }
@@ -128,7 +126,6 @@ div.user-options {
 
 #user-register {
   height: 25%;
-  // margin-top: 1rem;
   color: grey;
   font-size: 0.75rem;
 }
@@ -145,6 +142,10 @@ div.user-options {
   display: flex;
   justify-content: center;
   flex-direction: column;
+}
+
+#user-sign-card {
+  box-shadow: 0px 0px 5px 0px black inset;
 }
 
 .user-form {
@@ -181,13 +182,6 @@ div.user-options {
   width: 50%;
 }
 
-// #order-history-card {
-//   display: flex;
-//   flex-direction: column;
-//   width: 100%;
-//   height: 50%;
-// }
-
 .order-info-card {
   display: flex;
   flex-direction: column;
@@ -203,14 +197,6 @@ div.user-options {
   text-align: center;
   padding:3px;
 }
-
-// #order-history:hover {
-//   border-top: 3px solid black;
-//   border-bottom: 3px solid black;
-//   text-shadow: 0px 0px 10px black;
-//   background-color: rgb(49, 49, 49);
-//   color:rgb(95, 95, 95);
-// }
 
 .order-col-1 {
   display: flex;
@@ -238,13 +224,6 @@ div.user-options {
   color: red;
 }
 
-// .order-info-card {
-//   height: 75%;
-//   width: 100%;
-//   overflow: scroll;
-//   box-shadow: 0px 0px 5px 0px black inset;
-// }
-
 .order-history-item {
   font-size: 0.6em;
   text-align: center;
@@ -260,6 +239,7 @@ div.user-options {
     width:33%
   }
 }
+
 #current-order {
   border-top: 0px solid black;
 }
